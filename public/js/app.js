@@ -589,11 +589,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-<<<<<<< HEAD
-Component.options.__file = "/Users/jake/Desktop/side-projects/lyfevinyl/site/lyfevinyl/resources/assets/js/components/Headline.vue"
-=======
 Component.options.__file = "/Development/www/current/lyfevinyl/resources/assets/js/components/Headline.vue"
->>>>>>> 912409bd88877260adbcd60a4b3a5842d03511cd
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Headline.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -891,11 +887,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-<<<<<<< HEAD
-Component.options.__file = "/Users/jake/Desktop/side-projects/lyfevinyl/site/lyfevinyl/resources/assets/js/components/StepControlButtons.vue"
-=======
 Component.options.__file = "/Development/www/current/lyfevinyl/resources/assets/js/components/StepControlButtons.vue"
->>>>>>> 912409bd88877260adbcd60a4b3a5842d03511cd
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] StepControlButtons.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -11669,35 +11661,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 /* 35 */
-<<<<<<< HEAD
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['heading', 'subhead']
-});
-
-/***/ }),
-/* 36 */
-=======
->>>>>>> 912409bd88877260adbcd60a4b3a5842d03511cd
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11771,8 +11734,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-<<<<<<< HEAD
-=======
 //
 //
 //
@@ -11788,7 +11749,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
->>>>>>> 912409bd88877260adbcd60a4b3a5842d03511cd
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['lv_logo_navy', 'lv_upload_music', 'lv_album_art', 'lv_record'],
@@ -12215,11 +12175,7 @@ if (token) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-<<<<<<< HEAD
-throw new Error("Cannot find module \"vuex\"");
-=======
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(67);
->>>>>>> 912409bd88877260adbcd60a4b3a5842d03511cd
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__actions__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__actions___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__actions__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__getters__ = __webpack_require__(44);
@@ -42034,11 +41990,7 @@ return jQuery;
   }
 }.call(this));
 
-<<<<<<< HEAD
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(67)(module)))
-=======
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(68)(module)))
->>>>>>> 912409bd88877260adbcd60a4b3a5842d03511cd
 
 /***/ }),
 /* 49 */
@@ -44053,11 +44005,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-<<<<<<< HEAD
-Component.options.__file = "/Users/jake/Desktop/side-projects/lyfevinyl/site/lyfevinyl/resources/assets/js/components/StepSubmitButtons.vue"
-=======
 Component.options.__file = "/Development/www/current/lyfevinyl/resources/assets/js/components/StepSubmitButtons.vue"
->>>>>>> 912409bd88877260adbcd60a4b3a5842d03511cd
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] StepSubmitButtons.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -44679,8 +44627,6 @@ if (false) {
 
 /***/ }),
 /* 67 */
-<<<<<<< HEAD
-=======
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -45494,7 +45440,6 @@ var index_esm = {
 
 /***/ }),
 /* 68 */
->>>>>>> 912409bd88877260adbcd60a4b3a5842d03511cd
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -45522,11 +45467,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-<<<<<<< HEAD
-/* 68 */
-=======
 /* 69 */
->>>>>>> 912409bd88877260adbcd60a4b3a5842d03511cd
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(13);
