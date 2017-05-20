@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="420px" height="260px" viewBox="0 0 420 260" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="39.3325143%" y1="50%" x2="95.4272752%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#7E79E4" offset="0%"></stop>
+            <stop stop-color="#3ACD82" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="100%" x2="14.0015308%" y2="14.2270924%" id="linearGradient-2">
+            <stop stop-color="#7E79E4" offset="0%"></stop>
+            <stop stop-color="#3ACD82" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-4-Copy-41">
+            <g id="Group" transform="translate(-0.053436, -0.250000)">
+                <g id="Group-2" transform="translate(0.053436, 0.250000)">
+                    <g id="Group-4" transform="translate(163.035873, 0.534360)">
+                        <ellipse id="Oval" fill="#555A5C" cx="128.158016" cy="129.985848" rx="128.097678" ry="129.451488"></ellipse>
+                        <ellipse id="Oval-Copy" fill="url(#linearGradient-1)" opacity="0.670000017" cx="128.158016" cy="129.985848" rx="54.2482826" ry="54.8216098"></ellipse>
+                        <ellipse id="Oval-Copy-2" fill="#555A5C" cx="128.158016" cy="129.985848" rx="5.49208188" ry="5.55012538"></ellipse>
+                    </g>
+                    <rect id="Rectangle" fill="url(#linearGradient-2)" opacity="0.829999983" x="0.962660087" y="0.534359883" width="290.573213" height="258.902976" rx="4.5"></rect>
+                </g>
+                <g id="Group-3" transform="translate(13.000000, 121.000000)" font-weight="bold" font-family="Lato-Bold, Lato" line-spacing="72" letter-spacing="0.478991628" fill="#FFFFFF" font-size="57">
+                    <text id="LYFE">
+                        <tspan x="0.0534356948" y="56.25">LYFE</tspan>
+                    </text>
+                    <text id="VINYL">
+                        <tspan x="5.05343569" y="120.25">VINYL</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

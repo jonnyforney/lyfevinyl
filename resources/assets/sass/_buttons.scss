@@ -1,0 +1,114 @@
+.lvds-button {
+  padding: 10px 15px;
+  transition: transform 0.2s;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 18px;
+  width: 100%;
+  @include transition-property(all);
+  @include transition-duration(.15s);
+  @include transition-timing-function(linear);
+
+  &.lvds-button__cta {
+    width: 100%;
+  }
+
+  &:hover {
+    text-decoration: none;
+    transform: scale(1.06);
+  }
+
+}
+
+.lvds-button--large {
+  font-size: 24px;
+  padding: 20px 30px;
+}
+
+.lvds-button--ghost-darkgray {
+  border: 3px solid $darkgray;
+  color: $darkgray;
+  background-color: transparent;
+
+  &:hover {
+    background-color: $darkgray;
+    color: $white;
+  }
+
+}
+
+.lvds-button--ghost-white {
+  border: thin solid $white;
+  color: $white;
+  background-color: transparent;
+
+  &:hover {
+    background-color: $white;
+    color: $teal;
+  }
+
+}
+
+.lvds-button--ghost-blue-light {
+  border: 2px solid $blue-light;
+  color: $blue-light;
+  background-color: transparent;
+
+  &:hover {
+    background-color: $blue-light;
+    color: $white;
+  }
+
+}
+
+.lvds-button--blue-dark {
+  border: 2px solid $blue-dark;
+  color: $pink;
+  background-color: $blue-dark;
+}
+
+
+.lvds-button--blue-light {
+  border: 3px solid $blue-light;
+  color: $white;
+  background-color: $blue-light;
+}
+
+.lvds-button--yellow {
+  border: 3px solid $yellow;
+  color: $blue-dark;
+  background-color: $yellow;
+}
+
+.lvds-button--pink {
+  border: 3px solid $pink;
+  color: $white;
+  background-color: $pink;
+}
+
+.lvds-button--darkgray-gradient {
+  border: none;
+  background-image: $darkgray_gradient;
+  color: $teal;
+
+  &:hover {
+    color: $teal;
+    background-image: none;
+    background-color: $white;
+  }
+
+}
+
+.lvds-button--white {
+  border: none;
+  background-color: $white;
+  color: $teal;
+  border: thin solid $white;
+
+  &:hover {
+    color: $white;
+    background-image: $darkgray_gradient;
+    border: thin solid $darkgray;
+  }
+
+}

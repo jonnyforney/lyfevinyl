@@ -1,0 +1,52 @@
+//helper classes
+[v-cloak] {
+    display: none;
+}
+
+.margin-bottom-30 {
+    margin-bottom: 30px !important;
+}
+
+.margin-left-30 {
+    margin-left: 30px !important;
+}
+
+.margin-top-50 {
+    margin-top: 50px !important;
+}
+
+.margin-bottom-50 {
+    margin-bottom: 50px !important;
+}
+
+.padding-lr-30 {
+    padding: 0 30px !important;
+}
+
+.text-blue-light {
+    color: $blue-light !important;
+}
+
+.mobile--hide {
+    @media (max-width: $screen-md) {
+        display: none !important;
+    }
+}
+
+.medium-up--hide {
+    @media (min-width: $screen-md) {
+        display: none !important;
+    }
+}
+
+.medium-up--mgn-50 {
+    @media (min-width: $screen-md) {
+        margin-top: 50px !important;
+    }
+}
+
+.margin-bottom-30-sm {
+    @media (max-width: $screen-md) {
+        margin-bottom: 30px !important;
+    }
+}

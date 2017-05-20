@@ -1,0 +1,62 @@
+/* -----------------------------------------
+COLORS
+----------------------------------------- */
+
+//solids
+$white: #ffffff;
+$darkgray: #2F2F2F;
+$gray-light: #F5FBFD;
+$teal: #70ABBD;
+$purple: #B27CE8;
+
+//new
+$blue-dark: #05325a;
+$blue-light: #00a0ff;
+$yellow: #ffff00;
+$pink: #fa4b78;
+
+//gradients
+$darkgray_gradient: linear-gradient(-127deg, #555A5C 3%, #323639 98%);
+$teal_purple_gradient: linear-gradient(-60deg, #7E79E4 5%, #3ACC82 100%);
+// /* Rectangle: */
+// opacity: 0.84;
+// background-image: linear-gradient(41deg, #7E79E4 0%, #3ACC82 100%);
+
+/* -----------------------------------------
+FONTS
+----------------------------------------- */
+$source_sans: 'Source Sans Pro', sans-serif;
+$yrsa: 'yrsa', serif;
+
+/* -----------------------------------------
+PADDING/MARGINS
+----------------------------------------- */
+
+//default (large, xlarge)
+$section-padding: 3.125rem;
+$section-padding-hero: 6.25rem;
+$headlines-margin-bottom: 1.875rem;
+$para-marg-bottom-default: 1rem;
+$spacing-large: 2.8125rem;
+
+//medium
+$section-padding--md: 1.875rem;
+$spacing-medium: 1.875rem;
+
+//small
+$section-padding--sm: 0.625rem;
+$section-padding-hero--sm: 1.25rem;
+$spacing-small: 0.9375rem;
+
+
+/* -----------------------------------------
+HEADLINES, SUBHEADLINES, ETC
+----------------------------------------- */
+
+$headline: 3.625rem;
+$headline-hero: 5.375rem;
+$headline-hero--small: 3.375rem;
+$headline-secondary: 1.75rem;
+$headline-tertiary: 1.75rem;
+$para-default: 1.25rem;
+$para-footer: 1.25rem;

@@ -1,0 +1,15 @@
+/* -----------------------------------------
+CALL ALL PARTIAL SCSS FILES
+----------------------------------------- */
+
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap"; // need this for bootstrap classes
+@import "node_modules/sweetalert2/dist/sweetalert2"; // need this for sweetalert2 classes
+@import "variables"; // this must go first for other partials to be able to use it
+@import "default-styles";
+@import "navigation";
+@import "sections";
+@import "buttons";
+@import "icons";
+@import "helpers";
+@import "forms";
+@import "footer";

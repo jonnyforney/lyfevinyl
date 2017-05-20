@@ -1,0 +1,71 @@
+.lvds-form {}
+
+.lvds-form__label {
+    color: $darkgray;
+    font-size: $headline-tertiary;
+    font-weight: 300;
+
+    // @media (max-width: $screen-sm) {
+    //   font-size:
+    // }
+
+}
+
+.lvds-form__text-input {
+    border: 3px solid $darkgray;
+    background-color: transparent;
+    color: $darkgray;
+    padding: 20px;
+    margin-top: 25px;
+    font-weight: 300;
+    width: 100%;
+    font-size: $headline-tertiary;
+    &:focus {
+        outline-color: $blue-light;
+    }
+    &::-webkit-input-placeholder {
+        color: $blue-light;
+        opacity: 0.5;
+    }
+    &.lvds-form__textarea-input {
+        height: 150px;
+        overflow-y: scroll;
+    }
+}
+
+.lvds-form__radio {
+    display: inline;
+}
+
+.lvds-form__buttons {
+    margin-top: 50px;
+}
+
+.lvds-form__button {
+    margin: 0px 0px 0px 10px;
+    padding: 10px 35px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+}
+
+.lvds-form__label-button-group {
+    display: block;
+    margin: 20px 0px;
+}
+
+.image-upload input[type="file"] {
+    display: none;
+}
+
+.song-upload input[type="file"] {
+    display: none;
+}
+
+.cover-image {
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+}

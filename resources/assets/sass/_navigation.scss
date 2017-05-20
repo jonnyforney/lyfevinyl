@@ -1,0 +1,78 @@
+// NAVIGATION STYLES ON THE HOMEPAGE
+
+.lvds-navigation {
+  margin: -4.686rem auto 3.125rem;
+  padding: 1rem 0.313rem;
+
+  @media (max-width: $screen-sm) {
+    margin: 0.75rem auto 0.25rem;
+  }
+
+}
+
+.lvds-nav__logo {
+  width: 100%;
+  height: auto;
+  margin-top: 5px;
+}
+
+.lvds-nav__item {
+  padding: 10px;
+  background-color: $pink;
+  display: block;
+  width: 100%;
+
+  .lvds-nav__text-link {
+    color: $white;
+  }
+
+  &:hover {
+    background-color: shade($pink, 90%);
+    text-decoration: none;
+    transform: scale(1.06);
+
+    .lvds-nav__text-link {
+      color: $white;
+    }
+
+  }
+
+}
+
+.lvds-nav__item--cta {
+  padding: 10px;
+  background-color: $blue-light;
+  display: inline-block;
+  width: 100%;
+
+  .lvds-nav__text-link {
+    color: $white;
+  }
+
+  &:hover {
+    background-color: $pink;
+    text-decoration: none;
+  }
+
+}
+
+.lvds-nav__text-link {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: $source_sans;
+}
+
+// NAVIGATIONSTYLES IN APP
+
+.lvds-navigation--app {
+  margin: 0;
+  padding: 1.35rem 0;
+  background-color: $gray-light;
+
+  .lvds-nav__logo {
+    width: auto;
+    height: 3.25rem;
+  }
+
+}

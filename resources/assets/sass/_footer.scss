@@ -1,0 +1,27 @@
+.lvds-footer__logo {
+  width: 150px;
+  height: auto;
+}
+
+.lvds-para__footer {
+  font-size: $para-footer;
+  font-family: $yrsa;
+  font-weight: 600;
+  margin-bottom: $para-marg-bottom-default;
+
+  a {
+
+    &:hover {
+      color: $white;
+    }
+
+  }
+
+}
+
+.lvds-footer__social {
+  display: inline-block;
+  height: 21px;
+  width: auto;
+  margin-left: 10px;
+}
