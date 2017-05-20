@@ -1,5 +1,5 @@
 <template>
-    <section v-show="data.step_album_name.show" class="text-center">
+    <section v-show="step_album_name.show" class="text-center">
     <div class="row">
         <div class="col-md-6 col-center margin-bottom-30">
             <label class="lvds-form__label">What would you like to name this album?*</label><br>
@@ -8,7 +8,7 @@
             type="text"
             id="albumName"
             name="albumName"
-            v-model="data.name"
+            v-model="name"
             placeholder="i.e. Dad's Favorite Songs"
             autofocus
             required="true"
@@ -31,9 +31,7 @@
         props: [],
         mixins: [lv_functions],
         data: function() {
-            return {
-                data: this.$store.state
-            };
+            return this.$store.state;
         },
         methods: {
 

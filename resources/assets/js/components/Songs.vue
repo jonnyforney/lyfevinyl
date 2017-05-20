@@ -1,9 +1,9 @@
 <template>
-    <section v-if="data.step_songs.show" class="text-center">
-        <headline :heading="data.name" :subhead="data.step_songs.subhead"></headline>
+    <section v-show="step_songs.show" class="text-center">
+        <headline :heading="name" :subhead="step_songs.subhead"></headline>
         <div class="row song-upload">
             <div class="col-md-2"></div>
-            <div class="col-md-4" v-for="side in data.sides">
+            <div class="col-md-4" v-for="side in sides">
             <p class="lvds-headline--tertiary">Side {{side.side}}</p>
             <div v-for="(song, index) in side.songs">
                 <div class="row"> 
@@ -47,9 +47,7 @@
             'back-next-btns': StepControlButtons
         },
         data: function() {
-            return {
-                data: this.$store.state
-            };
+            return this.$store.state;
         },
         methods: {
             onSongChange(e, song) {

@@ -1,6 +1,6 @@
 <template>
-<section v-if="data.step_preview.show">
-  <headline :heading="data.step_preview.headline" :subhead="data.step_preview.subhead"></headline>
+<section v-show="step_preview.show">
+  <headline :heading="step_preview.headline" :subhead="step_preview.subhead"></headline>
   <div class="row">
     <div class="col-md-8 col-center">
       <!-- ALBUM NAME -->
@@ -11,7 +11,7 @@
       </div>
       <div class="row">
         <div class="col-md-10 col-center">
-          <label class="lvds-form__label">{{ data.name }}</label>
+          <label class="lvds-form__label">{{ name }}</label>
         </div>
       </div>
 
@@ -43,7 +43,7 @@
       <div class="row">
         <div class="col-md-10 col-center">
           <div class="row">
-            <div class="col-md-4" v-for="side in data.sides">
+            <div class="col-md-4" v-for="side in sides">
               <p class="lvds-headline--tertiary">Side {{side.side}}</p>
               <div v-for="(song, index) in side.songs">
                 <div class="row">
@@ -78,9 +78,7 @@
             'back-submit-btns': StepSubmitButtons
         },
         data: function() {
-            return {
-                data: this.$store.state
-            };
+            return this.$store.state;
         },
         methods: {
 
