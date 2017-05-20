@@ -11751,7 +11751,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['lv_logo_navy', 'lv_upload_music', 'lv_album_art', 'lv_record'],
+    props: ['lv_logo_navy', 'lv_upload_music', 'lv_album_art', 'lv_record', 'is_logged_in'],
     data: function data() {
         return {};
     },
@@ -11760,24 +11760,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         //open app
         openApp: function openApp() {
             var self = this;
-            /*if (laravel.isLoggedIn) window.location.href = '/app';
-            else {*/
-            swal({
-                type: 'question',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#e3e3e3',
-                confirmButtonText: 'Login / Register',
-                cancelButtonText: 'Continue as guest',
-                buttonsStyling: true
-            }).then(function () {
-                //  login / register
-                window.location.href = '/login';
-            }, function () {
-                //  continue as guest
-                self.setGuest();
-            });
-            //}
+            if (self.is_logged_in) window.location.href = '/app';else {
+                swal({
+                    type: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#e3e3e3',
+                    confirmButtonText: 'Login / Register',
+                    cancelButtonText: 'Continue as guest',
+                    buttonsStyling: true
+                }).then(function () {
+                    //  login / register
+                    window.location.href = '/login';
+                }, function () {
+                    //  continue as guest
+                    self.setGuest();
+                });
+            }
         },
         setGuest: function setGuest() {
             console.log('setting current user as guest...');

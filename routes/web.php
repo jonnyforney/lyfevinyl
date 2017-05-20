@@ -12,6 +12,7 @@
 */
 
 Route::group(['middleware' => 'auth'], function() {
+    Route::get('/profile', 'ProfileController@index')->name('home');
 
 });
 
@@ -21,3 +22,6 @@ Route::group(['middleware' => ['web']], function() {
 
     Route::get('/app', 'StepsController@show');
 });
+
+Auth::routes();
+
