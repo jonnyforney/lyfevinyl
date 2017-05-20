@@ -43,7 +43,7 @@ Add additional notes about how to deploy this on a live system
 
 We use GitHub for versioning
 
-## Authors
+## Contributors
 
 * **Jake Brokaw** - *Frontend Developer*
 * **Jonny Forney** - *Backend Developer*
