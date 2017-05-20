@@ -1,6 +1,6 @@
 <template>
-<section v-show="data.step_covers.show" class="text-center">
-  <headline :heading="data.name" :subhead="data.step_covers.subhead"></headline>
+<section v-show="step_covers.show" class="text-center">
+  <headline :heading="name" :subhead="step_covers.subhead"></headline>
   <div class="row">
     <div class="col-md-9 col-center">
       <div class="row">
@@ -9,8 +9,8 @@
           <div class="row margin-bottom-30">
             <div class="col-md-12">
               <label for="frontcover-input">
-                <img v-if="!data.frontcover" class="cover-image" src="http://placehold.it/200x200">
-                <img v-if="data.frontcover" class="cover-image" :src="data.frontcover">
+                <img v-if="!frontcover" class="cover-image" src="http://placehold.it/200x200">
+                <img v-if="frontcover" class="cover-image" :src="frontcover">
               </label>
             </div>
           </div>
@@ -60,9 +60,7 @@
             'back-next-btns': StepControlButtons
         },
         data: function() {
-            return {
-                data: this.$store.state
-            };
+            return this.$store.state;
         },
         methods: {
             onImageChange(e, cover) {
