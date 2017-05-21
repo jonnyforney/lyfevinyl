@@ -14,7 +14,10 @@
     import Preview from './Preview.vue';
 
     export default {
-        props: ['customer_id'],
+        props: [
+            'customer_id',
+            'is_logged_in'
+        ],
         data: function() {
             return {
                 data: {}
@@ -30,7 +33,7 @@
 
         },
         ready: function() {
-
+            this.$store.state.customer_id = this.customer_id;
         }
     };
 </script>

@@ -12088,7 +12088,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['customer_id'],
+    props: ['customer_id', 'is_logged_in'],
     data: function data() {
         return {
             data: {}
@@ -12101,7 +12101,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         'preview': __WEBPACK_IMPORTED_MODULE_3__Preview_vue___default.a
     },
     methods: {},
-    ready: function ready() {}
+    ready: function ready() {
+        this.$store.state.customer_id = this.customer_id;
+    }
 });
 
 /***/ }),

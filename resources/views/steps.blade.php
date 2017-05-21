@@ -8,6 +8,7 @@
 
     <steps
       customer_id="{{ session('customer_id') }}"
+      is_logged_in="{{ Auth::check() }}"
     ></steps>
 
   </div>
