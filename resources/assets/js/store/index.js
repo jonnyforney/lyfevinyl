@@ -10,6 +10,7 @@ export default new Vuex.Store({
     getters,
     modules: {},
     state: {
+        "current_customer_id": null,
         "name": "",
         "frontcover": "",
         "sides": [{
