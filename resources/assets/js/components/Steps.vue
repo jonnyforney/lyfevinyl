@@ -14,6 +14,7 @@
     import Preview from './Preview.vue';
 
     export default {
+        props: ['customer_id'],
         data: function() {
             return {
                 data: {}
