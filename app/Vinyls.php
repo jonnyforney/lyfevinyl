@@ -32,6 +32,6 @@ class Vinyls extends Model
   * connects vinyl to user
   */
   public function user() {
-    return $this->belongsTo('App\User','id','customer_id');
+    return $this->belongsTo('App\User','customer_id','customer_id');
   }
 }

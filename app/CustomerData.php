@@ -18,7 +18,7 @@ class CustomerData extends Model
   */
   public function orders()
   {
-     return $this->hasMany('App\OrderSummary','customer_id','id');
+     return $this->hasMany('App\OrderSummary','customer_id','customer_id');
   }
 
   /**
@@ -34,6 +34,6 @@ class CustomerData extends Model
   }
 
   public function user() {
-    return $this->belongsTo('App\User','id','customer_id');
+    return $this->belongsTo('App\User','customer_id','customer_id');
   }
 }
