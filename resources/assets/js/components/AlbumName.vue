@@ -1,5 +1,5 @@
 <template>
-    <section v-show="step_album_name.show" class="text-center">
+    <section v-show="current_step.show" class="text-center">
     <div class="row">
         <div class="col-md-6 col-center margin-bottom-30">
             <label class="lvds-form__label">What would you like to name this album?*</label><br>
@@ -31,7 +31,10 @@
         props: [],
         mixins: [lv_functions],
         data: function() {
-            return this.$store.state;
+            return {
+                current_step: this.$store.state.step_album_name,
+                name: this.$store.state.name
+            }
         },
         methods: {
 

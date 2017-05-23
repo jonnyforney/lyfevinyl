@@ -1,6 +1,6 @@
 <template>
-    <section v-show="step_songs.show" class="text-center">
-        <headline :heading="name" :subhead="step_songs.subhead"></headline>
+    <section v-show="current_step.show" class="text-center">
+        <headline :heading="name" :subhead="current_step.subhead"></headline>
         <div class="row song-upload">
             <div class="col-md-2"></div>
             <div class="col-md-4" v-for="side in sides">
@@ -47,7 +47,11 @@
             'back-next-btns': StepControlButtons
         },
         data: function() {
-            return this.$store.state;
+            return {
+                name: this.$store.state.name,
+                current_step: this.$store.state.step_songs,
+                sides: this.$store.state.sides
+            }
         },
         methods: {
             onSongChange(e, song) {
