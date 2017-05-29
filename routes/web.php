@@ -12,6 +12,7 @@
 */
 
 Route::group(['middleware' => 'auth'], function() {
+    Route::get('/profile', 'ProfileController@index')->name('home');
 
 });
 
@@ -20,4 +21,9 @@ Route::group(['middleware' => ['web']], function() {
     Route::get('/', 'WelcomeController@show');
 
     Route::get('/app', 'StepsController@show');
+
+    Route::post('/user/create_customer_id', 'UserController@createCustomerId');
 });
+
+Auth::routes();
+

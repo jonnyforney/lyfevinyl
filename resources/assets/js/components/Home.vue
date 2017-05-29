@@ -13,7 +13,7 @@
             <div class="col-sm-12 col-md-3 col-md-offset-6 mobile--hide">
               <button class="lvds-button lvds-button__cta lvds-button--yellow" @click="openApp()">
                 Build yours now
-              </button>
+              </button>              
             </div>
           </div>
         </div>
@@ -58,7 +58,13 @@
 
 <script>
     export default {
-        props: ['lv_logo_navy', 'lv_upload_music', 'lv_album_art', 'lv_record'],
+        props: [
+            'lv_logo_navy',
+            'lv_upload_music',
+            'lv_album_art',
+            'lv_record',
+            'is_logged_in'
+        ],
         data: function() {
             return {};
         },
@@ -69,29 +75,35 @@
             //open app
             openApp: function() {
                 var self = this;
-                /*if (laravel.isLoggedIn) window.location.href = '/app';
-                else {*/
-                swal({
-                    type: 'question',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#e3e3e3',
-                    confirmButtonText: 'Login / Register',
-                    cancelButtonText: 'Continue as guest',
-                    buttonsStyling: true
-                }).then(function() {
-                    //  login / register
-                    window.location.href = '/login';
-                }, function() {
-                    //  continue as guest
-                    self.setGuest();
-                });
-                //}
+                if (self.is_logged_in) window.location.href = '/app';
+                else {
+                    swal({
+                        type: 'question',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#e3e3e3',
+                        confirmButtonText: 'Login / Register',
+                        cancelButtonText: 'Continue as guest',
+                        buttonsStyling: true
+                    }).then(function() {
+                        //  login / register
+                        window.location.href = '/login';
+                    }, function() {
+                        //  continue as guest
+                        self.setGuest();
+                    });
+                }
             },
             setGuest: function() {
-                console.log('setting current user as guest...');
-                //  other code
-                window.location.href = '/app';
+                //  create customer id and save it to the session
+                //  TODO:  add a loader so the user knows that the page is working
+                axios.post('/user/create_customer_id')
+                    .then(function(response) {
+                        window.location.href = '/app';
+                    })
+                    .catch(function(error) {
+                        console.log(error);
+                    });
             }
         },
         ready() {
