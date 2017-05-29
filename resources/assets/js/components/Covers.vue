@@ -1,6 +1,6 @@
 <template>
-<section v-show="step_covers.show" class="text-center">
-  <headline :heading="name" :subhead="step_covers.subhead"></headline>
+<section v-show="current_step.show" class="text-center">
+  <headline :heading="name" :subhead="current_step.subhead"></headline>
   <div class="row">
     <div class="col-md-9 col-center">
       <div class="row">
@@ -60,7 +60,11 @@
             'back-next-btns': StepControlButtons
         },
         data: function() {
-            return this.$store.state;
+            return {
+                current_step: this.$store.state.step_covers,
+                name: this.$store.state.name,
+                frontcover: this.$store.sate.frontcover
+            }
         },
         methods: {
             onImageChange(e, cover) {

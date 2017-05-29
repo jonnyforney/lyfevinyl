@@ -90,20 +90,9 @@
                         window.location.href = '/login';
                     }, function() {
                         //  continue as guest
-                        self.setGuest();
+                        window.location.href = '/app';
                     });
                 }
-            },
-            setGuest: function() {
-                //  create customer id and save it to the session
-                //  TODO:  add a loader so the user knows that the page is working
-                axios.post('/user/create_customer_id')
-                    .then(function(response) {
-                        window.location.href = '/app';
-                    })
-                    .catch(function(error) {
-                        console.log(error);
-                    });
             }
         },
         ready() {

@@ -1,6 +1,6 @@
 <template>
-<section v-show="step_preview.show">
-  <headline :heading="step_preview.headline" :subhead="step_preview.subhead"></headline>
+<section v-show="current_step.show">
+  <headline :heading="current_step.headline" :subhead="current_step.subhead"></headline>
   <div class="row">
     <div class="col-md-8 col-center">
       <!-- ALBUM NAME -->
@@ -78,7 +78,12 @@
             'back-submit-btns': StepSubmitButtons
         },
         data: function() {
-            return this.$store.state;
+            return {
+                current_step: this.$store.state.step_preview,
+                name: this.$store.state.name,
+                frontcover: this.$store.state.frontcover,
+                sides: this.$store.state.sides
+            }
         },
         methods: {
 
