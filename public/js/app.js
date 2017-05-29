@@ -478,6 +478,40 @@ module.exports = function normalizeComponent (
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(35),
+  /* template */
+  __webpack_require__(65),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/jake/Desktop/side-projects/lyfevinyl/site/lyfevinyl/resources/assets/js/components/Headline.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Headline.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-de46e244", Component.options)
+  } else {
+    hotAPI.reload("data-v-de46e244", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
@@ -574,40 +608,6 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = defaults;
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(49)))
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(1)(
-  /* script */
-  __webpack_require__(35),
-  /* template */
-  __webpack_require__(65),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "/Development/www/current/lyfevinyl/resources/assets/js/components/Headline.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Headline.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-de46e244", Component.options)
-  } else {
-    hotAPI.reload("data-v-de46e244", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
 
 /***/ }),
 /* 5 */
@@ -887,7 +887,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Development/www/current/lyfevinyl/resources/assets/js/components/StepControlButtons.vue"
+Component.options.__file = "/Users/jake/Desktop/side-projects/lyfevinyl/site/lyfevinyl/resources/assets/js/components/StepControlButtons.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] StepControlButtons.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -10689,7 +10689,7 @@ module.exports = __webpack_require__(16);
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(9);
 var Axios = __webpack_require__(18);
-var defaults = __webpack_require__(3);
+var defaults = __webpack_require__(4);
 
 /**
  * Create an instance of Axios
@@ -10809,7 +10809,7 @@ module.exports = CancelToken;
 "use strict";
 
 
-var defaults = __webpack_require__(3);
+var defaults = __webpack_require__(4);
 var utils = __webpack_require__(0);
 var InterceptorManager = __webpack_require__(19);
 var dispatchRequest = __webpack_require__(20);
@@ -10963,7 +10963,7 @@ module.exports = InterceptorManager;
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(23);
 var isCancel = __webpack_require__(7);
-var defaults = __webpack_require__(3);
+var defaults = __webpack_require__(4);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -11520,7 +11520,9 @@ module.exports = function spread(callback) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_lv_functions_js__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Headline__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Headline___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Headline__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_lv_functions_js__ = __webpack_require__(2);
 //
 //
 //
@@ -11546,13 +11548,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'album-name',
     props: [],
-    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_lv_functions_js__["a" /* default */]],
+    mixins: [__WEBPACK_IMPORTED_MODULE_1__mixins_lv_functions_js__["a" /* default */]],
+    components: {
+        'headline': __WEBPACK_IMPORTED_MODULE_0__Headline___default.a
+    },
     data: function data() {
         return this.$store.state;
     },
@@ -11568,7 +11576,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Headline__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Headline__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Headline___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Headline__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StepControlButtons__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StepControlButtons___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__StepControlButtons__);
@@ -11796,7 +11804,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Headline__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Headline__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Headline___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Headline__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StepSubmitButtons__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StepSubmitButtons___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__StepSubmitButtons__);
@@ -11895,11 +11903,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Headline__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Headline__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Headline___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Headline__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StepControlButtons__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StepControlButtons___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__StepControlButtons__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_lv_functions_js__ = __webpack_require__(2);
+//
+//
 //
 //
 //
@@ -11964,7 +11974,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             reader.fileName = file.name;
             reader.onload = function (e) {
-                vm.data[song] = e.target.result;
+                vm.song = e.target.result;
                 song.picked = true;
                 song.file = file.name;
             };
@@ -12185,9 +12195,9 @@ if (token) {
 
 
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
 
-/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vuex___default.a.Store({
+/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     actions: __WEBPACK_IMPORTED_MODULE_2__actions__,
     getters: __WEBPACK_IMPORTED_MODULE_3__getters__,
     modules: {},
@@ -44005,7 +44015,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Development/www/current/lyfevinyl/resources/assets/js/components/StepSubmitButtons.vue"
+Component.options.__file = "/Users/jake/Desktop/side-projects/lyfevinyl/site/lyfevinyl/resources/assets/js/components/StepSubmitButtons.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] StepSubmitButtons.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -44072,7 +44082,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       expression: "step_album_name.show"
     }],
     staticClass: "text-center"
-  }, [_c('div', {
+  }, [_c('headline', {
+    attrs: {
+      "heading": _vm.step_album_name.headline
+    }
+  }), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
     staticClass: "col-md-6 col-center margin-bottom-30"
@@ -44110,7 +44124,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.next()
       }
     }
-  }, [_vm._v("Continue »")])])])])
+  }, [_vm._v("Continue »\n    ")])])])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -44404,10 +44418,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           "for": side.side + index
         }
       }, [_vm._v(_vm._s(index + 1) + ".\n                    "), (song.picked) ? _c('a', {
-        staticClass: "lvds-button lvds-button--ghost-blue-light lvds-form__button"
+        staticClass: "lvds-button lvds-button--blue-light lvds-form__button"
       }, [_vm._v(_vm._s(song.file))]) : _vm._e(), _vm._v(" "), (!song.picked) ? _c('a', {
         staticClass: "lvds-button lvds-button--ghost-blue-light lvds-form__button"
-      }, [_vm._v("Upload Song")]) : _vm._e()])])])]), _vm._v(" "), _c('div', {
+      }, [_vm._v("Upload Song")]) : _vm._e()]), _vm._v(" "), _c('p', [_vm._v("song.picked = " + _vm._s(song.picked))]), _vm._v(" "), _c('p', [_vm._v("song.file = " + _vm._s(song.file))])])])]), _vm._v(" "), _c('div', {
         staticClass: "row"
       }, [_c('div', {
         staticClass: "col-md-12"
@@ -44418,7 +44432,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         },
         on: {
           "change": function($event) {
-            _vm.onSongChange($event, 'side.side + index')
+            _vm.onSongChange($event, song)
           }
         }
       })])])])
