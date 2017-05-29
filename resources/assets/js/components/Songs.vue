@@ -1,36 +1,38 @@
 <template>
-    <section v-show="current_step.show" class="text-center">
-        <headline :heading="name" :subhead="current_step.subhead"></headline>
-        <div class="row song-upload">
-            <div class="col-md-2"></div>
-            <div class="col-md-4" v-for="side in sides">
-            <p class="lvds-headline--tertiary">Side {{side.side}}</p>
-            <div v-for="(song, index) in side.songs">
-                <div class="row"> 
-                <div class="col-md-12">
-                    <span class="lvds-form__label-button-group">
+  <section v-show="current_step.show" class="text-center">
+    <headline :heading="name" :subhead="current_step.subhead"></headline>
+    <div class="row song-upload">
+        <div class="col-md-2"></div>
+        <div class="col-md-4" v-for="side in sides">
+          <p class="lvds-headline--tertiary">Side {{side.side}}</p>
+          <div v-for="(song, index) in side.songs">
+            <div class="row">
+              <div class="col-md-12">
+                  <span class="lvds-form__label-button-group">
                     <label :for="side.side + index" class="lvds-form__label">{{ index+1 }}.
-                        <a v-if="song.picked" class="lvds-button lvds-button--ghost-blue-light lvds-form__button">{{ song.file }}</a>
-                        <a v-if="!song.picked" class="lvds-button lvds-button--ghost-blue-light lvds-form__button">Upload Song</a>
+                      <a v-if="song.picked" class="lvds-button lvds-button--blue-light lvds-form__button">{{ song.file }}</a>
+                      <a v-if="!song.picked" class="lvds-button lvds-button--ghost-blue-light lvds-form__button">Upload Song</a>
                     </label>
-                    </span>
-                </div>
-                </div>
-                <div class="row">
-                <div class="col-md-12">
-                    <input
-                    :id="side.side + index"
-                    type="file"
-                    @change="onSongChange($event, 'side.side + index')"
-                    />              
-                </div>
-                </div>
+                    <p>song.picked = {{ song.picked }}</p>
+                    <p>song.file = {{song.file}}</p>
+                  </span>
+              </div>
             </div>
+            <div class="row">
+              <div class="col-md-12">
+                  <input
+                  :id="side.side + index"
+                  type="file"
+                  @change="onSongChange($event, song)"
+                  />
+              </div>
             </div>
-            <div class="col-md-2"></div>
+          </div>
         </div>
-        <back-next-btns></back-next-btns>
-    </section>
+        <div class="col-md-2"></div>
+    </div>
+    <back-next-btns></back-next-btns>
+  </section>
 </template>
 
 <script>
@@ -68,7 +70,7 @@
 
                 reader.fileName = file.name;
                 reader.onload = (e) => {
-                    vm.data[song] = e.target.result;
+                    vm.song = e.target.result;
                     song.picked = true;
                     song.file = file.name;
                 };

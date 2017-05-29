@@ -1,0 +1,16 @@
+.swal-x {
+  top: -125px;
+  right: 0px;
+  position: absolute;
+  color: $blue-dark;
+
+  &:hover {
+    text-decoration: none;
+    color: $blue-dark;
+  }
+
+}
+
+.swal2-buttonswrapper {
+  margin: 15px 0;
+}
