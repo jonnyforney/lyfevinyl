@@ -1,5 +1,5 @@
 <template>
-<section v-show="current_step.show" class="text-center">
+<section v-if="current_step.show" class="text-center">
   <headline :heading="name" :subhead="current_step.subhead"></headline>
   <div class="row">
     <div class="col-md-9 col-center">
@@ -61,26 +61,40 @@
         },
         data: function() {
             return {
-                current_step: this.$store.state.step_covers,
-                name: this.$store.state.name,
-                frontcover: this.$store.sate.frontcover
+                image: ''
+            }
+        },
+        computed: {
+            current_step() {
+                return this.$store.state.step_covers;
+            },
+            name() {
+                return this.$store.state.name;
+            },
+            frontcover() {
+                return this.$store.state.frontcover;
             }
         },
         methods: {
             onImageChange(e, cover) {
-                var imageFiles = e.target.files || e.dataTransfer.files;
-                if (!imageFiles.length)
-                    return;
-                this.createImage(imageFiles[0], cover);
+                let files = e.target.files || e.dataTransfer.files;
+                if (!files.length) return;
+
+                //  start loader here
+
+                this.createImage(files[0]);
             },
-            createImage(file, cover) {
-                var image = new Image();
-                var reader = new FileReader();
-                var vm = this;
+            createImage(file) {
+                let reader = new FileReader();
+                let vm = this;
 
                 reader.onload = (e) => {
-                    vm.data[cover] = e.target.result;
+                    vm.image = e.target.result;
+                    vm.$store.commit('setFrontCover', vm.image);
+
+                    //  stop loader
                 };
+
                 reader.readAsDataURL(file);
             },
         },

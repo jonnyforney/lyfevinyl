@@ -1,6 +1,6 @@
 <template>
-    <section v-show="current_step.show" class="text-center">
-      <headline :heading="step_album_name.headline"></headline>
+    <section v-if="current_step.show" class="text-center">
+      <headline :heading="current_step.headline"></headline>
     <div class="row">
         <div class="col-md-6 col-center margin-bottom-30">
           <label class="lvds-form__label">What would you like to name this album?*</label><br>
@@ -37,9 +37,19 @@
             'headline': Headline,
         },
         data: function() {
-            return {
-                current_step: this.$store.state.step_album_name,
-                name: this.$store.state.name
+            return {}
+        },
+        computed: {
+            current_step() {
+                return this.$store.state.step_album_name;
+            },
+            name: {
+                get() {
+                    return this.$store.state.name;
+                },
+                set(name) {
+                    this.$store.commit('setName', name);
+                }
             }
         },
         methods: {
