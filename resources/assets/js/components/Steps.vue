@@ -29,7 +29,7 @@
             'album-name': AlbumName,
             'songs': Songs,
             'covers': Covers,
-            'preview': Preview,
+            'preview': Preview
         },
         methods: {
 

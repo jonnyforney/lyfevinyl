@@ -1,18 +1,18 @@
 <template>
-  <section v-show="step_album_name.show" class="text-center">
-    <headline :heading="step_album_name.headline"></headline>
+    <section v-if="current_step.show" class="text-center">
+      <headline :heading="current_step.headline"></headline>
     <div class="row">
-      <div class="col-md-8 col-center margin-bottom-30">
-        <label class="lvds-form__label">What would you like to name this album?*</label>
-        <br>
-        <input
-          class="lvds-form__text-input"
-          type="text" id="albumName"
-          name="albumName"
-          v-model="name"
-          placeholder="i.e. Dad's Favorite Songs"
-          autofocus
-          required="true"
+        <div class="col-md-6 col-center margin-bottom-30">
+          <label class="lvds-form__label">What would you like to name this album?*</label><br>
+          <input
+            class="lvds-form__text-input"
+            type="text"
+            id="albumName"
+            name="albumName"
+            v-model="name"
+            placeholder="i.e. Dad's Favorite Songs"
+            autofocus
+            required="true"
           />
         <br>
         <br>
@@ -39,7 +39,20 @@
             'headline': Headline,
         },
         data: function() {
-            return this.$store.state;
+            return {}
+        },
+        computed: {
+            current_step() {
+                return this.$store.state.step_album_name;
+            },
+            name: {
+                get() {
+                    return this.$store.state.name;
+                },
+                set(name) {
+                    this.$store.commit('setName', name);
+                }
+            }
         },
         methods: {
 

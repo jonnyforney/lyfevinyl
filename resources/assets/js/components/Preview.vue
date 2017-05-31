@@ -1,6 +1,6 @@
 <template>
-<section v-show="step_preview.show">
-  <headline :heading="step_preview.headline" :subhead="step_preview.subhead"></headline>
+<section v-if="current_step.show">
+  <headline :heading="current_step.headline" :subhead="current_step.subhead"></headline>
   <div class="row">
     <div class="col-md-8 col-center">
       <!-- ALBUM NAME -->
@@ -25,7 +25,8 @@
         <div class="col-md-10 col-center">
           <div class="row">
             <div class="col-md-6">
-              <img src="http://placehold.it/200x200">
+              <img v-if="!frontcover" class="cover-image" src="http://placehold.it/200x200">
+              <img v-if="frontcover" class="cover-image" :src="frontcover">
             </div>
             <div class="col-md-6">
               <img src="http://placehold.it/200x200">
@@ -78,7 +79,21 @@
             'back-submit-btns': StepSubmitButtons
         },
         data: function() {
-            return this.$store.state;
+            return {}
+        },
+        computed: {
+            current_step() {
+                return this.$store.state.step_preview;
+            },
+            name() {
+                return this.$store.state.name;
+            },
+            frontcover() {
+                return this.$store.state.frontcover;
+            },
+            sides() {
+                return this.$store.state.sides;
+            }
         },
         methods: {
 

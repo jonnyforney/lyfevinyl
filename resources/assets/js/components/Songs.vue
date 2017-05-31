@@ -1,6 +1,6 @@
 <template>
-  <section v-show="step_songs.show" class="text-center">
-    <headline :heading="name" :subhead="step_songs.subhead"></headline>
+  <section v-if="current_step.show" class="text-center">
+    <headline :heading="name" :subhead="current_step.subhead"></headline>
     <div class="row song-upload">
         <div class="col-md-2"></div>
         <div class="col-md-4" v-for="side in sides">
@@ -49,28 +49,41 @@
             'back-next-btns': StepControlButtons
         },
         data: function() {
-            return this.$store.state;
+            return {}
+        },
+        computed: {
+            current_step() {
+                return this.$store.state.step_songs;
+            },
+            name() {
+                return this.$store.state.name;
+            },
+            sides() {
+                return this.$store.state.sides;
+            }
         },
         methods: {
             onSongChange(e, song) {
                 var songFiles = e.target.files || e.dataTransfer.files;
                 if (!songFiles.length)
                     return;
+
                 this.createSong(songFiles[0], song);
             },
 
             createSong(file, song) {
                 // var song = new Song();
                 var reader = new FileReader();
-                var vm = this;
 
                 reader.fileName = file.name;
                 reader.onload = (e) => {
-                    vm.song = e.target.result;
+                    //vm.song = e.target.result;
                     song.picked = true;
                     song.file = file.name;
                 };
                 reader.readAsDataURL(file);
+
+                this.$store.commit('setSong', this.sides);
             },
         },
         ready() {
