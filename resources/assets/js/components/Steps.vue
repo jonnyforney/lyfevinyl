@@ -1,10 +1,12 @@
 <template>
-    <div>
+  <div class="row">
+    <div class="col-md-10 col-center">
         <album-name></album-name>
         <songs></songs>
         <covers></covers>
         <preview></preview>
     </div>
+  </div>
 </template>
 
 <script>

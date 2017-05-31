@@ -453,6 +453,11 @@ module.exports = function normalizeComponent (
                 data.current_step = next_step;
             }
             window.scrollTo(0, 0);
+            if (history.pushState) {
+                history.pushState(null, null, '#myhash');
+            } else {
+                location.hash = '#myhash';
+            }
         },
         back: function back() {
             var data = this.$store.state;
@@ -10965,7 +10970,7 @@ module.exports = InterceptorManager;
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(23);
 var isCancel = __webpack_require__(8);
-var defaults = __webpack_require__(3);
+var defaults = __webpack_require__(4);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -11552,6 +11557,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -11759,6 +11766,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['lv_logo_navy', 'lv_upload_music', 'lv_album_art', 'lv_record', 'is_logged_in'],
@@ -11772,11 +11783,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var self = this;
             if (self.is_logged_in) window.location.href = '/app';else {
                 swal({
-                    type: 'question',
                     showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#e3e3e3',
-                    confirmButtonText: 'Login / Register',
+                    confirmButtonColor: '#00a0ff',
+                    cancelButtonColor: '#05325a',
+                    html: '<a class="swal-x" href="#" onclick="swal.closeModal(); return false;">x</a>',
+                    imageUrl: 'imgs/icon.png',
+                    imageWidth: 75,
+                    imageHeight: 75,
+                    confirmButtonText: 'Login / Sign up',
                     cancelButtonText: 'Continue as guest',
                     buttonsStyling: true
                 }).then(function () {
@@ -12082,6 +12096,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Covers_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Covers_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Preview_vue__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Preview_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__Preview_vue__);
+//
+//
 //
 //
 //
@@ -44098,10 +44114,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
-    staticClass: "col-md-6 col-center margin-bottom-30"
+    staticClass: "col-md-8 col-center margin-bottom-30"
   }, [_c('label', {
     staticClass: "lvds-form__label"
-  }, [_vm._v("What would you like to name this album?*")]), _c('br'), _vm._v(" "), _c('input', {
+  }, [_vm._v("What would you like to name this album?*")]), _vm._v(" "), _c('br'), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -44126,14 +44142,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.name = $event.target.value
       }
     }
-  }), _vm._v(" "), _c('br'), _c('br'), _c('br'), _vm._v(" "), _c('button', {
+  }), _vm._v(" "), _c('br'), _vm._v(" "), _c('br'), _vm._v(" "), _c('br'), _vm._v(" "), _c('button', {
     staticClass: "lvds-button lvds-button--blue-light",
     on: {
       "click": function($event) {
         _vm.next()
       }
     }
-  }, [_vm._v("Continue »\n    ")])])])], 1)
+  }, [_vm._v("Continue »\n      ")])])])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -44212,8 +44228,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "src": _vm.lv_logo_navy
     }
-  })])]), _vm._v(" "), _c('div', {
-    staticClass: "col-sm-12 col-md-3 col-md-offset-6 mobile--hide"
+  })])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('div', {
+    staticClass: "col-sm-12 col-md-3 mobile--hide"
   }, [_c('button', {
     staticClass: "lvds-button lvds-button__cta lvds-button--yellow",
     on: {
@@ -44223,18 +44239,25 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_vm._v("\n                Build yours now\n              ")])])])])])]), _vm._v(" "), _c('div', {
     staticClass: "container"
-  }, [_vm._m(0), _vm._v(" "), _c('div', {
+  }, [_vm._m(1), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
     staticClass: "col-md-8 col-center medium-up--hide"
   }, [_c('button', {
-    staticClass: "lvds-button lvds-button__cta lvds-button--yellow",
+    staticClass: "lvds-button lvds-button__cta lvds-button--yellow margin-bottom-30",
     on: {
       "click": function($event) {
         _vm.openApp()
       }
     }
-  }, [_vm._v("Build yours now")])])])])]), _vm._v(" "), _c('section', {
+  }, [_vm._v("Build yours now")]), _vm._v(" "), _c('button', {
+    staticClass: "lvds-button lvds-button__cta lvds-button--ghost-white",
+    on: {
+      "click": function($event) {
+        _vm.openApp()
+      }
+    }
+  }, [_vm._v("Login")])])])])]), _vm._v(" "), _c('section', {
     staticClass: "lvds-section lvds-section--white",
     attrs: {
       "id": "how"
@@ -44278,6 +44301,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "lvds-para"
   }, [_vm._v("Lorem ipsum doodle potato sit amet, mas ninos running in Greenland.")])])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-sm-12 col-md-2 col-md-offset-4 mobile--hide"
+  }, [_c('a', {
+    attrs: {
+      "href": "settings"
+    }
+  }, [_c('button', {
+    staticClass: "lvds-button lvds-button__cta lvds-button--ghost-white"
+  }, [_vm._v("Login")])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "row"
   }, [_c('div', {
@@ -44500,7 +44533,11 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('album-name'), _vm._v(" "), _c('songs'), _vm._v(" "), _c('covers'), _vm._v(" "), _c('preview')], 1)
+  return _c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-md-10 col-center"
+  }, [_c('album-name'), _vm._v(" "), _c('songs'), _vm._v(" "), _c('covers'), _vm._v(" "), _c('preview')], 1)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -44515,21 +44552,19 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('section', {
-    staticClass: "text-center"
-  }, [_c('div', {
+  return _c('div', [_c('div', {
     staticClass: "row"
   }, [_c('div', {
-    staticClass: "col-md-10 col-center"
+    staticClass: "col-md-10 col-center text-cetner"
   }, [_c('h1', {
     staticClass: "lvds-headline",
     domProps: {
       "innerHTML": _vm._s(_vm.heading)
     }
   })])]), _vm._v(" "), _c('div', {
-    staticClass: "row margin-bottom-30"
+    staticClass: "row"
   }, [_c('div', {
-    staticClass: "col-md-10 col-center"
+    staticClass: "col-md-10 col-center text-center"
   }, [_c('h2', {
     staticClass: "lvds-headline--secondary",
     domProps: {

@@ -68,11 +68,12 @@
 .lvds-navigation--app {
   margin: 0;
   padding: 1.35rem 0;
-  background-color: $gray-light;
+  border-bottom: 1px solid $gray-light;
 
   .lvds-nav__logo {
-    width: auto;
-    height: 3.25rem;
+    width: 100%;
+    height: auto;
+    margin-top: 5px;
   }
 
 }

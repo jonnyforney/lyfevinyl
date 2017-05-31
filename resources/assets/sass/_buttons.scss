@@ -5,7 +5,7 @@
   text-transform: uppercase;
   font-size: 18px;
   width: 100%;
-  border-radius: 3px;
+  border-radius: 5px;
   @include transition-property(all);
   @include transition-duration(.15s);
   @include transition-timing-function(linear);
