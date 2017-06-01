@@ -17,6 +17,14 @@ export default {
                 data.current_step = next_step;
             }
             window.scrollTo(0, 0)
+
+            if(history.pushState) {
+              history.pushState(null, null, '#' + next_step);
+            }
+            else {
+              location.hash = '#' + next_step;
+            }
+
         },
         back: function() {
             var data = this.$store.state;
@@ -34,6 +42,6 @@ export default {
                 data.current_step = back_step;
             }
             window.scrollTo(0, 0)
-        }
+        },
     }
 }

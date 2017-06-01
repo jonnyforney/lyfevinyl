@@ -5,7 +5,7 @@
   text-transform: uppercase;
   font-size: 18px;
   width: 100%;
-  border-radius: 3px;
+  border-radius: 5px;
   @include transition-property(all);
   @include transition-duration(.15s);
   @include transition-timing-function(linear);
@@ -70,6 +70,18 @@
   &:hover {
     background-color: $yellow;
     color: $blue-dark;
+  }
+
+}
+
+.lvds-button--ghost-blue-dark {
+  border: 2px solid $blue-dark;
+  color: $blue-dark;
+  background-color: transparent;
+
+  &:hover {
+    background-color: $blue-dark;
+    color: $white;
   }
 
 }

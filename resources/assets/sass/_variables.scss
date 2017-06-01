@@ -5,6 +5,7 @@ COLORS
 //solids
 $white: #ffffff;
 $darkgray: #2F2F2F;
+$gray-medium: #6C7A85;
 $gray-light: #F5FBFD;
 $teal: #70ABBD;
 $purple: #B27CE8;
@@ -34,7 +35,7 @@ PADDING/MARGINS
 
 //default (large, xlarge)
 $section-padding: 3.125rem;
-$section-padding-hero: 6.25rem;
+$section-padding-hero: 8.25rem;
 $headlines-margin-bottom: 1.875rem;
 $para-marg-bottom-default: 1rem;
 $spacing-large: 2.8125rem;
@@ -57,6 +58,6 @@ $headline: 3.625rem;
 $headline-hero: 5.375rem;
 $headline-hero--small: 3.375rem;
 $headline-secondary: 1.75rem;
-$headline-tertiary: 1.75rem;
+$headline-tertiary: 1.35rem;
 $para-default: 1.25rem;
 $para-footer: 1.25rem;

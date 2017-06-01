@@ -19,6 +19,7 @@
     margin-top: 25px;
     font-weight: 300;
     width: 100%;
+    border-radius: 5px;
     font-size: $headline-tertiary;
     &:focus {
         outline-color: $blue-light;
@@ -49,6 +50,10 @@
       cursor: pointer;
     }
 
+}
+
+.glyphicon {
+  margin-right: 5px;
 }
 
 .lvds-form__label-button-group {

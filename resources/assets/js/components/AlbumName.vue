@@ -1,8 +1,8 @@
 <template>
-    <section v-if="current_step.show" class="text-center">
+    <section v-if="current_step.show">
       <headline :heading="current_step.headline"></headline>
     <div class="row">
-        <div class="col-md-6 col-center margin-bottom-30">
+        <div class="col-md-8 col-center margin-bottom-30">
           <label class="lvds-form__label">What would you like to name this album?*</label><br>
           <input
             class="lvds-form__text-input"
@@ -10,19 +10,21 @@
             id="albumName"
             name="albumName"
             v-model="name"
-            placeholder="i.e. Dad's Favorite Songs"
+            placeholder="i.e. Jake and Sarah's Wedding"
             autofocus
             required="true"
           />
-          <br><br><br>
+        <br>
+        <br>
+        <br>
         <button
           class="lvds-button lvds-button--blue-light"
           @click="next()"
           >Continue &raquo;
         </button>
-        </div>
       </div>
-    </section>
+    </div>
+  </section>
 </template>
 
 <script>

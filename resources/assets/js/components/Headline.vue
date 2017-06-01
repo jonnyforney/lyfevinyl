@@ -1,16 +1,16 @@
 <template>
-    <section class="text-center">
+  <div>
     <div class="row">
-        <div class="col-md-10 col-center">
+      <div class="col-md-8 col-center">
         <h1 class="lvds-headline" v-html="heading"></h1>
-        </div>
+      </div>
     </div>
-    <div class="row margin-bottom-30">
-        <div class="col-md-10 col-center">
-        <h2 class="lvds-headline--secondary" v-html="subhead"></h2>
-        </div>
+    <div class="row">
+      <div class="col-md-8 col-center">
+        <h2 class="lvds-headline--secondary margin-bottom-30" v-html="subhead"></h2>
+      </div>
     </div>
-    </section>
+  </div>
 </template>
 
 <script>

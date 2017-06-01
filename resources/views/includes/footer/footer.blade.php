@@ -13,8 +13,8 @@
             <a href=""><img class="lvds-footer__social" src="{{ asset('imgs/social/facebook.png') }}" /></a>
           </div>
           <hr class="lvds-hr-navy">
-          <p class="lvds-para__footer"><a class="lvds-text-link--blue-dark" href="">How It Works</a></p>
-          <p class="lvds-para__footer"><a class="lvds-text-link--blue-dark" href="">About</a></p>
+          <p class="lvds-para__footer"><a class="lvds-text-link--blue-dark" href="">Login</a></p>
+          <p class="lvds-para__footer"><a class="lvds-text-link--blue-dark" href="">FAQ</a></p>
           <p class="lvds-para__footer"><a class="lvds-text-link--blue-dark" href="/app">Build Yours Now</a></p>
         </div>
       </div>

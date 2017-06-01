@@ -1,13 +1,14 @@
 <template>
     <div class="row margin-top-50">
         <div class="col-md-2"></div>
-        <div class="col-md-4 col-md-push-4 text-left margin-bottom-30-sm">
-            <button class="lvds-button lvds-button--blue-light" @click="alertDone">Submit Order</button>
-        </div>
-        <div class="col-md-4 col-md-pull-4 text-right">
+        <div class="col-md-3 text-right">
             <button class="lvds-button lvds-button--ghost-blue-light" @click="back()">&laquo; Go Back</button>
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-1"></div>
+          <div class="col-md-3 margin-bottom-30-sm">
+              <button class="lvds-button lvds-button--blue-light" @click="alertDone">Submit Order</button>
+          </div>
+        <div class="col-md-3"></div>
     </div>
 </template>
 
