@@ -1,7 +1,7 @@
 <template>
-  <section v-if="current_step.show" class="text-center">
+  <section v-if="current_step.show">
     <headline :heading="name" :subhead="current_step.subhead"></headline>
-    <div class="row song-upload">
+    <div class="row song-upload margin-top-30">
         <div class="col-md-2"></div>
         <div class="col-md-4" v-for="side in sides">
           <p class="lvds-headline--tertiary">Side {{side.side}}</p>
@@ -10,11 +10,9 @@
               <div class="col-md-12">
                   <span class="lvds-form__label-button-group">
                     <label :for="side.side + index" class="lvds-form__label">{{ index+1 }}.
-                      <a v-if="song.picked" class="lvds-button lvds-button--blue-light lvds-form__button">{{ song.file }}</a>
-                      <a v-if="!song.picked" class="lvds-button lvds-button--ghost-blue-light lvds-form__button">Upload Song</a>
+                      <a v-if="song.picked" class="lvds-button lvds-button--blue-light lvds-form__button"><span class="glyphicon glyphicon-ok"></span> {{ song.file }}</a>
+                      <a v-if="!song.picked" class="lvds-button lvds-button--ghost-blue-light lvds-form__button"><span class="glyphicon glyphicon-plus"></span>  Upload Song</a>
                     </label>
-                    <p>song.picked = {{ song.picked }}</p>
-                    <p>song.file = {{song.file}}</p>
                   </span>
               </div>
             </div>

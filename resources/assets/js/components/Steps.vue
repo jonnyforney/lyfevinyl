@@ -36,6 +36,6 @@
         },
         ready: function() {
             this.$store.state.customer_id = this.customer_id;
-        }
+        },
     };
 </script>

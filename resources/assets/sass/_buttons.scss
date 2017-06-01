@@ -74,6 +74,18 @@
 
 }
 
+.lvds-button--ghost-blue-dark {
+  border: 2px solid $blue-dark;
+  color: $blue-dark;
+  background-color: transparent;
+
+  &:hover {
+    background-color: $blue-dark;
+    color: $white;
+  }
+
+}
+
 .lvds-button--blue-dark {
   border: 2px solid $blue-dark;
   color: $pink;

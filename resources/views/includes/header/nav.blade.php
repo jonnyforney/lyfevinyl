@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-4">
           <a href="/">
-            <img class="lvds-nav__logo" src="{{ asset('imgs/lv-logo-navy.png') }}" />
+            <img class="lvds-nav__logo" src="{{ asset('imgs/lv-logo-2.png') }}" />
           </a>
         </div>
         <div class="col-md-8 col-md-offset-1 text-center">

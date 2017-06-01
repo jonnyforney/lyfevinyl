@@ -1,7 +1,7 @@
 // NAVIGATION STYLES ON THE HOMEPAGE
 
 .lvds-navigation {
-  margin: -4.686rem auto 3.125rem;
+  margin: -6.686rem auto 3.125rem;
   padding: 1rem 0.313rem;
 
   @media (max-width: $screen-sm) {
@@ -67,7 +67,7 @@
 
 .lvds-navigation--app {
   margin: 0;
-  padding: 1.35rem 0;
+  padding: 2rem 3.75rem;
   border-bottom: 1px solid $gray-light;
 
   .lvds-nav__logo {

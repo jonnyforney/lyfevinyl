@@ -453,10 +453,11 @@ module.exports = function normalizeComponent (
                 data.current_step = next_step;
             }
             window.scrollTo(0, 0);
+
             if (history.pushState) {
-                history.pushState(null, null, '#myhash');
+                history.pushState(null, null, '#' + next_step);
             } else {
-                location.hash = '#myhash';
+                location.hash = '#' + next_step;
             }
         },
         back: function back() {
@@ -493,7 +494,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Development/www/current/lyfevinyl/resources/assets/js/components/Headline.vue"
+Component.options.__file = "/Users/jake/Desktop/side-projects/lyfevinyl/site/lyfevinyl/resources/assets/js/components/Headline.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Headline.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -898,7 +899,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Development/www/current/lyfevinyl/resources/assets/js/components/StepControlButtons.vue"
+Component.options.__file = "/Users/jake/Desktop/side-projects/lyfevinyl/site/lyfevinyl/resources/assets/js/components/StepControlButtons.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] StepControlButtons.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -11647,11 +11648,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -11805,7 +11801,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['lv_logo_navy', 'lv_upload_music', 'lv_album_art', 'lv_record', 'is_logged_in'],
+    props: ['lv_logo_2', 'lv_upload_music', 'lv_album_art', 'lv_record', 'is_logged_in'],
     data: function data() {
         return {};
     },
@@ -11816,10 +11812,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var self = this;
             if (self.is_logged_in) window.location.href = '/app';else {
                 swal({
+                    title: 'Let\'s do this thing!',
+                    text: 'Log in or create an account to save your vinyl as you go, in case you want to finish it later.',
                     showCancelButton: true,
                     confirmButtonColor: '#00a0ff',
                     cancelButtonColor: '#05325a',
-                    html: '<a class="swal-x" href="#" onclick="swal.closeModal(); return false;">x</a>',
                     imageUrl: 'imgs/icon.png',
                     imageWidth: 75,
                     imageHeight: 75,
@@ -12001,8 +11998,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 
@@ -12077,6 +12072,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -12098,6 +12094,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_lv_functions_js__ = __webpack_require__(2);
+//
 //
 //
 //
@@ -43942,7 +43939,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Development/www/current/lyfevinyl/resources/assets/js/components/AlbumName.vue"
+Component.options.__file = "/Users/jake/Desktop/side-projects/lyfevinyl/site/lyfevinyl/resources/assets/js/components/AlbumName.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] AlbumName.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -43976,7 +43973,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Development/www/current/lyfevinyl/resources/assets/js/components/Covers.vue"
+Component.options.__file = "/Users/jake/Desktop/side-projects/lyfevinyl/site/lyfevinyl/resources/assets/js/components/Covers.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Covers.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -44010,7 +44007,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Development/www/current/lyfevinyl/resources/assets/js/components/Home.vue"
+Component.options.__file = "/Users/jake/Desktop/side-projects/lyfevinyl/site/lyfevinyl/resources/assets/js/components/Home.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Home.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -44044,7 +44041,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Development/www/current/lyfevinyl/resources/assets/js/components/Preview.vue"
+Component.options.__file = "/Users/jake/Desktop/side-projects/lyfevinyl/site/lyfevinyl/resources/assets/js/components/Preview.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Preview.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -44078,7 +44075,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Development/www/current/lyfevinyl/resources/assets/js/components/Songs.vue"
+Component.options.__file = "/Users/jake/Desktop/side-projects/lyfevinyl/site/lyfevinyl/resources/assets/js/components/Songs.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Songs.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -44112,7 +44109,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Development/www/current/lyfevinyl/resources/assets/js/components/StepSubmitButtons.vue"
+Component.options.__file = "/Users/jake/Desktop/side-projects/lyfevinyl/site/lyfevinyl/resources/assets/js/components/StepSubmitButtons.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] StepSubmitButtons.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -44146,7 +44143,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Development/www/current/lyfevinyl/resources/assets/js/components/Steps.vue"
+Component.options.__file = "/Users/jake/Desktop/side-projects/lyfevinyl/site/lyfevinyl/resources/assets/js/components/Steps.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Steps.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -44171,9 +44168,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return (_vm.current_step.show) ? _c('section', {
-    staticClass: "text-center"
-  }, [_c('headline', {
+  return (_vm.current_step.show) ? _c('section', [_c('headline', {
     attrs: {
       "heading": _vm.current_step.headline
     }
@@ -44183,7 +44178,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "col-md-8 col-center margin-bottom-30"
   }, [_c('label', {
     staticClass: "lvds-form__label"
-  }, [_vm._v("What would you like to name this album?*")]), _vm._v(" "), _c('br'), _vm._v(" "), _c('input', {
+  }, [_vm._v("What would you like to name this album?*")]), _c('br'), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -44195,7 +44190,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "id": "albumName",
       "name": "albumName",
-      "placeholder": "i.e. Dad's Favorite Songs",
+      "placeholder": "i.e. Jake and Sarah's Wedding",
       "autofocus": "",
       "required": "true"
     },
@@ -44215,7 +44210,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.next()
       }
     }
-  }, [_vm._v("Continue »\n    ")])])])], 1) : _vm._e()
+  }, [_vm._v("Continue »\n      ")])])])], 1) : _vm._e()
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -44235,16 +44230,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "col-md-2"
   }), _vm._v(" "), _c('div', {
-    staticClass: "col-md-4 col-md-push-4 text-left margin-bottom-30-sm"
-  }, [_c('button', {
-    staticClass: "lvds-button lvds-button--blue-light",
-    on: {
-      "click": function($event) {
-        _vm.next()
-      }
-    }
-  }, [_vm._v("Next »")])]), _vm._v(" "), _c('div', {
-    staticClass: "col-md-4 col-md-pull-4 text-right"
+    staticClass: "col-md-3"
   }, [_c('button', {
     staticClass: "lvds-button lvds-button--ghost-blue-light",
     on: {
@@ -44253,7 +44239,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   }, [_vm._v("« Go Back")])]), _vm._v(" "), _c('div', {
-    staticClass: "col-md-2"
+    staticClass: "col-md-1"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "col-md-3 margin-bottom-30-sm"
+  }, [_c('button', {
+    staticClass: "lvds-button lvds-button--blue-light",
+    on: {
+      "click": function($event) {
+        _vm.next()
+      }
+    }
+  }, [_vm._v("Next »")])]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-3"
   })])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
@@ -44292,7 +44289,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('img', {
     staticClass: "lvds-nav__logo",
     attrs: {
-      "src": _vm.lv_logo_navy
+      "src": _vm.lv_logo_2
     }
   })])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "col-sm-12 col-md-3 mobile--hide"
@@ -44398,9 +44395,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return (_vm.current_step.show) ? _c('section', {
-    staticClass: "text-center"
-  }, [_c('headline', {
+  return (_vm.current_step.show) ? _c('section', [_c('headline', {
     attrs: {
       "heading": _vm.name,
       "subhead": _vm.current_step.subhead
@@ -44408,7 +44403,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
-    staticClass: "col-md-9 col-center"
+    staticClass: "col-md-8 col-center"
   }, [_c('div', {
     staticClass: "row"
   }, [_c('div', {
@@ -44447,7 +44442,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.onImageChange($event, 'frontcover')
       }
     }
-  }), _vm._v("\n              ^^ Upload Image ^^")])])]), _vm._v(" "), _vm._m(0)])])]), _vm._v(" "), _c('back-next-btns')], 1) : _vm._e()
+  })])])]), _vm._v(" "), _vm._m(0)])])]), _vm._v(" "), _c('back-next-btns')], 1) : _vm._e()
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "col-md-6"
@@ -44461,16 +44456,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "src": "http://placehold.it/200x200"
     }
-  })])]), _vm._v(" "), _c('div', {
-    staticClass: "row"
-  }, [_c('div', {
-    staticClass: "col-md-12"
-  }, [_c('a', {
-    staticClass: "lvds-button lvds-button--ghost-white lvds-form__button",
-    attrs: {
-      "href": "#"
-    }
-  }, [_vm._v("Upload Image")])])])])
+  })])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
@@ -44485,15 +44471,13 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return (_vm.current_step.show) ? _c('section', {
-    staticClass: "text-center"
-  }, [_c('headline', {
+  return (_vm.current_step.show) ? _c('section', [_c('headline', {
     attrs: {
       "heading": _vm.name,
       "subhead": _vm.current_step.subhead
     }
   }), _vm._v(" "), _c('div', {
-    staticClass: "row song-upload"
+    staticClass: "row song-upload margin-top-30"
   }, [_c('div', {
     staticClass: "col-md-2"
   }), _vm._v(" "), _vm._l((_vm.sides), function(side) {
@@ -44515,9 +44499,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }, [_vm._v(_vm._s(index + 1) + ".\n                    "), (song.picked) ? _c('a', {
         staticClass: "lvds-button lvds-button--blue-light lvds-form__button"
-      }, [_vm._v(_vm._s(song.file))]) : _vm._e(), _vm._v(" "), (!song.picked) ? _c('a', {
+      }, [_c('span', {
+        staticClass: "glyphicon glyphicon-ok"
+      }), _vm._v(" " + _vm._s(song.file))]) : _vm._e(), _vm._v(" "), (!song.picked) ? _c('a', {
         staticClass: "lvds-button lvds-button--ghost-blue-light lvds-form__button"
-      }, [_vm._v("Upload Song")]) : _vm._e()]), _vm._v(" "), _c('p', [_vm._v("song.picked = " + _vm._s(song.picked))]), _vm._v(" "), _c('p', [_vm._v("song.file = " + _vm._s(song.file))])])])]), _vm._v(" "), _c('div', {
+      }, [_c('span', {
+        staticClass: "glyphicon glyphicon-plus"
+      }), _vm._v("  Upload Song")]) : _vm._e()])])])]), _vm._v(" "), _c('div', {
         staticClass: "row"
       }, [_c('div', {
         staticClass: "col-md-12"
@@ -44555,14 +44543,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "col-md-2"
   }), _vm._v(" "), _c('div', {
-    staticClass: "col-md-4 col-md-push-4 text-left margin-bottom-30-sm"
-  }, [_c('button', {
-    staticClass: "lvds-button lvds-button--blue-light",
-    on: {
-      "click": _vm.alertDone
-    }
-  }, [_vm._v("Submit Order")])]), _vm._v(" "), _c('div', {
-    staticClass: "col-md-4 col-md-pull-4 text-right"
+    staticClass: "col-md-3 text-right"
   }, [_c('button', {
     staticClass: "lvds-button lvds-button--ghost-blue-light",
     on: {
@@ -44571,7 +44552,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   }, [_vm._v("« Go Back")])]), _vm._v(" "), _c('div', {
-    staticClass: "col-md-2"
+    staticClass: "col-md-1"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "col-md-3 margin-bottom-30-sm"
+  }, [_c('button', {
+    staticClass: "lvds-button lvds-button--blue-light",
+    on: {
+      "click": _vm.alertDone
+    }
+  }, [_vm._v("Submit Order")])]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-3"
   })])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
@@ -44609,7 +44599,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', [_c('div', {
     staticClass: "row"
   }, [_c('div', {
-    staticClass: "col-md-10 col-center text-cetner"
+    staticClass: "col-md-8 col-center"
   }, [_c('h1', {
     staticClass: "lvds-headline",
     domProps: {
@@ -44618,9 +44608,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   })])]), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
-    staticClass: "col-md-10 col-center text-center"
+    staticClass: "col-md-8 col-center"
   }, [_c('h2', {
-    staticClass: "lvds-headline--secondary",
+    staticClass: "lvds-headline--secondary margin-bottom-30",
     domProps: {
       "innerHTML": _vm._s(_vm.subhead)
     }
@@ -44651,13 +44641,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
-    staticClass: "col-md-10 col-center"
+    staticClass: "col-md-12"
   }, [_c('label', {
     staticClass: "lvds-form__label"
   }, [_vm._v(_vm._s(_vm.name))])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
-    staticClass: "col-md-10 col-center"
+    staticClass: "col-md-12"
   }, [_c('div', {
     staticClass: "row"
   }, [_c('div', {
@@ -44675,12 +44665,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }) : _vm._e()]), _vm._v(" "), _vm._m(2)])])]), _vm._v(" "), _vm._m(3), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
-    staticClass: "col-md-10 col-center"
+    staticClass: "col-md-12"
   }, [_c('div', {
     staticClass: "row"
   }, _vm._l((_vm.sides), function(side) {
     return _c('div', {
-      staticClass: "col-md-4"
+      staticClass: "col-md-5"
     }, [_c('p', {
       staticClass: "lvds-headline--tertiary"
     }, [_vm._v("Side " + _vm._s(side.side))]), _vm._v(" "), _vm._l((side.songs), function(song, index) {
@@ -44699,7 +44689,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: "row margin-bottom-15"
   }, [_c('div', {
-    staticClass: "col-md-10 col-center"
+    staticClass: "col-md-12"
   }, [_c('label', {
     staticClass: "lvds-form__label"
   }, [_c('strong', [_vm._v("Vinyl Name:")])])])])
@@ -44707,7 +44697,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: "row margin-top-50"
   }, [_c('div', {
-    staticClass: "col-md-10 col-center"
+    staticClass: "col-md-12"
   }, [_c('label', {
     staticClass: "lvds-form__label"
   }, [_c('strong', [_vm._v("Album Covers:")])])])])
@@ -44723,7 +44713,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: "row margin-top-50"
   }, [_c('div', {
-    staticClass: "col-md-10 col-center margin-bottom-15"
+    staticClass: "col-md-12 margin-bottom-15"
   }, [_c('label', {
     staticClass: "lvds-form__label"
   }, [_c('strong', [_vm._v("Song Order:")])])])])

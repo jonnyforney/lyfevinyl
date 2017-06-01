@@ -1,8 +1,8 @@
 <template>
-<section v-if="current_step.show" class="text-center">
+<section v-if="current_step.show">
   <headline :heading="name" :subhead="current_step.subhead"></headline>
   <div class="row">
-    <div class="col-md-9 col-center">
+    <div class="col-md-8 col-center">
       <div class="row">
         <div class="image-upload col-md-6">
           <p class="lvds-headline--tertiary">Front Cover</p>
@@ -21,7 +21,7 @@
                 type="file"
                 @change="onImageChange($event, 'frontcover')"
               >
-              ^^ Upload Image ^^</input>
+              </input>
             </div>
           </div>
         </div>
@@ -30,11 +30,6 @@
           <div class="row margin-bottom-30">
             <div class="col-md-12">
               <img src="http://placehold.it/200x200">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <a class="lvds-button lvds-button--ghost-white lvds-form__button" href="#">Upload Image</a>
             </div>
           </div>
         </div>

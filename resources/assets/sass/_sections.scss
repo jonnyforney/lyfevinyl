@@ -13,7 +13,7 @@
   font-family: $source_sans;
   margin-bottom: $headlines-margin-bottom;
   font-weight: 700;
-  margin-top: 0px;
+  margin-top: $spacing-medium;
 
   @media (max-width: $screen-sm) {
     font-size: $headline-hero--small;
@@ -31,7 +31,8 @@
 .lvds-headline--secondary {
   font-size: $headline-secondary;
   font-family: $source_sans;
-  margin-bottom: $headlines-margin-bottom;
+  margin-bottom: $spacing-large;
+  margin-top: 0;
   font-weight: 400;
 }
 
@@ -39,6 +40,7 @@
   font-size: $headline-tertiary;
   text-transform: uppercase;
   font-weight: 700;
+  color: $pink;
 }
 
 //END OF HEADLINES
@@ -52,7 +54,7 @@
 }
 
 .lvds-section--hero {
-  padding: $section-padding-hero;
+  padding: $section-padding-hero 3rem;
 
   @media (max-width: $screen-sm) {
     padding: $section-padding-hero--sm $section-padding-hero--sm $spacing-large;

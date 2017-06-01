@@ -7,7 +7,7 @@
             <div class="row">
               <div class="col-sm-12 col-md-3">
                 <a href="/">
-                  <img class="lvds-nav__logo" :src="lv_logo_navy" />
+                  <img class="lvds-nav__logo" :src="lv_logo_2" />
                 </a>
               </div>
               <div class="col-sm-12 col-md-2 col-md-offset-4 mobile--hide">
@@ -63,7 +63,7 @@
 <script>
     export default {
         props: [
-            'lv_logo_navy',
+            'lv_logo_2',
             'lv_upload_music',
             'lv_album_art',
             'lv_record',
@@ -82,10 +82,11 @@
                 if (self.is_logged_in) window.location.href = '/app';
                 else {
                     swal({
+                      title: 'Let\'s do this thing!',
+                      text: 'Log in or create an account to save your vinyl as you go, in case you want to finish it later.',
                       showCancelButton: true,
                       confirmButtonColor: '#00a0ff',
                       cancelButtonColor: '#05325a',
-                      html: '<a class="swal-x" href="#" onclick="swal.closeModal(); return false;">x</a>',
                       imageUrl: 'imgs/icon.png',
                       imageWidth: 75,
                       imageHeight: 75,
