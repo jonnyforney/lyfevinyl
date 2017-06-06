@@ -1,19 +1,21 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import * as actions from './actions'
-import * as getters from './getters'
-import * as mutations from './mutations'
+import actions from './actions'
+import getters from './getters'
+import mutations from './mutations'
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
     actions,
     getters,
+    mutations,
     modules: {},
     state: {
         "current_customer_id": null,
         "name": "",
         "frontcover": "",
+        "front_cover_path": "",
         "sides": [{
                 "side": "a",
                 "songs": [{
@@ -91,16 +93,5 @@ export default new Vuex.Store({
             "show": false
         }
 
-    },
-    mutations: {
-        setName(state, name) {
-            state.name = name;
-        },
-        setSong(state, sides) {
-            state.sides = sides;
-        },
-        setFrontCover(state, cover) {
-            state.frontcover = cover;
-        }
     }
 });
