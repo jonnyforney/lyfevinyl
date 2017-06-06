@@ -13,17 +13,14 @@
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/profile', 'ProfileController@index')->name('home');
-
 });
 
 //  general middleware
-Route::group(['middleware' => ['web']], function() {
-    Route::get('/', 'WelcomeController@show');
+Route::get('/', 'WelcomeController@show');
+Route::get('/app', 'StepsController@show');
+Route::post('/user/create_customer_id', 'UserController@createCustomerId');
 
-    Route::get('/app', 'StepsController@show');
-
-    Route::post('/user/create_customer_id', 'UserController@createCustomerId');
-});
-
+Route::post('/steps/save', 'StepsController@save');
+Route::post('/steps/cover', 'StepsController@action');
+ 
 Auth::routes();
-

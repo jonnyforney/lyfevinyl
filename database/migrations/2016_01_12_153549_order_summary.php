@@ -19,6 +19,9 @@ class OrderSummary extends Migration
         $table->char('customer_id',10);
         $table->string('status')->nullable();
         $table->integer('quantity')->default(1)->unsigned();
+        $table->char('vinyl_title',50);
+        $table->binary('vinyl_front_cover');
+        $table->binary('vinyl_back_cover');
         $table->timestamps();
       });
     }
