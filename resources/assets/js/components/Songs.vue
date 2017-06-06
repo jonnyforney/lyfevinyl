@@ -46,8 +46,10 @@
             'headline': Headline,
             'back-next-btns': StepControlButtons
         },
-        data: function() {
-            return {}
+        data: function () {
+          return {
+            progress: this.$store.state.progress
+          }
         },
         computed: {
             current_step() {
@@ -84,8 +86,5 @@
                 this.$store.commit('setSong', this.sides);
             },
         },
-        ready() {
-            console.log('loaded')
-        }
     };
 </script>

@@ -111,6 +111,18 @@
   background-color: $pink;
 }
 
+.lvds-button--gray-medium {
+  border: 3px solid $gray-medium;
+  color: $darkgray;
+  background-color: $gray-medium;
+
+  &:hover {
+    color: shade($darkgray, 15%);
+    background-color: shade($gray-medium, 15%);
+  }
+
+}
+
 .lvds-button--darkgray-gradient {
   border: none;
   background-image: $darkgray_gradient;

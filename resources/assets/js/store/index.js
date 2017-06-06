@@ -70,6 +70,7 @@ export default new Vuex.Store({
             "preview"
         ],
         "current_step": "album_name",
+        "progress": 0,
         "step_album_name": {
             "headline": "Let's get started!",
             "subhead": "What's the best way to start personalizing your vinyl? Giving it a title, of course! You can choose to have this name on the front of your album cover.",

@@ -6,6 +6,6 @@
   </div>
   <div class="col-md-7"></div> <!-- space -->
   <div class="col-md-2 mobile--hide">
-      <a href="settings"><button class="lvds-button lvds-button--ghost-blue-dark">Login</button></a>
-    </div>
+    <a href="settings"><button class="lvds-button lvds-button--ghost-blue-dark">Login</button></a>
+  </div>
 </div>

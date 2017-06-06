@@ -38,8 +38,10 @@
         components: {
             'headline': Headline,
         },
-        data: function() {
-            return {}
+        data: function () {
+          return {
+            progress: this.$store.state.progress
+          }
         },
         computed: {
             current_step() {
@@ -51,14 +53,14 @@
                 },
                 set(name) {
                     this.$store.commit('setName', name);
-                }
+                },
             }
         },
         methods: {
 
         },
-        ready() {
-            console.log('loaded')
+        mounted() {
+          this.moveProgressBar();
         }
     };
 </script>

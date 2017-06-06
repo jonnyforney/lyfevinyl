@@ -18,13 +18,10 @@
     export default {
         mixins: [lv_functions],
         data: function() {
-            return {};
+            return {}
         },
         methods: {
 
         },
-        ready() {
-            console.log('loaded')
-        }
     };
 </script>

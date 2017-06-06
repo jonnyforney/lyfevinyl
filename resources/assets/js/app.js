@@ -23,6 +23,7 @@ import store from './store';
 
 Vue.component('home', require('./components/Home.vue'));
 Vue.component('steps', require('./components/Steps.vue'));
+Vue.component('progress-bar', require('./components/ProgressBar.vue'));
 
 const app = new Vue({
     el: '#app',
