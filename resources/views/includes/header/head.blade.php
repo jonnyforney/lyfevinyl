@@ -8,6 +8,6 @@
       <title>Lyfe Vinyl / Alpha</title>
       <link rel="shortcut icon" href="{{ asset('imgs/icon.png') }}">
       <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-      <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">    
+      <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">      
     </head>
     <body>

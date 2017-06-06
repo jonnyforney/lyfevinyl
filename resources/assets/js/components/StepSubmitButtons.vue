@@ -20,14 +20,36 @@
         data: function() {
             return {};
         },
+        computed: {
+            title() {
+                return this.$store.state.name;
+            },
+            frontcover() {
+                return this.$store.state.frontcover;
+            },
+            vinyl() {
+                return {
+                    title: this.title,
+                    frontcover: this.frontcover
+                };
+            }
+        },
         methods: {
             //  alerts
             alertDone: function(event) {
-                swal({
-                    title: "You did it!",
-                    message: "You'll receive an email with your order summary soon.",
-                    type: "success"
-                });
+                axios.post('/steps/save', this.vinyl)
+                    .then((response) => {
+                        console.log(response.data);
+
+                        swal({
+                            title: "You did it!",
+                            html: "You'll receive an email with your order summary soon.<br/> (" + response.data + ")",
+                            type: "success"
+                        });
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
             }
         },
         ready() {
