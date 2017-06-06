@@ -1,23 +1,18 @@
 export default {
-    // data: function () {
-    //   return {
-    //     progress: 25
-    //   }
-    // },
     methods: {
       moveProgressBar: function()  {
         var data = this.$store.state;
         var progress = data.progress += 25;
-          console.log("moveProgressBar " + progress);
-          var getPercent = (progress / 100);
-          var getProgressWrapWidth = $('.progress-wrap').width();
-          var progressTotal = getPercent * getProgressWrapWidth;
-          var animationLength = 500;
-          // on page load, animate percentage bar to data percentage length
-          // .stop() used to prevent animation queueing
-          $('.progress-bar').stop().animate({
-              left: progressTotal
-          }, animationLength);
+        console.log("moveProgressBar " + progress);
+        var getPercent = (progress / 100);
+        var getProgressWrapWidth = $('.progress-wrap').width();
+        var progressTotal = getPercent * getProgressWrapWidth;
+        var animationLength = 500;
+        // on page load, animate percentage bar to data percentage length
+        // .stop() used to prevent animation queueing
+        $('.progress-bar').stop().animate({
+            left: progressTotal
+        }, animationLength);
       },
       //  step nav functions
       next: function() {

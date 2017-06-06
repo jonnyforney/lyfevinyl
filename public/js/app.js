@@ -435,11 +435,6 @@ module.exports = function normalizeComponent (
 
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = ({
-    // data: function () {
-    //   return {
-    //     progress: 25
-    //   }
-    // },
     methods: {
         moveProgressBar: function moveProgressBar() {
             var data = this.$store.state;
@@ -44522,7 +44517,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "row song-upload margin-top-30"
   }, [_c('div', {
     staticClass: "col-md-2"
-  }, [_vm._v(_vm._s(_vm.progress))]), _vm._v(" "), _vm._l((_vm.sides), function(side) {
+  }), _vm._v(" "), _vm._l((_vm.sides), function(side) {
     return _c('div', {
       staticClass: "col-md-4"
     }, [_c('p', {
