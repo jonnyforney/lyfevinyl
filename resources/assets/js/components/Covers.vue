@@ -55,9 +55,10 @@
             'back-next-btns': StepControlButtons
         },
         data: function() {
-            return {
-                image: ''
-            }
+          return {
+            progress: this.$store.state.progress,
+            image: ''
+          }
         },
         computed: {
             current_step() {
@@ -93,8 +94,5 @@
                 reader.readAsDataURL(file);
             },
         },
-        ready() {
-            console.log('loaded')
-        }
     };
 </script>

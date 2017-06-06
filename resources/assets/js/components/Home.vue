@@ -86,7 +86,7 @@
                       text: 'Log in or create an account to save your vinyl as you go, in case you want to finish it later.',
                       showCancelButton: true,
                       confirmButtonColor: '#00a0ff',
-                      cancelButtonColor: '#05325a',
+                      cancelButtonColor: '#BBC2C8',
                       imageUrl: 'imgs/icon.png',
                       imageWidth: 75,
                       imageHeight: 75,

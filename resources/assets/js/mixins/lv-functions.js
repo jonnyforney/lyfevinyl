@@ -1,33 +1,60 @@
 export default {
+    // data: function () {
+    //   return {
+    //     progress: 25
+    //   }
+    // },
     methods: {
-        //  step nav functions
-        next: function() {
-            var data = this.$store.state;
+      moveProgressBar: function()  {
+        var data = this.$store.state;
+        var progress = data.progress += 25;
+          console.log("moveProgressBar " + progress);
+          var getPercent = (progress / 100);
+          var getProgressWrapWidth = $('.progress-wrap').width();
+          var progressTotal = getPercent * getProgressWrapWidth;
+          var animationLength = 500;
+          // on page load, animate percentage bar to data percentage length
+          // .stop() used to prevent animation queueing
+          $('.progress-bar').stop().animate({
+              left: progressTotal
+          }, animationLength);
+      },
+      //  step nav functions
+      next: function() {
+          var data = this.$store.state;
+          let progress = data.progress += 25;
 
-            let prefix = 'step_';
-            let current_step = data.current_step;
+          let prefix = 'step_';
+          let current_step = data.current_step;
 
-            var index = data.steps.indexOf(current_step);
-            if (index < data.steps.length) {
-                var next_step = data.steps[index + 1];
+          var index = data.steps.indexOf(current_step);
+          if (index < data.steps.length) {
+              var next_step = data.steps[index + 1];
 
-                data[prefix + next_step].show = true;
-                data[prefix + current_step].show = false;
+              data[prefix + next_step].show = true;
+              data[prefix + current_step].show = false;
 
-                data.current_step = next_step;
-            }
-            window.scrollTo(0, 0)
+              data.current_step = next_step;
+          }
 
-            if(history.pushState) {
-              history.pushState(null, null, '#' + next_step);
-            }
-            else {
-              location.hash = '#' + next_step;
-            }
+          window.scrollTo(0, 0)
+
+          // PROGRESS BAR FUNCTIONALITY
+          console.log(progress);
+          var getPercent = (progress / 100);
+          var getProgressWrapWidth = $('.progress-wrap').width();
+          var progressTotal = getPercent * getProgressWrapWidth;
+          var animationLength = 500;
+          // on page load, animate percentage bar to data percentage length
+          // .stop() used to prevent animation queueing
+          $('.progress-bar').stop().animate({
+              left: progressTotal
+          }, animationLength);
 
         },
         back: function() {
             var data = this.$store.state;
+            let progress = data.progress -= 25;
 
             let prefix = 'step_';
             let current_step = data.current_step;
@@ -42,6 +69,19 @@ export default {
                 data.current_step = back_step;
             }
             window.scrollTo(0, 0)
+
+            // PROGRESS BAR FUNCTIONALITY
+            console.log(progress);
+            var getPercent = (progress / 100);
+            var getProgressWrapWidth = $('.progress-wrap').width();
+            var progressTotal = getPercent * getProgressWrapWidth;
+            var animationLength = 500;
+            // on page load, animate percentage bar to data percentage length
+            // .stop() used to prevent animation queueing
+            $('.progress-bar').stop().animate({
+                left: progressTotal
+            }, animationLength);
+
         },
     }
 }

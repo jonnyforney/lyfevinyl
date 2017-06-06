@@ -79,7 +79,9 @@
             'back-submit-btns': StepSubmitButtons
         },
         data: function() {
-            return {}
+            return {
+              progress: this.$store.state.progress,
+            }
         },
         computed: {
             current_step() {
@@ -98,8 +100,5 @@
         methods: {
 
         },
-        ready() {
-            console.log('loaded')
-        }
     };
 </script>

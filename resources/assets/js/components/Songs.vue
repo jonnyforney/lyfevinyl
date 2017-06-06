@@ -2,7 +2,7 @@
   <section v-if="current_step.show">
     <headline :heading="name" :subhead="current_step.subhead"></headline>
     <div class="row song-upload margin-top-30">
-        <div class="col-md-2"></div>
+        <div class="col-md-2">{{ progress }}</div>
         <div class="col-md-4" v-for="side in sides">
           <p class="lvds-headline--tertiary">Side {{side.side}}</p>
           <div v-for="(song, index) in side.songs">
@@ -46,8 +46,10 @@
             'headline': Headline,
             'back-next-btns': StepControlButtons
         },
-        data: function() {
-            return {}
+        data: function () {
+          return {
+            progress: this.$store.state.progress
+          }
         },
         computed: {
             current_step() {
@@ -84,8 +86,5 @@
                 this.$store.commit('setSong', this.sides);
             },
         },
-        ready() {
-            console.log('loaded')
-        }
     };
 </script>
