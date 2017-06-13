@@ -16,8 +16,8 @@ class VinylContents extends Migration
       Schema::create('vinyl_contents', function (Blueprint $table) {
         $table->increments('id')->unsigned();
         $table->integer('vinyl_id')->nullable()->unsigned();
-        $table->char('customer_id',10);
-        $table->char('order_id',9);
+        $table->string('customer_id',10);
+        $table->string('order_id',9);
         $table->integer('sort_order')->nullable();
         $table->text('side')->nullable();
         $table->text('title')->nullable();

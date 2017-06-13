@@ -10692,8 +10692,12 @@ window.Vue = __webpack_require__(11);
 
 //  addons
 window.swal = __webpack_require__(52);
-// require('./classes/control');
-// window.control = new Control();
+
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
 
 
 
@@ -11685,8 +11689,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'covers',
-    props: [],
     mixins: [__WEBPACK_IMPORTED_MODULE_3__mixins_lv_functions_js__["a" /* default */]],
     components: {
         Headline: __WEBPACK_IMPORTED_MODULE_0__Headline___default.a,
@@ -11722,7 +11724,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.$store.commit('setFrontCoverPath', uploaded_file_path);
         },
         remove: function remove(file, error, xhr) {
-            axios.post('/steps/cover/action', {
+            axios.post('/steps/media/action', {
                 method: 'remove',
                 path: this.front_cover_path
             }).then(function (response) {
@@ -44519,7 +44521,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('dropzone', {
     attrs: {
       "id": "frontcoverZone",
-      "url": "/steps/cover/action",
+      "url": "/steps/media/action",
       "headers": _vm.headers,
       "thumbnailHeight": 200,
       "thumbnailWidth": 200

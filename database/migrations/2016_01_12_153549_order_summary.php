@@ -14,9 +14,8 @@ class OrderSummary extends Migration
     public function up()
     {
       Schema::create('order_summary', function (Blueprint $table) {
-        $table->increments('id');
-        $table->char('order_id',9);
-        $table->char('customer_id',10);
+        $table->string('order_id',9)->index();
+        $table->string('customer_id',10);
         $table->string('status')->nullable();
         $table->integer('quantity')->default(1)->unsigned();
         $table->char('vinyl_title',50);

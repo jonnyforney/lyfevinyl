@@ -29,11 +29,13 @@ class CustomerData extends Model
     return $this->hasOne('App\ShipToAddresses','customer_id','customer_id');
   }
 
-  public function vinyls() {
+  public function vinyls() 
+  {
     return $this->hasMany('App\Vinyls','customer_id','customer_id');
   }
 
-  public function user() {
-    return $this->belongsTo('App\User','customer_id','customer_id');
+  public function user() 
+  {
+    return $this->belongsTo('App\User','id','id');
   }
 }
