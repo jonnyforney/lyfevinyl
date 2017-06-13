@@ -31,7 +31,7 @@ class StepsController extends Controller
         
       }
 
-      // return view('steps');
+      return view('steps');
     }
 
     public function action(Request $request)
