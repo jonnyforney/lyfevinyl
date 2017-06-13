@@ -10,7 +10,7 @@
             <div class="col-md-12">
                 <dropzone 
                   id="frontcoverZone" 
-                  url="/steps/cover" 
+                  url="/steps/cover/action" 
                   :headers="headers"
                   :thumbnailHeight="200"
                   :thumbnailWidth="200"
@@ -80,7 +80,7 @@
                 this.$store.commit('setFrontCoverPath', uploaded_file_path);
             },
             remove(file, error, xhr) {
-                axios.post('/steps/cover', {
+                axios.post('/steps/cover/action', {
                         method: 'remove',
                         path: this.front_cover_path
                     })
