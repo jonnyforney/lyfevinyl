@@ -13,14 +13,19 @@
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/profile', 'ProfileController@index')->name('home');
+    Route::get('/settings', 'ProfileController@index')->name('home');
+    Route::get('/logout', function() {
+        Auth::logout();
+    });
 });
+
 
 //  general middleware
 Route::get('/', 'WelcomeController@show');
 Route::get('/app', 'StepsController@show');
-Route::post('/user/create_customer_id', 'UserController@createCustomerId');
+Route::post('/user/action/create_customer_id', 'UserController@createCustomerId');
 
-Route::post('/steps/save', 'StepsController@save');
-Route::post('/steps/cover', 'StepsController@action');
+Route::post('/steps/action/save', 'StepsController@save');
+Route::post('/steps/cover/action', 'StepsController@action');
  
 Auth::routes();
