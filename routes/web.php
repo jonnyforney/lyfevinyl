@@ -19,13 +19,11 @@ Route::group(['middleware' => 'auth'], function() {
     });
 });
 
-
 //  general middleware
 Route::get('/', 'WelcomeController@show');
 Route::get('/app', 'StepsController@show');
-Route::post('/user/action/create_customer_id', 'UserController@createCustomerId');
 
 Route::post('/steps/action/save', 'StepsController@save');
-Route::post('/steps/cover/action', 'StepsController@action');
+Route::post('/steps/media/action', 'StepsController@action');
  
 Auth::routes();
