@@ -26,7 +26,7 @@ class CustomerData extends Model
   */
   public function address()
   {
-    return $this->hasOne('App\ShipToAddresses','customer_id','customer_id');
+    return $this->hasMany('App\ShipToAddresses','customer_id','customer_id');
   }
 
   public function vinyls() 
