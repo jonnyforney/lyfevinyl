@@ -52,4 +52,33 @@ class User extends Authenticatable
  
         return $new_customer_id;
     }
+
+    /**
+    * connects customer to user
+    */
+    public function customer()
+    {
+        return $this->hasOne('App\CustomerData','customer_id','id');
+    }
+    /**
+    * connects addresses to user
+    */
+    public function addresses()
+    {
+        return $this->hasMany('App\ShipToAddresses','customer_id','id');
+    }
+    /**
+    * connects vinyl to user
+    */
+    public function vinyls()
+    {
+        return $this->hasMany('App\Vinyls','customer_id','id');
+    }
+    /**
+    * connects orders to user
+    */
+    public function orders()
+    {
+        return $this->hasMany('App\OrderSummary','customer_id','id');
+    }
 }

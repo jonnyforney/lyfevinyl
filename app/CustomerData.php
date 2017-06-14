@@ -36,6 +36,6 @@ class CustomerData extends Model
 
   public function user() 
   {
-    return $this->belongsTo('App\User','id','id');
+    return $this->belongsTo('App\User','id','customer_id');
   }
 }
