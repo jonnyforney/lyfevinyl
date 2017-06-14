@@ -19,7 +19,6 @@ Route::group(['middleware' => 'auth'], function() {
     });
 });
 
-
 //  general middleware
 Route::get('/', 'WelcomeController@show');
 Route::get('/app', 'StepsController@show');
