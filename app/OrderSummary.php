@@ -18,7 +18,7 @@ class OrderSummary extends Model
   */
   public function customer()
   {
-    return $this->hasOne('App\CustomerData','customer_id','id');
+    return $this->hasOne('App\CustomerData','customer_id','customer_id');
   }
 
   /**
@@ -26,7 +26,7 @@ class OrderSummary extends Model
   */
   public function user()
   {
-    return $this->hasOne('App\User','id','id');
+    return $this->hasOne('App\User','id','customer_id');
   }
 
   /**
