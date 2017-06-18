@@ -15,7 +15,7 @@ class ShipToAddresses extends Migration
     {
       Schema::create('ship_to_addresses', function (Blueprint $table) {
         $table->increments('id');
-        $table->char('customer_id',10);
+        $table->string('customer_id',10);
         $table->string('street1',50)->nullable();
         $table->string('street2',50)->nullable();
         $table->string('city',50)->nullable();

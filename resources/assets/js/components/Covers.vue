@@ -10,7 +10,7 @@
             <div class="col-md-12">
                 <dropzone 
                   id="frontcoverZone" 
-                  url="/steps/cover" 
+                  url="/steps/media/action" 
                   :headers="headers"
                   :thumbnailHeight="200"
                   :thumbnailWidth="200"
@@ -43,8 +43,6 @@
     import lv_functions from '../mixins/lv-functions.js';
 
     export default {
-        name: 'covers',
-        props: [],
         mixins: [lv_functions],
         components: {
             Headline,
@@ -80,7 +78,7 @@
                 this.$store.commit('setFrontCoverPath', uploaded_file_path);
             },
             remove(file, error, xhr) {
-                axios.post('/steps/cover', {
+                axios.post('/steps/media/action', {
                         method: 'remove',
                         path: this.front_cover_path
                     })
