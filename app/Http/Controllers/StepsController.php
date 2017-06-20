@@ -18,19 +18,6 @@ class StepsController extends Controller
      */
     public function show()
     {
-      if (Auth::check())
-      {
-        //  create order id / retrieve order id
-        // $results = (object) DB::select('select * from reserve_next_order_id(:user)', ['user' => Auth::id() || 1])[0];
-        // $order_id = $results->reserve_next_order_id;
-
-        $user = Auth::user();
-
-
-        dd($user);
-        
-      }
-
       return view('steps');
     }
 
@@ -42,30 +29,4 @@ class StepsController extends Controller
 
       return ['path' => $path];
     }
-
-    public function save(Request $request)
-    {
-        $type = $request->input('type') ?? '';
-        $title = $request->input('title') ?? '';
-        
-        $data = [
-            'title' => $title
-        ];
-
-        //  save to session if set
-        if ($type == 'session')
-        {
-            session(['vinyl' => $data]);
-        }
-
-        if (Auth::check())
-        {
-            //  save to the db
-
-        }
-        
-        dd($data);
-        // echo json_encode(session()->all());
-    }
-
 }
