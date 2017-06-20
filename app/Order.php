@@ -8,7 +8,8 @@ class Order extends Model
 {
     protected $table = 'orders';
     protected $keyType = 'string';
-
+    public $incrementing = false;
+    
     public static function createOrderId()
     {
         $year = date("y");

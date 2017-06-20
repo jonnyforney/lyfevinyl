@@ -4,10 +4,15 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Http\Request;
 
 class User extends Authenticatable
 {
     use Notifiable;
+
+    protected $table = 'users';
+    protected $keyType = 'string';
+    public $incrementing = false;
 
     /**
      * The attributes that are mass assignable.
@@ -26,6 +31,19 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public static function createNewOrder(Request $request)
+    {
+        $order = new Order;
+
+        $order->id = Order::createOrderId();
+        $order->customer_id = $request->user()->id ?? 'guest';
+        $order->title = $request->input('title');        
+
+        $order->save();        
+
+        return $order;
+    }
 
     public static function createCustomerID($type)
     {
@@ -51,5 +69,10 @@ class User extends Authenticatable
         session(['customer_id' => $new_customer_id]);
  
         return $new_customer_id;
+    }
+
+    public function orders()
+    {
+        return $this->hasMany('App\Order', 'customer_id', 'id');
     }
 }

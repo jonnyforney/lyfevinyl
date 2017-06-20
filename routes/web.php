@@ -24,5 +24,6 @@ Route::get('/', 'WelcomeController@show');
 Route::get('/app', 'StepsController@show');
 
 Route::post('/create/order', 'OrderController@create');
+Route::post('/add/order', 'UserController@addOrder');
  
 Auth::routes();
