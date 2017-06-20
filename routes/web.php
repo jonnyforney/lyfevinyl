@@ -23,7 +23,6 @@ Route::group(['middleware' => 'auth'], function() {
 Route::get('/', 'WelcomeController@show');
 Route::get('/app', 'StepsController@show');
 
-Route::post('/steps/action/save', 'StepsController@save');
-Route::post('/steps/media/action', 'StepsController@action');
+Route::post('/create/order', 'OrderController@create');
  
 Auth::routes();
