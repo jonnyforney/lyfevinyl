@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Order extends Model
 {
@@ -46,4 +47,18 @@ class Order extends Model
         
         return $id;    
     }
+
+    public static function createNewOrder(Request $request)
+    {
+        $order = new Order;
+        
+        $order->id = self::createOrderId();
+        $order->customer_id = $request->user()->id ?? 'guest';
+        $order->title = $request->input('title');        
+
+        $order->save();        
+
+        return $order;
+    }
+
 }

@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Http\Request;
 
 class User extends Authenticatable
 {
@@ -31,19 +30,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    public static function createNewOrder(Request $request)
-    {
-        $order = new Order;
-
-        $order->id = Order::createOrderId();
-        $order->customer_id = $request->user()->id ?? 'guest';
-        $order->title = $request->input('title');        
-
-        $order->save();        
-
-        return $order;
-    }
 
     public static function createCustomerID($type)
     {
