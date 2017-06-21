@@ -18,6 +18,7 @@ class CustomerIDTest extends TestCase
         $id = User::createCustomerId();
 
         $this->assertEquals('1700000000', $id);
+        $this->assertEquals('1700000000', session('customer_id'));
         $this->assertEquals(1, count(CustomerData::all()));
     }
 
@@ -28,7 +29,8 @@ class CustomerIDTest extends TestCase
 
         $id = User::createCustomerId();
 
-        $this->assertEquals('1700009875', $id);        
+        $this->assertEquals('1700009875', $id);
+        $this->assertEquals('1700009875', session('customer_id'));       
     }
 
     /** @test */
@@ -39,5 +41,6 @@ class CustomerIDTest extends TestCase
         $id = User::createCustomerId();
 
         $this->assertEquals('1700000000', $id);
+        $this->assertEquals('1700000000', session('customer_id'));       
     }    
 }
