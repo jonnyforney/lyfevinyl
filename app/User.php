@@ -62,7 +62,7 @@ class User extends Authenticatable
         $customer->save();
 
         //  store id in session
-        // session(['customer_id' => $new_customer_id]);
+        session(['customer_id' => $new_customer_id]);
  
         return $new_customer_id;
     }
