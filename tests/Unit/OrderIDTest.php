@@ -38,20 +38,5 @@ class OrderIDTest extends TestCase
         $id = Order::createOrderId();
 
         $this->assertEquals('17AA00000', $id);
-    }
-
-    /** @test */
-    public function a_user_can_create_an_order_id_via_an_api()
-    {
-        $user = factory(User::class)->make(['id' => '1700000000']);
-
-        $response = $this->json('POST', '/create/order');
-
-        $response
-            ->assertStatus(200)
-            ->assertJson([
-                'created' => true,
-                'order_id' => '17AA00000'
-            ]);
-    }
+    }    
 }
