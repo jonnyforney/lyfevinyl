@@ -26,7 +26,6 @@ class Order extends Model
         if(isset($last_id_year) && $last_id_year != $year)
             $year_change = true;
         
-
         $letters = (substr($last_order_id, 2, 2) && !$year_change) ? substr($last_order_id, 2, 2) : 'AA';
         $number = (substr($last_order_id, -5) && !$year_change) ? substr($last_order_id, -5) : '0';
         
