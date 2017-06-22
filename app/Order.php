@@ -11,6 +11,19 @@ class Order extends Model
     protected $keyType = 'string';
     public $incrementing = false;
     
+    public function store($object)
+    {
+        $changed = false;
+
+        foreach($object as $key => $value) {            
+            $this->$key = $value;
+            $changed = true;
+        }
+
+        if($changed)
+            $this->save();
+    }
+
     public static function createOrderId()
     {
         $year = date("y");
@@ -58,6 +71,11 @@ class Order extends Model
         $order->save();        
 
         return $order;
+    }
+
+    public function songs()
+    {
+        return $this->hasMany('App\Song', 'order_id', 'id');
     }
 
 }
