@@ -14,4 +14,14 @@ class OrderController extends Controller
 
         return $id;
     }
+
+    public function load(Request $request)
+    {
+        $order = Order::where('id', $request['order_id'])->first();
+
+        if(empty($order))
+            $order = session('order');        
+
+        return $order;
+    }
 }

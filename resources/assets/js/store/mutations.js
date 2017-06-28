@@ -7,5 +7,8 @@ module.exports = {
     },
     setFrontCoverPath(state, path) {
         state.front_cover_path = path;
+    },
+    setCurrentOrderId(state, id) {
+        state.order_id = id;
     }
 }

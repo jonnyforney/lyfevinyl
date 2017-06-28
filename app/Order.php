@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
@@ -55,18 +56,16 @@ class Order extends Model
         //  construct new id
         $id = $year . $letters . str_pad($number, 5, '0', STR_PAD_LEFT);
 
-        // dd(array($year_change,$last_id_year,$last_order,$id));
-        
-        return $id;    
+        return $id;
     }
 
-    public static function createNewOrder(Request $request)
+    public static function createNewOrder($data)
     {
-        $order = new Order;
+        $order = new self;
         
         $order->id = self::createOrderId();
-        $order->customer_id = $request->user()->id ?? 'guest';
-        $order->title = $request->input('title');        
+        $order->customer_id = Auth::user()->id ?? 'guest';
+        $order->title = $data->title;        
 
         $order->save();        
 
