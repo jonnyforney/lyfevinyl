@@ -19,7 +19,7 @@ class OrderTest extends TestCase
         $user = factory(User::class)->create(['id' => '1700000008']);
 
         $this->actingAs($user)
-            ->post('/add/order', ['title' => 'My Vinyl'])
+            ->post('/order/add', ['title' => 'My Vinyl'])
             ->assertStatus(200)
             ->assertJson([
                 'id' => '17AA00000'
@@ -32,7 +32,7 @@ class OrderTest extends TestCase
     /** @test */
     public function a_guest_can_create_an_order()
     {
-        $this->post('/add/order', ['title' => 'My Guest Vinyl'])
+        $this->post('/order/add', ['title' => 'My Guest Vinyl'])
             ->assertStatus(200)
             ->assertJson([
                 'id' => '17AA00000',
