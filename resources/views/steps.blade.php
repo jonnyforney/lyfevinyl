@@ -9,6 +9,7 @@
     <div id="steps" v-cloak>
       <steps
         customer_id="{{ session('customer_id') }}"
+        order="{{ session('order')['id'] }}"
         is_logged_in="{{ Auth::check() }}"
       ></steps>
     </div>
