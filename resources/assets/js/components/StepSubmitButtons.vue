@@ -29,15 +29,18 @@
             },
             vinyl() {
                 return {
-                    title: this.title,
-                    frontcover: this.frontcover
+                    step: this.$store.state.current_step,
+                    data: {
+                        title: this.title,
+                        frontcover: this.frontcover
+                    }
                 };
             }
         },
         methods: {
             //  alerts
             alertDone: function(event) {
-                axios.post('/steps/save', this.vinyl)
+                axios.post('/order/save', this.vinyl)
                     .then((response) => {
                         console.log(response.data);
 
