@@ -51,7 +51,9 @@ export default {
                 'step': current_step,
                 'data': {
                     'order_id': data.order_id,
-                    'title': data.name
+                    'title': data.name,
+                    'front_cover_path': data.front_cover_path,
+                    'songs': data.sides
                 }
             }
 

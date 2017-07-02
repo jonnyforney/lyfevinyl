@@ -21,6 +21,8 @@ export default new Vuex.Store({
                 "side": "a",
                 "songs": [{
                         "file": "",
+                        "side": "",
+                        "track": "",
                         "picked": false
                     },
                     {
