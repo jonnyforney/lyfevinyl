@@ -1,0 +1,37 @@
+.vue-dropzone {
+  height: 200px;
+  width: 200px;
+  border: 2px solid $blue-light !important;
+  font-family: $source_sans !important;
+  color: $blue-light !important;
+  border-radius: 5px;
+  padding: 0 !important;
+
+  &:hover {
+    background-color: $blue-light !important;
+    color: $white !important;
+
+    i {
+      color: $white !important;
+    }
+
+  }
+
+  i {
+    color: $blue-light !important;
+  }
+
+  .dz-message {
+    padding: 20px;
+    margin: 2.3em 0 2em !important;
+  }
+
+  .dz-preview {
+    margin: -2px !important;
+  }
+
+  .dz-image {
+    border-radius: 5px !important;
+  }
+
+}
