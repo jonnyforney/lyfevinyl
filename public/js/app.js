@@ -452,6 +452,8 @@ module.exports = function normalizeComponent (
         },
         //  step nav functions
         next: function next() {
+            var _this = this;
+
             var data = this.$store.state;
             var progress = data.progress += 25;
 
@@ -481,6 +483,24 @@ module.exports = function normalizeComponent (
             $('.progress-bar').stop().animate({
                 left: progressTotal
             }, animationLength);
+
+            //  save data if logged in
+            var obj = {
+                'step': current_step,
+                'data': {
+                    'order_id': data.order_id,
+                    'title': data.name,
+                    'front_cover_path': data.front_cover_path,
+                    'songs': data.sides
+                }
+            };
+
+            axios.post('/order/save', obj).then(function (response) {
+                console.log(response.data);
+                _this.$store.commit('setCurrentOrderId', response.data.order_id);
+            }).catch(function (error) {
+                console.log(error);
+            });
         },
         back: function back() {
             var data = this.$store.state;
@@ -12177,15 +12197,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         vinyl: function vinyl() {
             return {
-                title: this.title,
-                frontcover: this.frontcover
+                step: this.$store.state.current_step,
+                data: {
+                    title: this.title,
+                    frontcover: this.frontcover
+                }
             };
         }
     },
     methods: {
         //  alerts
         alertDone: function alertDone(event) {
-            axios.post('/steps/save', this.vinyl).then(function (response) {
+            axios.post('/order/save', this.vinyl).then(function (response) {
                 console.log(response.data);
 
                 swal({
@@ -12235,7 +12258,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['customer_id', 'is_logged_in'],
+    props: ['customer_id', 'order', 'is_logged_in'],
     data: function data() {
         return {
             data: {}
@@ -12248,8 +12271,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         'preview': __WEBPACK_IMPORTED_MODULE_3__Preview_vue___default.a
     },
     methods: {},
-    ready: function ready() {
+    mounted: function mounted() {
         this.$store.state.customer_id = this.customer_id;
+
+        if (this.order) {
+            var self = this;
+            swal({
+                title: 'Previous Order Found',
+                text: "Would you like to load in the order?",
+                type: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, load it!',
+                cancelButtonText: 'No, start fresh',
+                confirmButtonClass: 'btn btn-success',
+                cancelButtonClass: 'btn btn-danger',
+                buttonsStyling: false
+            }).then(function () {
+                //  load in order
+                axios.post('/order/load', {
+                    'order_id': self.order
+                }).then(function (response) {
+                    console.log(response.data);
+                    self.$store.commit('setName', response.data.title);
+                }).catch(function (error) {
+                    console.error(error);
+                });
+            }, function (dismiss) {
+                //  start fresh
+            });
+        }
     }
 });
 
@@ -12354,6 +12406,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
     modules: {},
     state: {
         "current_customer_id": null,
+        "order_id": null,
         "name": "",
         "frontcover": "",
         "front_cover_path": "",
@@ -12361,6 +12414,8 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
             "side": "a",
             "songs": [{
                 "file": "",
+                "side": "",
+                "track": "",
                 "picked": false
             }, {
                 "file": "",
@@ -12434,6 +12489,9 @@ module.exports = {
     },
     setFrontCoverPath: function setFrontCoverPath(state, path) {
         state.front_cover_path = path;
+    },
+    setCurrentOrderId: function setCurrentOrderId(state, id) {
+        state.order_id = id;
     }
 };
 

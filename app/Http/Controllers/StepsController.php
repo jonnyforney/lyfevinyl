@@ -3,11 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
-use DB;
-use Storage;
 use Illuminate\Http\Request;
-use App\User;
-use App\MediaLibrary;
 
 class StepsController extends Controller
 {
@@ -18,20 +14,22 @@ class StepsController extends Controller
      */
     public function show()
     {
-      if (Auth::check())
-      {
-        //  create order id / retrieve order id
-        // $results = (object) DB::select('select * from reserve_next_order_id(:user)', ['user' => Auth::id() || 1])[0];
-        // $order_id = $results->reserve_next_order_id;
+      return view('steps', ['order' => session('order')]);
+    }
 
-        $user = Auth::user();
+    public function save(Request $request)
+    {
+      $step = ucwords(camel_case($request['step']));
 
+      $class_name = 'App\\Classes\\'.$step;
+      $step_class = new $class_name;
 
-        dd($user);
-        
+      // store to db if logged in, otherwise save in session
+      if(Auth::check()) {
+        return $step_class->store((object)$request['data']);
       }
 
-      return view('steps');
+      return $step_class->save((object)$request['data']);
     }
 
     public function action(Request $request)
@@ -42,30 +40,4 @@ class StepsController extends Controller
 
       return ['path' => $path];
     }
-
-    public function save(Request $request)
-    {
-        $type = $request->input('type') ?? '';
-        $title = $request->input('title') ?? '';
-        
-        $data = [
-            'title' => $title
-        ];
-
-        //  save to session if set
-        if ($type == 'session')
-        {
-            session(['vinyl' => $data]);
-        }
-
-        if (Auth::check())
-        {
-            //  save to the db
-
-        }
-        
-        dd($data);
-        // echo json_encode(session()->all());
-    }
-
 }

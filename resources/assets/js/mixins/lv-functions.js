@@ -46,6 +46,25 @@ export default {
                 left: progressTotal
             }, animationLength);
 
+            //  save data if logged in
+            let obj = {
+                'step': current_step,
+                'data': {
+                    'order_id': data.order_id,
+                    'title': data.name,
+                    'front_cover_path': data.front_cover_path,
+                    'songs': data.sides
+                }
+            }
+
+            axios.post('/order/save', obj)
+                .then((response) => {
+                    console.log(response.data);
+                    this.$store.commit('setCurrentOrderId', response.data.order_id);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
         },
         back: function() {
             var data = this.$store.state;
