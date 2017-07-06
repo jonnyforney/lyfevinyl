@@ -1,5 +1,5 @@
 <template>
-  <section v-if="current_step.show">
+  <section v-if="current_step.show" key="preview">
     <headline :heading="current_step.headline" :subhead="current_step.subhead"></headline>
     <div class="row">
       <div class="col-md-8 col-center">
