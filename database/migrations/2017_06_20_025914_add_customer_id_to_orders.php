@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrderIdReservations extends Migration
+class AddCustomerIdToOrders extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateOrderIdReservations extends Migration
      */
     public function up()
     {
-      Schema::create('order_id_reservations', function (Blueprint $table) {
-        $table->char('order_id',9);
-        $table->char('reserved_by',10);
-        $table->timestamps();
-      });
+        Schema::table('orders', function (Blueprint $table) {
+            //
+            $table->string('customer_id',10)->nullable();
+        });
     }
 
     /**
@@ -27,6 +26,8 @@ class CreateOrderIdReservations extends Migration
      */
     public function down()
     {
-      Schema::drop('order_id_reservations');
+        Schema::table('orders', function (Blueprint $table) {
+            //
+        });
     }
 }

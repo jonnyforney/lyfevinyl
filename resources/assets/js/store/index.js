@@ -13,6 +13,7 @@ export default new Vuex.Store({
     modules: {},
     state: {
         "current_customer_id": null,
+        "order_id": null,
         "name": "",
         "frontcover": "",
         "front_cover_path": "",
@@ -20,6 +21,8 @@ export default new Vuex.Store({
                 "side": "a",
                 "songs": [{
                         "file": "",
+                        "side": "",
+                        "track": "",
                         "picked": false
                     },
                     {
