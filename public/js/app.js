@@ -12394,6 +12394,8 @@ if (token) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__getters__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mutations__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mutations___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__mutations__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modules_display__ = __webpack_require__(84);
+
 
 
 
@@ -12406,7 +12408,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
     actions: __WEBPACK_IMPORTED_MODULE_2__actions__["a" /* default */],
     getters: __WEBPACK_IMPORTED_MODULE_3__getters__["a" /* default */],
     mutations: __WEBPACK_IMPORTED_MODULE_4__mutations___default.a,
-    modules: {},
+    modules: {
+        display: __WEBPACK_IMPORTED_MODULE_5__modules_display__["a" /* default */]
+    },
     state: {
         "customer_id": null,
         "order_id": null,
@@ -45771,6 +45775,78 @@ module.exports = function(module) {
 __webpack_require__(13);
 module.exports = __webpack_require__(14);
 
+
+/***/ }),
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */,
+/* 83 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = ({});
+
+/***/ }),
+/* 84 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions_display_actions_js__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getters_display_getters_js__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mutations_display_mutations_js__ = __webpack_require__(86);
+
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    actions: __WEBPACK_IMPORTED_MODULE_0__actions_display_actions_js__["a" /* default */],
+    getters: __WEBPACK_IMPORTED_MODULE_1__getters_display_getters_js__["a" /* default */],
+    mutations: __WEBPACK_IMPORTED_MODULE_2__mutations_display_mutations_js__["a" /* default */],
+    state: {
+        "steps": ["album_name", "songs", "covers", "preview"],
+        "current_step": "album_name",
+        "progress": 0,
+        "step_album_name": {
+            "headline": "Let's get started!",
+            "subhead": "What's the best way to start personalizing your vinyl? Giving it a title, of course! You can choose to have this name on the front of your album cover.",
+            "show": true
+        },
+        "step_songs": {
+            "headline": "",
+            "subhead": "Let's upload the songs now. <br>Make sure you own the music and it must be in .mp3 format.",
+            "show": false
+        },
+        "step_covers": {
+            "headline": "",
+            "subhead": "This is going to be a wonderful record. <br>Let's add some images for the album art now.",
+            "show": false
+        },
+        "step_preview": {
+            "headline": "Let's preview your vinyl.",
+            "subhead": "Double check that everything is looking swell. Feel free to go back and change anything before moving forward.",
+            "show": false
+        }
+    }
+});
+
+/***/ }),
+/* 85 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = ({});
+
+/***/ }),
+/* 86 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = ({});
 
 /***/ })
 /******/ ]);
