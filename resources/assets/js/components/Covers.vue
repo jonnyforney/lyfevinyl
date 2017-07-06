@@ -8,9 +8,9 @@
           <p class="lvds-headline--tertiary">Front Cover</p>
           <div class="row margin-bottom-30">
             <div class="col-md-12">
-                <dropzone 
-                  id="frontcoverZone" 
-                  url="/steps/media/action" 
+                <dropzone
+                  id="frontcoverZone"
+                  url="/steps/media/action"
                   :headers="headers"
                   :thumbnailHeight="200"
                   :thumbnailWidth="200"
@@ -41,7 +41,6 @@
     import Dropzone from 'vue2-dropzone';
     import StepControlButtons from './StepControlButtons';
     import lv_functions from '../mixins/lv-functions.js';
-
     export default {
         mixins: [lv_functions],
         components: {
@@ -54,7 +53,7 @@
                 progress: this.$store.state.progress,
                 image: '',
                 headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             }
         },

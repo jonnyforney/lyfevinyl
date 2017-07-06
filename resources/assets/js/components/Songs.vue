@@ -1,5 +1,5 @@
 <template>
-  <section v-if="current_step.show">
+  <section v-if="current_step.show" key="songs">
     <headline :heading="name" :subhead="current_step.subhead"></headline>
     <div class="row song-upload margin-top-30">
         <div class="col-md-2"></div>
