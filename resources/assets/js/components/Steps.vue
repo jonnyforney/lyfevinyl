@@ -36,10 +36,11 @@
 
         },
         mounted: function() {
-            this.$store.state.customer_id = this.customer_id;
+            this.$store.commit('setCustomerId', this.customer_id);
 
             if (this.order) {
                 let self = this;
+
                 swal({
                     title: 'Previous Order Found',
                     text: "Would you like to load in the order?",
@@ -59,6 +60,7 @@
                         })
                         .then((response) => {
                             console.log(response.data);
+                            self.$store.commit('setOrderId', self.order);
                             self.$store.commit('setName', response.data.title);
                         })
                         .catch((error) => {

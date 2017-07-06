@@ -25,14 +25,14 @@
                 return this.$store.state.name;
             },
             frontcover() {
-                return this.$store.state.frontcover;
+                return this.$store.state.front_cover_path;
             },
             vinyl() {
                 return {
                     step: this.$store.state.current_step,
                     data: {
                         title: this.title,
-                        frontcover: this.frontcover
+                        frontcover: this.front_cover_path
                     }
                 };
             }
