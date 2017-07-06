@@ -25,6 +25,8 @@ Route::get('/app', 'StepsController@show');
 
 Route::post('/order/load', 'OrderController@load');
 Route::post('/order/add', 'OrderController@add');
-Route::post('/order/save', 'StepsController@save');
+Route::post('/order/save', 'orderController@save');
+
+Route::post('/file/action', 'FileController@action');
  
 Auth::routes();

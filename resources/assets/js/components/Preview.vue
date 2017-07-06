@@ -25,8 +25,8 @@
           <div class="col-md-12">
             <div class="row">
               <div class="col-md-6">
-                <img v-if="!frontcover" class="cover-image" src="http://placehold.it/200x200">
-                <img v-if="frontcover" class="cover-image" :src="frontcover">
+                <img v-if="!front_cover_path" class="cover-image" src="http://placehold.it/200x200">
+                <img v-if="front_cover_path" class="cover-image" :src="front_cover_path">
               </div>
               <div class="col-md-6">
                 <img src="http://placehold.it/200x200">
@@ -80,7 +80,7 @@
         },
         data: function() {
             return {
-              progress: this.$store.state.progress,
+                progress: this.$store.state.progress,
             }
         },
         computed: {
