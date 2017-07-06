@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 import actions from './actions'
 import getters from './getters'
 import mutations from './mutations'
+import display from './modules/display'
 
 Vue.use(Vuex);
 
@@ -10,7 +11,9 @@ export default new Vuex.Store({
     actions,
     getters,
     mutations,
-    modules: {},
+    modules: {
+        display
+    },
     state: {
         "customer_id": null,
         "order_id": null,
