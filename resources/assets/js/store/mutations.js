@@ -1,4 +1,10 @@
 module.exports = {
+    setCustomerId(state, id) {
+        state.customer_id = id;
+    },
+    setOrderId(state, id) {
+        state.order_id = id;
+    },
     setName(state, name) {
         state.name = name;
     },
@@ -7,8 +13,5 @@ module.exports = {
     },
     setFrontCoverPath(state, path) {
         state.front_cover_path = path;
-    },
-    setCurrentOrderId(state, id) {
-        state.order_id = id;
     }
 }

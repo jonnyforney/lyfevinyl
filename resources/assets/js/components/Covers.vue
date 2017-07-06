@@ -10,7 +10,7 @@
             <div class="col-md-12">
                 <dropzone
                   id="frontcoverZone"
-                  url="/steps/media/action"
+                  url="/file/action"
                   :headers="headers"
                   :thumbnailHeight="200"
                   :thumbnailWidth="200"
@@ -51,9 +51,8 @@
         data: function() {
             return {
                 progress: this.$store.state.progress,
-                image: '',
                 headers: {
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             }
         },
@@ -77,7 +76,7 @@
                 this.$store.commit('setFrontCoverPath', uploaded_file_path);
             },
             remove(file, error, xhr) {
-                axios.post('/steps/media/action', {
+                axios.post('/file/action', {
                         method: 'remove',
                         path: this.front_cover_path
                     })

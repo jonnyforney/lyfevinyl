@@ -59,8 +59,10 @@ export default {
 
             axios.post('/order/save', obj)
                 .then((response) => {
-                    console.log(response.data);
-                    this.$store.commit('setCurrentOrderId', response.data.order_id);
+                    if (response.data) {
+                        console.log(response.data);
+                        this.$store.commit('setOrderId', response.data.order_id);
+                    }
                 })
                 .catch((error) => {
                     console.log(error);
