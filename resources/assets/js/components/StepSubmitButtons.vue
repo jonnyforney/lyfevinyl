@@ -17,19 +17,19 @@
 
     export default {
         mixins: [lv_functions],
-        data: function() {
+        data: () => {
             return {};
         },
         computed: {
             title() {
-                return this.$store.state.name;
+                return this.$store.state.order.name;
             },
             frontcover() {
-                return this.$store.state.front_cover_path;
+                return this.$store.state.order.front_cover_path;
             },
             vinyl() {
                 return {
-                    step: this.$store.state.current_step,
+                    step: this.$store.state.display.current_step,
                     data: {
                         title: this.title,
                         frontcover: this.front_cover_path

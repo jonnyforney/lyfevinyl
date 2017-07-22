@@ -46,20 +46,21 @@
             'headline': Headline,
             'back-next-btns': StepControlButtons
         },
-        data: function () {
-          return {
-            progress: this.$store.state.progress
-          }
+        data: () => {
+            return {}
         },
         computed: {
+            progress() {
+                return this.$store.state.display.progress;
+            },
             current_step() {
-                return this.$store.state.step_songs;
+                return this.$store.state.display.step_songs;
             },
             name() {
-                return this.$store.state.name;
+                return this.$store.state.order.name;
             },
             sides() {
-                return this.$store.state.sides;
+                return this.$store.state.order.sides;
             }
         },
         methods: {
