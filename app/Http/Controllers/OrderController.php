@@ -35,7 +35,8 @@ class OrderController extends Controller
 
       // store to db if logged in, otherwise save in session
       if(Auth::check()) {
-        return $step_class->store((object)$request['data']);
+        // return $step_class->store((object)$request['data']);
+        $step_class->store((object)$request['data']);
       }
 
       return $step_class->save((object)$request['data']);
