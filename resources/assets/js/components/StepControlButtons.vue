@@ -17,11 +17,8 @@
 
     export default {
         mixins: [lv_functions],
-        data: function() {
+        data: () => {
             return {}
-        },
-        methods: {
-
-        },
+        }
     };
 </script>

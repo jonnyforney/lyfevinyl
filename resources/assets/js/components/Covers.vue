@@ -48,23 +48,25 @@
             'stepcontrolbuttons': StepControlButtons,
             Dropzone
         },
-        data: function() {
+        data: () => {
             return {
-                progress: this.$store.state.progress,
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             }
         },
         computed: {
+            progress() {
+                return this.$store.state.display.progress;
+            },
             current_step() {
-                return this.$store.state.step_covers;
+                return this.$store.state.display.step_covers;
             },
             name() {
-                return this.$store.state.name;
+                return this.$store.state.order.name;
             },
             front_cover_path() {
-                return this.$store.state.front_cover_path;
+                return this.$store.state.order.front_cover_path;
             }
         },
         methods: {

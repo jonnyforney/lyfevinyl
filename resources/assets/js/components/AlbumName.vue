@@ -46,18 +46,19 @@
             'headline': Headline,
             // Circle,
         },
-        data: function () {
-          return {
-            progress: this.$store.state.progress
-          }
+        data: () => {
+            return {}
         },
         computed: {
+            progress() {
+                return this.$store.state.display.progress;
+            },
             current_step() {
-                return this.$store.state.step_album_name;
+                return this.$store.state.display.step_album_name;
             },
             name: {
                 get() {
-                    return this.$store.state.name;
+                    return this.$store.state.order.name;
                 },
                 set(name) {
                     this.$store.commit('setName', name);
@@ -68,7 +69,7 @@
 
         },
         mounted() {
-          this.moveProgressBar();
+            this.moveProgressBar();
         }
     };
 </script>
