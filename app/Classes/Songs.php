@@ -13,7 +13,13 @@ class Songs implements Step
 
     public function save($data)
     {
+        $order = collect(session('order'));
 
+        $order->songs = $data->songs;
+
+        session(['order' => $order]);
+
+        return ['order_id' => $order['id'], 'status' => 'saved into session'];
     }
     
     public function store($data)
