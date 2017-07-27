@@ -67,7 +67,7 @@ class Order extends Model
         $order->customer_id = Auth::user()->id ?? 'guest';
         $order->title = $data->title;        
 
-        $order->save();        
+        $order->save();
 
         return $order;
     }

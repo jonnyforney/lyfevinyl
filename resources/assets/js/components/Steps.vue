@@ -62,12 +62,21 @@
                             console.log(response.data);
                             self.$store.commit('setOrderId', self.order);
                             self.$store.commit('setName', response.data.title);
+                            self.$store.commit('setFrontCoverPath', response.data.front_cover_path);
+                            self.$store.commit('setSong', response.data.songs);
                         })
                         .catch((error) => {
                             console.error(error);
                         });
                 }, function(dismiss) {
                     //  start fresh
+                    axios.post('/file/clearSession')
+                        .then((response) => {
+                            console.log('cleared session');
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                        });
                 })
             }
         },
