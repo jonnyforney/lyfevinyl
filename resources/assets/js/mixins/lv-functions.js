@@ -62,7 +62,7 @@ export default {
                 .then((response) => {
                     if (response.data) {
                         console.log(response.data);
-                        this.$store.order.commit('setOrderId', response.data.order_id);
+                        this.$store.commit('setOrderId', response.data.order_id);
                     }
                 })
                 .catch((error) => {

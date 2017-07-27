@@ -3,6 +3,7 @@ import getters from './getters/display-getters.js'
 import mutations from './mutations/display-mutations.js'
 
 export default {
+    // namespaced: true,
     actions,
     getters,
     mutations,

@@ -12,9 +12,9 @@ class Covers implements Step
 
     public function save($data)
     {
-        $order = collect(session('order'));
+        $order = session('order');
 
-        $order->front_cover_path = $data->front_cover_path;
+        $order->put('front_cover_path', $data->front_cover_path);
 
         session(['order' => $order]);
 

@@ -41,4 +41,9 @@ class OrderController extends Controller
 
       return $step_class->save((object)$request['data']);
     }
+
+    public function print()
+    {
+        dd(session()->all());
+    }
 }

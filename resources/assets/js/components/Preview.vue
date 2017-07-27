@@ -91,8 +91,8 @@
             name() {
                 return this.$store.state.order.name;
             },
-            frontcover() {
-                return this.$store.state.order.frontcover;
+            front_cover_path() {
+                return this.$store.state.order.front_cover_path;
             },
             sides() {
                 return this.$store.state.order.sides;
