@@ -13,9 +13,9 @@ class Songs implements Step
 
     public function save($data)
     {
-        $order = collect(session('order'));
+        $order = session('order');
 
-        $order->songs = $data->songs;
+        $order->put('songs', $data->songs);
 
         session(['order' => $order]);
 

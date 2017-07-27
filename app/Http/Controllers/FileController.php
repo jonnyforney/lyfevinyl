@@ -15,4 +15,9 @@ class FileController extends Controller
 
       return ['path' => $path];
     }
+
+    public function clearSession()
+    {
+      session()->forget('order');
+    }
 }

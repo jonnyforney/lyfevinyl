@@ -23,6 +23,10 @@ Route::group(['middleware' => 'auth'], function() {
 Route::get('/', 'WelcomeController@show');
 Route::get('/app', 'StepsController@show');
 
+Route::get('/session', 'OrderController@print');
+
+Route::post('/file/clearSession', 'FileController@clearSession');
+
 Route::post('/order/load', 'OrderController@load');
 Route::post('/order/add', 'OrderController@add');
 Route::post('/order/save', 'orderController@save');
