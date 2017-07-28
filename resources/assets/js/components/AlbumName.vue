@@ -48,7 +48,7 @@
         },
         data: function () {
           return {
-            progress: this.$store.state.progress
+            
           }
         },
         computed: {

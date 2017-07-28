@@ -72,6 +72,8 @@ export default new Vuex.Store({
             "album_name",
             "songs",
             "covers",
+            "shipping",
+            "payment",
             "preview"
         ],
         "current_step": "album_name",
@@ -89,6 +91,16 @@ export default new Vuex.Store({
         "step_covers": {
             "headline": "",
             "subhead": "This is going to be a wonderful record. <br>Let's add some images for the album art now.",
+            "show": false
+        },
+        "step_shipping": {
+            "headline": "",
+            "subhead": "Where should we send this beautiful creation?",
+            "show": false
+        },
+        "step_payment": {
+            "headline": "Dolla dolla bills, y'all.",
+            "subhead": "Show me da money.",
             "show": false
         },
         "step_preview": {

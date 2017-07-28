@@ -10,6 +10,7 @@
             <div class="col-md-12">
                 <dropzone
                   id="frontcoverZone"
+                  class="vue-dropzone--covers"
                   url="/steps/media/action"
                   :headers="headers"
                   :thumbnailHeight="200"
@@ -50,7 +51,6 @@
         },
         data: function() {
             return {
-                progress: this.$store.state.progress,
                 image: '',
                 headers: {
                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

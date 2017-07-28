@@ -4,6 +4,8 @@
         <album-name></album-name>
         <songs></songs>
         <covers></covers>
+        <shipping></shipping>
+        <payment></payment>
         <preview></preview>
     </div>
   </div>
@@ -13,6 +15,8 @@
     import AlbumName from './AlbumName.vue';
     import Songs from './Songs.vue';
     import Covers from './Covers.vue';
+    import Shipping from './Shipping.vue';
+    import Payment from './Payment.vue';
     import Preview from './Preview.vue';
 
     export default {
@@ -22,21 +26,29 @@
             'is_logged_in'
         ],
         data: function() {
-            return {
-                data: {}
-            }
-        },
+           return {
+               data: {
+
+               }
+           }
+       },
         components: {
             'album-name': AlbumName,
             'songs': Songs,
             'covers': Covers,
-            'preview': Preview
+            'shipping': Shipping,
+            'payment': Payment,
+            'preview': Preview,
         },
         methods: {
 
         },
         mounted: function() {
             this.$store.state.customer_id = this.customer_id;
+
+            // setTimeout(() => {
+            //   this.loading = false;
+            // },6000);
 
             if (this.order) {
                 let self = this;
