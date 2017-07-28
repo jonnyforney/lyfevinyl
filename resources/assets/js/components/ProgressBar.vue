@@ -1,7 +1,7 @@
 <template>
-      <div class="progress-wrap progress">
-        <div class="progress-bar progress"></div>
-      </div>
+  <div class="progress-wrap progress">
+    <div class="progress-bar progress"></div>
+  </div>
 </template>
 
 <script>

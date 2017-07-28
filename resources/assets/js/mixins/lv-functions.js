@@ -1,8 +1,13 @@
 export default {
+    data: function () {
+      return {
+        progress: 16.667,
+      }
+    },
     methods: {
         moveProgressBar: function() {
-            var data = this.$store.state;
-            var progress = data.progress += 25;
+            // var data = this.$store.state;
+            var progress = 16.667;
             console.log("moveProgressBar " + progress);
             var getPercent = (progress / 100);
             var getProgressWrapWidth = $('.progress-wrap').width();
@@ -17,8 +22,6 @@ export default {
         //  step nav functions
         next: function() {
             var data = this.$store.state;
-            let progress = data.progress += 25;
-
             let prefix = 'step_';
             let current_step = data.current_step;
 
@@ -35,7 +38,8 @@ export default {
             window.scrollTo(0, 0)
 
             // PROGRESS BAR FUNCTIONALITY
-            console.log(progress);
+            var progress = this.progress += 16.667;
+            console.log('Next ' + progress);
             var getPercent = (progress / 100);
             var getProgressWrapWidth = $('.progress-wrap').width();
             var progressTotal = getPercent * getProgressWrapWidth;
@@ -68,8 +72,6 @@ export default {
         },
         back: function() {
             var data = this.$store.state;
-            let progress = data.progress -= 25;
-
             let prefix = 'step_';
             let current_step = data.current_step;
 
@@ -85,6 +87,7 @@ export default {
             window.scrollTo(0, 0)
 
             // PROGRESS BAR FUNCTIONALITY
+            var progress = data.progress -= 16.667;
             console.log(progress);
             var getPercent = (progress / 100);
             var getProgressWrapWidth = $('.progress-wrap').width();
