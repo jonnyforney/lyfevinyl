@@ -11966,12 +11966,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     computed: {
         current_step: function current_step() {
-            return this.$store.state.step_payment;
+            return this.$store.state.display.step_payment;
         },
 
         name: {
             get: function get() {
-                return this.$store.state.name;
+                return this.$store.state.order.name;
             },
             set: function set(name) {
                 this.$store.commit('setName', name);
@@ -12259,6 +12259,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -12278,12 +12279,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     computed: {
         current_step: function current_step() {
-            return this.$store.state.step_shipping;
+            return this.$store.state.display.step_shipping;
         },
 
         name: {
             get: function get() {
-                return this.$store.state.name;
+                return this.$store.state.order.name;
             },
             set: function set(name) {
                 this.$store.commit('setName', name);
@@ -45268,7 +45269,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "id": "firstName",
       "name": "firstName",
-      "placeholder": "Jane",
+      "placeholder": "John",
       "autofocus": "",
       "required": "true"
     },
@@ -45297,7 +45298,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "id": "lastName",
       "name": "lastName",
-      "placeholder": "Doe",
+      "placeholder": "Watson",
       "required": "true"
     },
     domProps: {
@@ -45384,7 +45385,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "type": "text",
       "id": "city",
-      "name": "city"
+      "name": "city",
+      "placeholder": "London"
     },
     domProps: {
       "value": (_vm.city)
