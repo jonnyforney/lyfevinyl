@@ -24,26 +24,18 @@
             'headline': Headline,
             'back-next-btns': StepControlButtons,
         },
-        data: function () {
-          return {
+        data: function() {
+            return {
 
-          }
+            }
         },
         computed: {
             current_step() {
-<<<<<<< HEAD
-                return this.$store.state.step_payment;
-            },
-            name: {
-                get() {
-                    return this.$store.state.name;
-=======
                 return this.$store.state.display.step_payment;
             },
             name: {
                 get() {
-                    return this.$store.state.order.name;
->>>>>>> origin/master
+                    return this.$store.state.vinyl.name;
                 },
                 set(name) {
                     this.$store.commit('setName', name);

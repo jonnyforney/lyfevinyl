@@ -22,10 +22,10 @@
         },
         computed: {
             title() {
-                return this.$store.state.order.name;
+                return this.$store.state.vinyl.name;
             },
             frontcover() {
-                return this.$store.state.order.front_cover_path;
+                return this.$store.state.vinyl.front_cover_path;
             },
             vinyl() {
                 return {

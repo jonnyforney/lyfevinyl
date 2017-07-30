@@ -1,82 +1,54 @@
 .vue-dropzone--covers {
-  height: 200px;
-  width: 200px;
-  border: 2px solid $darkgray !important;
-  font-family: $source_sans !important;
-  color: $darkgray !important;
-  border-radius: 5px;
-  padding: 0 !important;
-
-  &:hover {
-    background-color: $darkgray !important;
-    color: $white !important;
-
-    i {
-      color: $white !important;
-    }
-
-  }
-
-  i {
+    height: 200px;
+    width: 200px;
+    border: 2px solid $darkgray !important;
+    font-family: $source_sans !important;
     color: $darkgray !important;
-  }
-
-  .dz-message {
-    padding: 20px;
-    margin: 2.3em 0 2em !important;
-  }
-
-  .dz-preview {
-    margin: -2px !important;
-  }
-
-  .dz-image {
-    border-radius: 5px !important;
-  }
-
+    border-radius: 5px;
+    padding: 0 !important;
+    &:hover {
+        background-color: $darkgray !important;
+        color: $white !important;
+        i {
+            color: $white !important;
+        }
+    }
+    i {
+        color: $darkgray !important;
+    }
+    .dz-message {
+        padding: 20px;
+        margin: 2.3em 0 2em !important;
+    }
+    .dz-preview {
+        margin: -2px !important;
+    }
+    .dz-image {
+        border-radius: 5px !important;
+    }
 }
 
 .vue-dropzone--songs {
-  min-height: 50px !important;
-  height: 60px;
-  width: 220px;
-<<<<<<< HEAD
-  border: 2px solid $blue-dark !important;
-  font-family: $source_sans !important;
-  color: $blue-dark !important;
-=======
-  border: 2px solid $darkgray !important;
-  font-family: $source_sans !important;
-  color: $darkgray !important;
->>>>>>> origin/master
-  border-radius: 5px;
-  padding: 13px !important;
-  float: right;
-
-  .dz-message {
-    margin: 2px 0 !important;
-  }
-
-  i {
-<<<<<<< HEAD
-    color: $blue-dark !important;
-  }
-
-  &:hover {
-    background-color: $blue-dark !important;
-=======
+    min-height: 50px !important;
+    height: 60px;
+    width: 220px;
+    border: 2px solid $darkgray !important;
+    font-family: $source_sans !important;
     color: $darkgray !important;
-  }
-
-  &:hover {
-    background-color: $darkgray !important;
->>>>>>> origin/master
-    color: $white !important;
-
-    i {
-      color: $white !important;
+    border-radius: 5px;
+    padding: 13px !important;
+    float: right;
+    .dz-message {
+        margin: 2px 0 !important;
     }
-
-  }
-
+    i {
+        color: $darkgray !important;
+    }
+    &:hover {
+        background-color: $darkgray !important;
+        color: $white !important;
+        i {
+            color: $white !important;
+        }
+    }
 }

@@ -1,28 +1,28 @@
 export default {
-    data: function () {
-      return {
-        progress: 0,
-      }
+    data: function() {
+        return {
+            progress: 0,
+        }
     },
     methods: {
         moveProgressBar: function() {
-          var display_data = this.$store.state.display;
-          var progress = display_data.progress += 16.667;
-          console.log("moveProgressBar " + progress);
-          var getPercent = (progress / 100);
-          var getProgressWrapWidth = $('.progress-wrap').width();
-          var progressTotal = getPercent * getProgressWrapWidth;
-          var animationLength = 500;
-          // on page load, animate percentage bar to data percentage length
-          // .stop() used to prevent animation queueing
-          $('.progress-bar').stop().animate({
-              left: progressTotal
-          }, animationLength);
+            var display_data = this.$store.state.display;
+            var progress = display_data.progress += 16.667;
+            console.log("moveProgressBar " + progress);
+            var getPercent = (progress / 100);
+            var getProgressWrapWidth = $('.progress-wrap').width();
+            var progressTotal = getPercent * getProgressWrapWidth;
+            var animationLength = 500;
+            // on page load, animate percentage bar to data percentage length
+            // .stop() used to prevent animation queueing
+            $('.progress-bar').stop().animate({
+                left: progressTotal
+            }, animationLength);
         },
         //  step nav functions
         next: function() {
             var display_data = this.$store.state.display;
-            var order_data = this.$store.state.order;
+            var vinyl_data = this.$store.state.vinyl;
             let prefix = 'step_';
             let current_step = display_data.current_step;
 
@@ -44,10 +44,10 @@ export default {
             let obj = {
                 'step': current_step,
                 'data': {
-                    'order_id': order_data.order_id,
-                    'title': order_data.name,
-                    'front_cover_path': order_data.front_cover_path,
-                    'songs': order_data.sides
+                    'order_id': vinyl_data.order_id,
+                    'title': vinyl_data.name,
+                    'front_cover_path': vinyl_data.front_cover_path,
+                    'sides': vinyl_data.sides
                 }
             }
 
