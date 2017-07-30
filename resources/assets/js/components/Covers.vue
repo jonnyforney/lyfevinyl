@@ -10,6 +10,7 @@
             <div class="col-md-12">
                 <dropzone
                   id="frontcoverZone"
+                  class="vue-dropzone--covers"
                   url="/file/action"
                   :headers="headers"
                   :thumbnailHeight="200"
@@ -56,9 +57,6 @@
             }
         },
         computed: {
-            progress() {
-                return this.$store.state.display.progress;
-            },
             current_step() {
                 return this.$store.state.display.step_covers;
             },

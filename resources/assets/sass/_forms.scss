@@ -4,6 +4,7 @@
     color: $darkgray;
     font-size: $headline-tertiary;
     font-weight: 300;
+    float: left;
 
     // @media (max-width: $screen-sm) {
     //   font-size:
@@ -13,10 +14,9 @@
 
 .lvds-form__text-input {
     border: 3px solid $darkgray;
-    background-color: transparent;
+    background-color: $white;
     color: $darkgray;
-    padding: 20px;
-    margin-top: 25px;
+    padding: 10px;
     font-weight: 300;
     width: 100%;
     border-radius: 5px;
@@ -73,4 +73,13 @@
     width: 200px;
     height: 200px;
     cursor: pointer;
+}
+
+select {
+ overflow: hidden;
+ background: url(imgs/down-arrow.svg) no-repeat right #ddd;
+ -webkit-appearance: none;
+ -moz-appearance: none;
+ -ms-appearance: none;
+ cursor: pointer;
 }
