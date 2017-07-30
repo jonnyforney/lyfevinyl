@@ -1,14 +1,14 @@
 .vue-dropzone--covers {
   height: 200px;
   width: 200px;
-  border: 2px solid $blue-light !important;
+  border: 2px solid $darkgray !important;
   font-family: $source_sans !important;
-  color: $blue-light !important;
+  color: $darkgray !important;
   border-radius: 5px;
   padding: 0 !important;
 
   &:hover {
-    background-color: $blue-light !important;
+    background-color: $darkgray !important;
     color: $white !important;
 
     i {
@@ -18,7 +18,7 @@
   }
 
   i {
-    color: $blue-light !important;
+    color: $darkgray !important;
   }
 
   .dz-message {
@@ -40,9 +40,15 @@
   min-height: 50px !important;
   height: 60px;
   width: 220px;
+<<<<<<< HEAD
   border: 2px solid $blue-dark !important;
   font-family: $source_sans !important;
   color: $blue-dark !important;
+=======
+  border: 2px solid $darkgray !important;
+  font-family: $source_sans !important;
+  color: $darkgray !important;
+>>>>>>> origin/master
   border-radius: 5px;
   padding: 13px !important;
   float: right;
@@ -52,11 +58,19 @@
   }
 
   i {
+<<<<<<< HEAD
     color: $blue-dark !important;
   }
 
   &:hover {
     background-color: $blue-dark !important;
+=======
+    color: $darkgray !important;
+  }
+
+  &:hover {
+    background-color: $darkgray !important;
+>>>>>>> origin/master
     color: $white !important;
 
     i {

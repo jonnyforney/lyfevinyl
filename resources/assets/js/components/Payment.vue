@@ -31,11 +31,19 @@
         },
         computed: {
             current_step() {
+<<<<<<< HEAD
                 return this.$store.state.step_payment;
             },
             name: {
                 get() {
                     return this.$store.state.name;
+=======
+                return this.$store.state.display.step_payment;
+            },
+            name: {
+                get() {
+                    return this.$store.state.order.name;
+>>>>>>> origin/master
                 },
                 set(name) {
                     this.$store.commit('setName', name);
