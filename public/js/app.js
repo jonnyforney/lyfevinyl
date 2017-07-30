@@ -492,7 +492,7 @@ module.exports = function normalizeComponent (
                     'order_id': order_data.order_id,
                     'title': order_data.name,
                     'front_cover_path': order_data.front_cover_path,
-                    'songs': order_data.sides
+                    'sides': order_data.sides
                 }
             };
 
@@ -12558,39 +12558,39 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
         "sides": [{
             "side": "a",
             "songs": [{
-                "file": "",
+                "path": "",
                 "side": "",
                 "track": "",
                 "picked": false
             }, {
-                "file": "",
+                "path": "",
                 "picked": false
             }, {
-                "file": "",
+                "path": "",
                 "picked": false
             }, {
-                "file": "",
+                "path": "",
                 "picked": false
             }, {
-                "file": "",
+                "path": "",
                 "picked": false
             }]
         }, {
             "side": "b",
             "songs": [{
-                "file": "",
+                "path": "",
                 "picked": false
             }, {
-                "file": "",
+                "path": "",
                 "picked": false
             }, {
-                "file": "",
+                "path": "",
                 "picked": false
             }, {
-                "file": "",
+                "path": "",
                 "picked": false
             }, {
-                "file": "",
+                "path": "",
                 "picked": false
             }]
         }]

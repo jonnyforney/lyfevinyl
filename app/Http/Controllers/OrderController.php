@@ -28,18 +28,24 @@ class OrderController extends Controller
 
     public function save(Request $request)
     {
-      $step = ucwords(camel_case($request['step']));
+        $step = ucwords(camel_case($request['step']));
 
-      $class_name = 'App\\Classes\\'.$step;
-      $step_class = new $class_name;
+        $class_name = 'App\\Classes\\'.$step;
+        $step_class = new $class_name;
 
-      // store to db if logged in, otherwise save in session
-      if(Auth::check()) {
-        // return $step_class->store((object)$request['data']);
-        $step_class->store((object)$request['data']);
-      }
+        $payload = (object)$request['data'];
 
-      return $step_class->save((object)$request['data']);
+        // store to db if logged in, otherwise save in session
+        if(Auth::check()) {
+            $db_save = (object)$step_class->store($payload);
+        }
+        
+        //  update order_id with what was saved into the db
+        if(isset($db_save->order_id)) {
+            $payload->order_id = $db_save->order_id;
+        }
+
+        return $step_class->save($payload);
     }
 
     public function print()
