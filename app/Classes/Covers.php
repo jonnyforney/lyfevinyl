@@ -2,7 +2,9 @@
 
 namespace App\Classes;
 
+use App\Order;
 use App\Classes\Step;
+use \Illuminate\Database\Eloquent\Collection;
 
 class Covers implements Step
 {
@@ -18,7 +20,7 @@ class Covers implements Step
 
         session(['order' => $order]);
 
-        return ['order_id' => $order['id'], 'status' => 'saved into session'];
+        return ['order_id' => $order['id'], 'status' => 'cover saved into session'];
     }
 
     public function store($data)

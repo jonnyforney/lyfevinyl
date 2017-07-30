@@ -15,25 +15,25 @@ export default {
         "sides": [{
                 "side": "a",
                 "songs": [{
-                        "file": "",
+                        "path": "",
                         "side": "",
                         "track": "",
                         "picked": false
                     },
                     {
-                        "file": "",
+                        "path": "",
                         "picked": false
                     },
                     {
-                        "file": "",
+                        "path": "",
                         "picked": false
                     },
                     {
-                        "file": "",
+                        "path": "",
                         "picked": false
                     },
                     {
-                        "file": "",
+                        "path": "",
                         "picked": false
                     }
                 ]
@@ -41,23 +41,23 @@ export default {
             {
                 "side": "b",
                 "songs": [{
-                        "file": "",
+                        "path": "",
                         "picked": false
                     },
                     {
-                        "file": "",
+                        "path": "",
                         "picked": false
                     },
                     {
-                        "file": "",
+                        "path": "",
                         "picked": false
                     },
                     {
-                        "file": "",
+                        "path": "",
                         "picked": false
                     },
                     {
-                        "file": "",
+                        "path": "",
                         "picked": false
                     }
                 ]
