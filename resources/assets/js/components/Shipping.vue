@@ -12,7 +12,11 @@
               id="firstName"
               name="firstName"
               v-model="firstName"
+<<<<<<< HEAD
               placeholder="Jane"
+=======
+              placeholder="John"
+>>>>>>> origin/master
               autofocus
               required="true"
             />
@@ -25,7 +29,11 @@
               id="lastName"
               name="lastName"
               v-model="lastName"
+<<<<<<< HEAD
               placeholder="Doe"
+=======
+              placeholder="Watson"
+>>>>>>> origin/master
               required="true"
             />
           </div>
@@ -65,6 +73,10 @@
               id="city"
               name="city"
               v-model="city"
+<<<<<<< HEAD
+=======
+              placeholder="London"
+>>>>>>> origin/master
             />
           </div>
           <div class="col-md-3">
@@ -156,11 +168,19 @@
         },
         computed: {
             current_step() {
+<<<<<<< HEAD
                 return this.$store.state.step_shipping;
             },
             name: {
                 get() {
                     return this.$store.state.name;
+=======
+                return this.$store.state.display.step_shipping;
+            },
+            name: {
+                get() {
+                    return this.$store.state.order.name;
+>>>>>>> origin/master
                 },
                 set(name) {
                     this.$store.commit('setName', name);

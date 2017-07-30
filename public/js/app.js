@@ -11926,6 +11926,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 /* 39 */
+<<<<<<< HEAD
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11983,12 +11984,74 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 /* 40 */
+=======
+>>>>>>> origin/master
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Headline__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Headline___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Headline__);
+<<<<<<< HEAD
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StepControlButtons__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StepControlButtons___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__StepControlButtons__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_lv_functions_js__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+// import Circle2from './~/vue-loading-spinner/src/components/Circle.vue';
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    firstName: 'first-name',
+    props: [],
+    mixins: [__WEBPACK_IMPORTED_MODULE_2__mixins_lv_functions_js__["a" /* default */]],
+    components: {
+        'headline': __WEBPACK_IMPORTED_MODULE_0__Headline___default.a,
+        'back-next-btns': __WEBPACK_IMPORTED_MODULE_1__StepControlButtons___default.a
+    },
+    data: function data() {
+        return {};
+    },
+    computed: {
+        current_step: function current_step() {
+            return this.$store.state.display.step_payment;
+        },
+
+        name: {
+            get: function get() {
+                return this.$store.state.order.name;
+            },
+            set: function set(name) {
+                this.$store.commit('setName', name);
+            }
+        }
+    },
+    methods: {}
+});
+
+/***/ }),
+/* 40 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Headline__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Headline___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Headline__);
+>>>>>>> origin/master
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StepSubmitButtons__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StepSubmitButtons___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__StepSubmitButtons__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_lv_functions_js__ = __webpack_require__(2);
@@ -12259,6 +12322,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+<<<<<<< HEAD
+=======
+//
+>>>>>>> origin/master
 
 
 
@@ -12278,12 +12345,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     computed: {
         current_step: function current_step() {
+<<<<<<< HEAD
             return this.$store.state.step_shipping;
+=======
+            return this.$store.state.display.step_shipping;
+>>>>>>> origin/master
         },
 
         name: {
             get: function get() {
+<<<<<<< HEAD
                 return this.$store.state.name;
+=======
+                return this.$store.state.order.name;
+>>>>>>> origin/master
             },
             set: function set(name) {
                 this.$store.commit('setName', name);
@@ -45268,7 +45343,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "id": "firstName",
       "name": "firstName",
+<<<<<<< HEAD
       "placeholder": "Jane",
+=======
+      "placeholder": "John",
+>>>>>>> origin/master
       "autofocus": "",
       "required": "true"
     },
@@ -45297,7 +45376,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "id": "lastName",
       "name": "lastName",
+<<<<<<< HEAD
       "placeholder": "Doe",
+=======
+      "placeholder": "Watson",
+>>>>>>> origin/master
       "required": "true"
     },
     domProps: {
@@ -45384,7 +45467,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "type": "text",
       "id": "city",
+<<<<<<< HEAD
       "name": "city"
+=======
+      "name": "city",
+      "placeholder": "London"
+>>>>>>> origin/master
     },
     domProps: {
       "value": (_vm.city)
