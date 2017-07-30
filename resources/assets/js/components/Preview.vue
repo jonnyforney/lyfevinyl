@@ -82,9 +82,6 @@
             return {}
         },
         computed: {
-            progress() {
-                return this.$store.state.display.progress;
-            },
             current_step() {
                 return this.$store.state.display.step_preview;
             },

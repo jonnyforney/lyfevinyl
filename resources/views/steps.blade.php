@@ -2,9 +2,9 @@
 
 @section('content')
 
-  <div id="app" v-cloak>
+  <div id="app">
     <div id="progress-bar" v-cloak>
-      <progress-bar percent="25"></progress-bar>
+      <progress-bar percent="16.667"></progress-bar>
     </div>
     <div id="steps" v-cloak>
       <steps
