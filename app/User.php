@@ -31,7 +31,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public static function createCustomerID()
+    public static function createCustomerID($type)
     {
         $year = date("y");
         $year_change = false;

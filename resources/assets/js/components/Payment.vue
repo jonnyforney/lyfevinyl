@@ -24,10 +24,10 @@
             'headline': Headline,
             'back-next-btns': StepControlButtons,
         },
-        data: function () {
-          return {
+        data: function() {
+            return {
 
-          }
+            }
         },
         computed: {
             current_step() {
@@ -35,7 +35,7 @@
             },
             name: {
                 get() {
-                    return this.$store.state.order.name;
+                    return this.$store.state.vinyl.name;
                 },
                 set(name) {
                     this.$store.commit('setName', name);

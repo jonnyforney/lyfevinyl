@@ -64,7 +64,7 @@
               type="text"
               id="city"
               name="city"
-              v-model="city"
+              v-model="addressCity"
               placeholder="London"
             />
           </div>
@@ -150,10 +150,10 @@
             'headline': Headline,
             'back-next-btns': StepControlButtons,
         },
-        data: function () {
-          return {
+        data: function() {
+            return {
 
-          }
+            }
         },
         computed: {
             current_step() {
@@ -161,12 +161,68 @@
             },
             name: {
                 get() {
-                    return this.$store.state.order.name;
+                    return this.$store.state.vinyl.name;
                 },
                 set(name) {
                     this.$store.commit('setName', name);
                 },
-            }
+            },
+            firstName: {
+                get() {
+                    return this.$store.state.shipping.firstName;
+                },
+                set(name) {
+                    this.$store.commit('setFirstName', name);
+                },
+            },
+            lastName: {
+                get() {
+                    return this.$store.state.shipping.lastName;
+                },
+                set(name) {
+                    this.$store.commit('setLastName', name);
+                },
+            },
+            addressLineOne: {
+                get() {
+                    return this.$store.state.shipping.addressLineOne;
+                },
+                set(address) {
+                    this.$store.commit('setAddressOne', address);
+                },
+            },
+            addressLineTwo: {
+                get() {
+                    return this.$store.state.shipping.addressLineTwo;
+                },
+                set(address) {
+                    this.$store.commit('setAddressTwo', address);
+                },
+            },
+            addressCity: {
+                get() {
+                    return this.$store.state.shipping.addressCity;
+                },
+                set(city) {
+                    this.$store.commit('setCity', city);
+                },
+            },
+            addressState: {
+                get() {
+                    return this.$store.state.shipping.addressState;
+                },
+                set(addressState) {
+                    this.$store.commit('setState', addressState);
+                },
+            },
+            addressZip: {
+                get() {
+                    return this.$store.state.shipping.addressZip;
+                },
+                set(zip) {
+                    this.$store.commit('setZip', zip);
+                },
+            },
         },
         methods: {
 

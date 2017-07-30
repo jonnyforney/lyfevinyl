@@ -55,7 +55,7 @@
             },
             name: {
                 get() {
-                    return this.$store.state.order.name;
+                    return this.$store.state.vinyl.name;
                 },
                 set(name) {
                     this.$store.commit('setName', name);

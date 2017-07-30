@@ -15,13 +15,13 @@ class AlbumName implements Step
     public function save($data)
     {        
         $order = collect([
-            'id' => Order::createOrderId(),
+            'id' => $data->order_id ?? '-1',
             'title' => $data->title
         ]);
 
         session(['order' => $order]);
 
-        return ['order_id' => $order['id'], 'status' => 'saved into session'];
+        return ['order_id' => $order['id'], 'status' => 'title saved into session'];
     }
 
     function store($data)
