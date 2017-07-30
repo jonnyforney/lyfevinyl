@@ -11,7 +11,7 @@
                 <dropzone
                   id="frontcoverZone"
                   class="vue-dropzone--covers"
-                  url="/steps/media/action"
+                  url="/file/action"
                   :headers="headers"
                   :thumbnailHeight="200"
                   :thumbnailWidth="200"
@@ -49,23 +49,22 @@
             'stepcontrolbuttons': StepControlButtons,
             Dropzone
         },
-        data: function() {
+        data: () => {
             return {
-                image: '',
                 headers: {
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             }
         },
         computed: {
             current_step() {
-                return this.$store.state.step_covers;
+                return this.$store.state.display.step_covers;
             },
             name() {
-                return this.$store.state.name;
+                return this.$store.state.order.name;
             },
             front_cover_path() {
-                return this.$store.state.front_cover_path;
+                return this.$store.state.order.front_cover_path;
             }
         },
         methods: {
@@ -77,7 +76,7 @@
                 this.$store.commit('setFrontCoverPath', uploaded_file_path);
             },
             remove(file, error, xhr) {
-                axios.post('/steps/media/action', {
+                axios.post('/file/action', {
                         method: 'remove',
                         path: this.front_cover_path
                     })

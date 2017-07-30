@@ -151,7 +151,7 @@
         },
         data: function () {
           return {
-            
+
           }
         },
         computed: {
@@ -170,8 +170,5 @@
         methods: {
 
         },
-        mounted() {
-          this.moveProgressBar();
-        }
     };
 </script>

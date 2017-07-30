@@ -25,8 +25,8 @@
           <div class="col-md-12">
             <div class="row">
               <div class="col-md-6">
-                <img v-if="!frontcover" class="cover-image" src="http://placehold.it/200x200">
-                <img v-if="frontcover" class="cover-image" :src="frontcover">
+                <img v-if="!front_cover_path" class="cover-image" src="http://placehold.it/200x200">
+                <img v-if="front_cover_path" class="cover-image" :src="front_cover_path">
               </div>
               <div class="col-md-6">
                 <img src="http://placehold.it/200x200">
@@ -78,23 +78,21 @@
             'headline': Headline,
             'back-submit-btns': StepSubmitButtons
         },
-        data: function() {
-            return {
-              
-            }
+        data: () => {
+            return {}
         },
         computed: {
             current_step() {
-                return this.$store.state.step_preview;
+                return this.$store.state.display.step_preview;
             },
             name() {
-                return this.$store.state.name;
+                return this.$store.state.order.name;
             },
-            frontcover() {
-                return this.$store.state.frontcover;
+            front_cover_path() {
+                return this.$store.state.order.front_cover_path;
             },
             sides() {
-                return this.$store.state.sides;
+                return this.$store.state.order.sides;
             }
         },
         methods: {
