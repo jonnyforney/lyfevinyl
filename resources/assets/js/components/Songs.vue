@@ -61,25 +61,25 @@
             'back-next-btns': StepControlButtons,
             Dropzone
         },
-        data: function () {
-          return {
-            dropzoneConfig : {
-              dictDefaultMessage : "Upload Song",
-             }
-          }
+        data: function() {
+            return {
+                dropzoneConfig: {
+                    dictDefaultMessage: "Upload Song",
+                }
+            }
         },
         computed: {
             current_step() {
                 return this.$store.state.display.step_songs;
             },
             name() {
-                return this.$store.state.order.name;
+                return this.$store.state.vinyl.name;
             },
             sides() {
-                return this.$store.state.order.sides;
+                return this.$store.state.vinyl.sides;
             },
             idGen() {
-              return this.songId += 1;
+                return this.songId += 1;
             },
         },
         methods: {

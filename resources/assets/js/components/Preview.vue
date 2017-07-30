@@ -86,13 +86,13 @@
                 return this.$store.state.display.step_preview;
             },
             name() {
-                return this.$store.state.order.name;
+                return this.$store.state.vinyl.name;
             },
             front_cover_path() {
-                return this.$store.state.order.front_cover_path;
+                return this.$store.state.vinyl.front_cover_path;
             },
             sides() {
-                return this.$store.state.order.sides;
+                return this.$store.state.vinyl.sides;
             }
         },
         methods: {

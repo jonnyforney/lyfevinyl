@@ -25,21 +25,21 @@
             return {
                 image: '',
                 headers: {
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 songId: 1,
             }
         },
         computed: {
-          name() {
-              return this.$store.state.name;
-          },
-          sides() {
-              return this.$store.state.sides;
-          },
-          idGen() {
-            return this.songId += 1;
-          },
+            name() {
+                return this.$store.state.name;
+            },
+            sides() {
+                return this.$store.state.vinyl.sides;
+            },
+            idGen() {
+                return this.songId += 1;
+            },
         },
         methods: {
             sending: function(file, xhr, formData) {
