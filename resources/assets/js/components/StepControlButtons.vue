@@ -4,11 +4,11 @@
     <div class="col-md-3">
         <button class="lvds-button lvds-button--ghost-blue-light" @click="back()">&laquo; Go Back</button>
     </div>
-    <div class="col-md-1"></div>
+    <div class="col-md-2"></div>
     <div class="col-md-3 margin-bottom-30-sm">
         <button class="lvds-button lvds-button--blue-light" @click="next()">Next &raquo;</button>
     </div>
-    <div class="col-md-3"></div>
+    <div class="col-md-2"></div>
     </div>
 </template>
 
@@ -17,8 +17,6 @@
 
     export default {
         mixins: [lv_functions],
-        data: () => {
-            return {}
-        }
+        
     };
 </script>
