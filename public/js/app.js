@@ -461,6 +461,9 @@ module.exports = {
 
             var display_data = this.$store.state.display;
             var vinyl_data = this.$store.state.vinyl;
+            var shipping_data = this.$store.state.shipping;
+            var payment_data = this.$store.state.payment;
+
             var prefix = 'step_';
             var current_step = display_data.current_step;
 
@@ -485,7 +488,9 @@ module.exports = {
                     'order_id': vinyl_data.order_id,
                     'title': vinyl_data.name,
                     'front_cover_path': vinyl_data.front_cover_path,
-                    'sides': vinyl_data.sides
+                    'sides': vinyl_data.sides,
+                    'shipping': shipping_data,
+                    'payment': payment_data
                 }
             };
 
@@ -13066,7 +13071,8 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
         addressLineTwo: '',
         addressCity: '',
         addressState: '',
-        addressZip: ''
+        addressZip: '',
+        addressCountry: ''
     }
 });
 

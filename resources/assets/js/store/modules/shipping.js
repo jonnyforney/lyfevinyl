@@ -15,5 +15,6 @@ export default {
         addressCity: '',
         addressState: '',
         addressZip: '',
+        addressCountry: ''
     }
 }
