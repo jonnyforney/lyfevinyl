@@ -76,5 +76,9 @@ class Order extends Model
     {
         return $this->hasMany('App\Song', 'order_id', 'id');
     }
-
+    
+    public function shipping()
+    {
+        return $this->hasMany('App\Shipping', 'order_id', 'id');
+    }
 }
