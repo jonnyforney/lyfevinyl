@@ -3,7 +3,7 @@
     <headline :heading="name" :subhead="current_step.subhead"></headline>
     <div class="row">
       <div class="col-md-8 col-center margin-bottom-30">
-        <p>STRIPE GOES HERE</p>
+        <checkout></checkout>
       </div>
     </div>
     <back-next-btns></back-next-btns>
@@ -14,6 +14,7 @@
     import Headline from './Headline';
     import StepControlButtons from './StepControlButtons';
     import lv_functions from '../mixins/lv-functions.js';
+    import Checkout from './Checkout.vue';
     // import Circle2from './~/vue-loading-spinner/src/components/Circle.vue';
 
     export default {
@@ -21,8 +22,9 @@
         props: [],
         mixins: [lv_functions],
         components: {
-            'headline': Headline,
+            Headline,
             'back-next-btns': StepControlButtons,
+            Checkout
         },
         data: function() {
             return {
