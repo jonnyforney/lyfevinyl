@@ -11940,6 +11940,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StepControlButtons__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StepControlButtons___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__StepControlButtons__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_lv_functions_js__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Checkout_vue__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Checkout_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__Checkout_vue__);
 //
 //
 //
@@ -11952,6 +11954,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
 
 
 
@@ -11963,8 +11966,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: [],
     mixins: [__WEBPACK_IMPORTED_MODULE_2__mixins_lv_functions_js__["a" /* default */]],
     components: {
-        'headline': __WEBPACK_IMPORTED_MODULE_0__Headline___default.a,
-        'back-next-btns': __WEBPACK_IMPORTED_MODULE_1__StepControlButtons___default.a
+        Headline: __WEBPACK_IMPORTED_MODULE_0__Headline___default.a,
+        'back-next-btns': __WEBPACK_IMPORTED_MODULE_1__StepControlButtons___default.a,
+        Checkout: __WEBPACK_IMPORTED_MODULE_3__Checkout_vue___default.a
     },
     data: function data() {
         return {};
@@ -12265,6 +12269,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -12309,6 +12327,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             },
             set: function set(name) {
                 this.$store.commit('setLastName', name);
+            }
+        },
+        email: {
+            get: function get() {
+                return this.$store.state.shipping.email;
+            },
+            set: function set(email) {
+                this.$store.commit('setEmail', email);
             }
         },
         addressLineOne: {
@@ -12967,6 +12993,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
     setLastName: function setLastName(state, lname) {
         state.lastName = lname;
     },
+    setEmail: function setEmail(state, email) {
+        state.email = email;
+    },
     setAddressOne: function setAddressOne(state, addressOne) {
         state.addressLineOne = addressOne;
     },
@@ -13067,6 +13096,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
     state: {
         firstName: '',
         lastName: '',
+        email: '',
         addressLineOne: '',
         addressLineTwo: '',
         addressCity: '',
@@ -45461,6 +45491,36 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "col-md-12"
   }, [_c('label', {
     staticClass: "lvds-form__label"
+  }, [_vm._v("Email*")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.email),
+      expression: "email"
+    }],
+    staticClass: "lvds-form__text-input",
+    attrs: {
+      "type": "text",
+      "id": "email",
+      "name": "email",
+      "placeholder": "user@test.com",
+      "required": "true"
+    },
+    domProps: {
+      "value": (_vm.email)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.email = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "row margin-top-30"
+  }, [_c('div', {
+    staticClass: "col-md-12"
+  }, [_c('label', {
+    staticClass: "lvds-form__label"
   }, [_vm._v("Address Line 1*")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
@@ -45943,14 +46003,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "heading": _vm.name,
       "subhead": _vm.current_step.subhead
     }
-  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('back-next-btns')], 1) : _vm._e()
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
+  }), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
     staticClass: "col-md-8 col-center margin-bottom-30"
-  }, [_c('p', [_vm._v("STRIPE GOES HERE")])])])
-}]}
+  }, [_c('checkout')], 1)]), _vm._v(" "), _c('back-next-btns')], 1) : _vm._e()
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
@@ -46963,6 +47021,158 @@ module.exports = function(module) {
 __webpack_require__(14);
 module.exports = __webpack_require__(15);
 
+
+/***/ }),
+/* 104 */,
+/* 105 */,
+/* 106 */,
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */,
+/* 111 */,
+/* 112 */,
+/* 113 */,
+/* 114 */,
+/* 115 */,
+/* 116 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_lv_functions_js__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_lv_functions_js__["a" /* default */]],
+    data: function data() {
+        return {
+            name: 'Lyfe Vinyl',
+            description: '',
+            zipCode: true,
+            amount: 20000,
+            stripeToken: '',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        };
+    },
+    computed: {
+        stripeEmail: function stripeEmail() {
+            return this.$store.state.shipping.email;
+        }
+    },
+    methods: {
+        buy: function buy() {
+            this.stripe.open({
+                name: this.name,
+                description: this.description,
+                email: this.stripeEmail,
+                amount: this.amount,
+                zipCode: true
+            });
+        }
+    },
+    mounted: function mounted() {
+        //$('#buyVinyl').click()
+    },
+    created: function created() {
+        var _this = this;
+
+        this.stripe = StripeCheckout.configure({
+            key: this.stripeToken,
+            image: "https:///stripe.com/img/documentation/checkout/marketplace.png",
+            locale: "auto",
+            token: function (_token) {
+                function token() {
+                    return _token.apply(this, arguments);
+                }
+
+                token.toString = function () {
+                    return _token.toString();
+                };
+
+                return token;
+            }(function () {
+                _this.stripeToken = token.id;
+                _this.stripeEmail = token.email;
+
+                //  axios request
+            })
+        });
+    }
+});
+
+/***/ }),
+/* 117 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(116),
+  /* template */
+  __webpack_require__(118),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Development/www/current/lyfevinyl/resources/assets/js/components/Checkout.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Checkout.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-483d4550", Component.options)
+  } else {
+    hotAPI.reload("data-v-483d4550", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 118 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('form', {
+    attrs: {
+      "action": "",
+      "method": "POST"
+    }
+  }, [_c('button', {
+    attrs: {
+      "id": "buyVinyl",
+      "type": "submit"
+    },
+    on: {
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.buy()
+      }
+    }
+  }, [_vm._v("Buy This Here Vinyl")])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-483d4550", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
