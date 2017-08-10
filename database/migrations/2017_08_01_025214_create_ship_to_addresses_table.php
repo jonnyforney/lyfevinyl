@@ -19,7 +19,7 @@ class CreateShipToAddressesTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('address_one');
-            $table->string('address_two');
+            $table->string('address_two')->nullable();
             $table->string('city');
             $table->string('state');
             $table->string('zip');
