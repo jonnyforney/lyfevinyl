@@ -32,6 +32,20 @@
         </div>
         <div class="row margin-top-30">
           <div class="col-md-12">
+            <label class="lvds-form__label">Email*</label>
+            <input
+              class="lvds-form__text-input"
+              type="text"
+              id="email"
+              name="email"
+              v-model="email"
+              placeholder="user@test.com"
+              required="true"
+            />
+          </div>
+        </div>
+        <div class="row margin-top-30">
+          <div class="col-md-12">
             <label class="lvds-form__label">Address Line 1*</label>
             <input
               class="lvds-form__text-input"
@@ -181,6 +195,14 @@
                 },
                 set(name) {
                     this.$store.commit('setLastName', name);
+                },
+            },
+            email: {
+                get() {
+                    return this.$store.state.shipping.email;
+                },
+                set(email) {
+                    this.$store.commit('setEmail', email);
                 },
             },
             addressLineOne: {

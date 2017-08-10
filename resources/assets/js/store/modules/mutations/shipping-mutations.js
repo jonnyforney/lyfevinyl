@@ -5,6 +5,9 @@ export default {
     setLastName(state, lname) {
         state.lastName = lname;
     },
+    setEmail(state, email) {
+        state.email = email;
+    },
     setAddressOne(state, addressOne) {
         state.addressLineOne = addressOne;
     },
