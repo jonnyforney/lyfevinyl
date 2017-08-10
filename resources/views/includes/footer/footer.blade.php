@@ -22,5 +22,6 @@
 
     </section>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
   </body>
 </html>
