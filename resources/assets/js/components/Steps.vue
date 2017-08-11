@@ -58,13 +58,11 @@
                     text: "Would you like to load in the order?",
                     type: 'info',
                     showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
+                    confirmButtonColor: '#00a0ff',
+                    cancelButtonColor: '#BBC2C8',
                     confirmButtonText: 'Yes, load it!',
-                    cancelButtonText: 'No, start fresh',
-                    confirmButtonClass: 'btn btn-success',
-                    cancelButtonClass: 'btn btn-danger',
-                    buttonsStyling: false
+                    cancelButtonText: 'No, start fresh.',
+                    buttonsStyling: true
                 }).then(function() {
                     //  load in order
                     axios.post('/order/load', {
