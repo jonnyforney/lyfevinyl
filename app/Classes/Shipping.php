@@ -29,6 +29,8 @@ class Shipping implements Step
 
         $address = (!empty($address)) ? $address : new ShipToAddress;
 
+        $data->shipping = (object)$data->shipping;
+
         $address->order_id = $data->order_id;
         $address->first_name = $data->shipping->firstName;
         $address->last_name = $data->shipping->lastName;
@@ -36,8 +38,10 @@ class Shipping implements Step
         $address->address_two = $data->shipping->addressLineTwo;
         $address->city = $data->shipping->addressCity;
         $address->state = $data->shipping->addressState;
-        $address->zip = $data->shipping->addressZip;
-        $address->country = $data->shipping->addressCountry;
+        $address->zip = '43617';
+        $address->country = 'USA';
+        // $address->zip = $data->shipping->addressZip;
+        // $address->country = $data->shipping->addressCountry;
         $address->save();
 
         return ['order_id' => $data->order_id, 'status' => 'updated'];
