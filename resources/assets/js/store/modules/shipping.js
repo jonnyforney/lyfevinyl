@@ -10,6 +10,7 @@ export default {
     state: {
         firstName: '',
         lastName: '',
+        email: '',
         addressLineOne: '',
         addressLineTwo: '',
         addressCity: '',
