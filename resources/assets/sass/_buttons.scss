@@ -1,3 +1,7 @@
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
 .lvds-button {
   padding: 10px 15px;
   transition: transform 0.2s;
@@ -6,9 +10,10 @@
   font-size: 18px;
   width: 100%;
   border-radius: 5px;
-  @include transition-property(all);
-  @include transition-duration(.15s);
-  @include transition-timing-function(linear);
+  border: 0px;
+  // @include transition-property(all);
+  // @include transition-duration(.15s);
+  // @include transition-timing-function(linear);
 
   &.lvds-button__cta {
     width: 100%;
@@ -16,7 +21,8 @@
 
   &:hover {
     text-decoration: none;
-    transform: scale(1.06);
+    // transform: scale(1.06);
+
   }
 
 }
@@ -87,16 +93,24 @@
 }
 
 .lvds-button--blue-dark {
-  border: 2px solid $blue-dark;
   color: $pink;
   background-color: $blue-dark;
+
+  &:hover {
+    background-color: shade($blue-dark, 15%);
+  }
+
 }
 
 
 .lvds-button--blue-light {
-  border: 3px solid $blue-light;
   color: $white;
   background-color: $blue-light;
+
+  &:hover {
+    background-color: shade($blue-light, 15%);
+  }
+
 }
 
 .lvds-button--yellow {
