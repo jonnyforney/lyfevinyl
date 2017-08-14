@@ -114,9 +114,13 @@
 }
 
 .lvds-button--yellow {
-  border: 3px solid $yellow;
   color: $blue-dark;
   background-color: $yellow;
+
+  &:hover {
+    background-color: shade($yellow, 10%);
+  }
+
 }
 
 .lvds-button--pink {
@@ -126,13 +130,24 @@
 }
 
 .lvds-button--gray-medium {
-  border: 3px solid $gray-medium;
   color: $darkgray;
   background-color: $gray-medium;
 
   &:hover {
     color: shade($darkgray, 15%);
     background-color: shade($gray-medium, 15%);
+  }
+
+}
+
+.lvds-button--gray-light {
+  border: 3px solid $gray-light;
+  color: $darkgray;
+  background-color: $gray-light;
+
+  &:hover {
+    color: shade($darkgray, 15%);
+    background-color: shade($gray-light, 15%);
   }
 
 }

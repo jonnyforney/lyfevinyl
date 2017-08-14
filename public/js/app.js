@@ -11592,7 +11592,9 @@ module.exports = function spread(callback) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Headline__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Headline___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Headline__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_lv_functions_js__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StepContinueButton__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StepContinueButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__StepContinueButton__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_lv_functions_js__ = __webpack_require__(2);
 //
 //
 //
@@ -11612,22 +11614,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -11636,9 +11623,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'album-name',
     props: [],
-    mixins: [__WEBPACK_IMPORTED_MODULE_1__mixins_lv_functions_js__["a" /* default */]],
+    mixins: [__WEBPACK_IMPORTED_MODULE_2__mixins_lv_functions_js__["a" /* default */]],
     components: {
-        'headline': __WEBPACK_IMPORTED_MODULE_0__Headline___default.a
+        'headline': __WEBPACK_IMPORTED_MODULE_0__Headline___default.a,
+        'next-btn': __WEBPACK_IMPORTED_MODULE_1__StepContinueButton___default.a
     },
     data: function data() {
         return {};
@@ -11784,12 +11772,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -11799,7 +11781,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     mixins: [__WEBPACK_IMPORTED_MODULE_3__mixins_lv_functions_js__["a" /* default */]],
     components: {
         Headline: __WEBPACK_IMPORTED_MODULE_0__Headline___default.a,
-        'stepcontrolbuttons': __WEBPACK_IMPORTED_MODULE_2__StepControlButtons___default.a,
+        'back-next-btns': __WEBPACK_IMPORTED_MODULE_2__StepControlButtons___default.a,
         Dropzone: __WEBPACK_IMPORTED_MODULE_1_vue2_dropzone___default.a
     },
     data: function data() {
@@ -12025,10 +12007,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -12076,10 +12054,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StepSubmitButtons__ = __webpack_require__(88);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StepSubmitButtons___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__StepSubmitButtons__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_lv_functions_js__ = __webpack_require__(2);
-//
-//
-//
-//
 //
 //
 //
@@ -12206,10 +12180,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StepControlButtons__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StepControlButtons___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__StepControlButtons__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_lv_functions_js__ = __webpack_require__(2);
-//
-//
-//
-//
 //
 //
 //
@@ -12517,6 +12487,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -12580,7 +12552,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         success: function success(file) {
             var uploaded_file_path = JSON.parse(file.xhr.response).path;
-            this.$store.commit('setSongPath', uploaded_file_path);
+            this.$store.commit('setSong', uploaded_file_path);
         },
         remove: function remove(file, error, xhr) {
             axios.post('/steps/media/action', {
@@ -12614,8 +12586,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 
@@ -12631,8 +12601,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_lv_functions_js__ = __webpack_require__(2);
-//
-//
 //
 //
 //
@@ -12759,7 +12727,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             swal({
                 title: 'Previous Order Found',
                 text: "Would you like to load in the order?",
-                type: 'info',
+                imageUrl: 'imgs/icon.png',
+                imageWidth: 75,
+                imageHeight: 75,
                 showCancelButton: true,
                 confirmButtonColor: '#00a0ff',
                 cancelButtonColor: '#BBC2C8',
@@ -12966,22 +12936,23 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
         "current_step": "album_name",
         "progress": 0,
         "step_album_name": {
-            "headline": "Let's get started!",
-            "subhead": "What's the best way to start personalizing your vinyl? Giving it a title, of course! You can choose to have this name on the front of your album cover.",
+            "headline": "Choose an album name.",
+            "subhead": "What would you like to name your customized album?",
+            "infobox": "",
             "show": true
         },
         "step_songs": {
-            "headline": "",
-            "subhead": "Let's upload the songs now. <br>Make sure you own the music and it must be in .mp3 format.",
+            "headline": "Upload your songs.",
+            "subhead": "<strong>Important:</strong> Make sure you own the music. Please use .wav, .flac, .mp3, or .m4a as the file types.",
             "show": false
         },
         "step_covers": {
-            "headline": "",
-            "subhead": "This is going to be a wonderful record. <br>Let's add some images for the album art now.",
+            "headline": "Add your album art.",
+            "subhead": "This is going to be a wonderful record. Let's add some images for the album art now.",
             "show": false
         },
         "step_shipping": {
-            "headline": "",
+            "headline": "Shuh-ship it real good.",
             "subhead": "Where should we send this beautiful creation?",
             "show": false
         },
@@ -12991,7 +12962,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
             "show": false
         },
         "step_preview": {
-            "headline": "Let's preview your vinyl.",
+            "headline": "Let's make sure everything looks correct.",
             "subhead": "Double check that everything is looking swell. Feel free to go back and change anything before moving forward.",
             "show": false
         }
@@ -45226,24 +45197,14 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('transition-group', {
-    attrs: {
-      "name": "very-special-transition",
-      "mode": "out-in"
-    }
-  }, [(_vm.current_step.show) ? _c('section', {
+  return (_vm.current_step.show) ? _c('section', {
     key: "album-name"
   }, [_c('headline', {
     attrs: {
-      "heading": _vm.current_step.headline
+      "heading": _vm.current_step.headline,
+      "subhead": _vm.current_step.subhead
     }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "row"
-  }, [_c('div', {
-    staticClass: "col-md-8 col-center margin-bottom-30"
-  }, [_c('label', {
-    staticClass: "lvds-form__label"
-  }, [_vm._v("What would you like to name this album?*")]), _c('br'), _vm._v(" "), _c('input', {
+  }), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -45255,7 +45216,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "id": "albumName",
       "name": "albumName",
-      "placeholder": "i.e. Jake and Sarah's Wedding",
+      "placeholder": "i.e. Jim and Pam's Wedding Tracks",
       "autofocus": "",
       "required": "true"
     },
@@ -45268,14 +45229,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.name = $event.target.value
       }
     }
-  }), _vm._v(" "), _c('br'), _vm._v(" "), _c('br'), _vm._v(" "), _c('br'), _vm._v(" "), _c('button', {
-    staticClass: "lvds-button lvds-button--blue-light",
-    on: {
-      "click": function($event) {
-        _vm.next()
-      }
-    }
-  }, [_vm._v("Continue »\n        ")])])])], 1) : _vm._e()])
+  }), _vm._v(" "), _c('div', {
+    staticClass: "margin-bottom-30"
+  }), _vm._v(" "), _c('next-btn')], 1) : _vm._e()
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -45291,22 +45247,20 @@ if (false) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "row margin-top-50"
-  }, [_c('div', {
-    staticClass: "col-md-2"
+    staticClass: "row"
+  }, [_c('hr', {
+    staticClass: "lvds-hr--gray-medium"
   }), _vm._v(" "), _c('div', {
-    staticClass: "col-md-3"
+    staticClass: "col-md-6"
   }, [_c('button', {
-    staticClass: "lvds-button lvds-button--ghost-blue-light",
+    staticClass: "lvds-button lvds-button--gray-medium",
     on: {
       "click": function($event) {
         _vm.back()
       }
     }
   }, [_vm._v("« Go Back")])]), _vm._v(" "), _c('div', {
-    staticClass: "col-md-2"
-  }), _vm._v(" "), _c('div', {
-    staticClass: "col-md-3 margin-bottom-30-sm"
+    staticClass: "col-md-6 margin-bottom-30-sm col-end"
   }, [_c('button', {
     staticClass: "lvds-button lvds-button--blue-light",
     on: {
@@ -45314,9 +45268,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.next()
       }
     }
-  }, [_vm._v("Next »")])]), _vm._v(" "), _c('div', {
-    staticClass: "col-md-2"
-  })])
+  }, [_vm._v("Next »")])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -45462,38 +45414,31 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return (_vm.current_step.show) ? _c('section', [_c('headline', {
     attrs: {
-      "heading": _vm.name,
+      "heading": _vm.current_step.headline,
       "subhead": _vm.current_step.subhead
     }
   }), _vm._v(" "), _c('div', {
-    staticClass: "row"
-  }, [_c('div', {
-    staticClass: "col-md-8 col-center"
-  }, [_c('div', {
-    staticClass: "row"
+    staticClass: "row margin-top-30"
   }, [_c('div', {
     staticClass: "image-upload col-md-6"
   }, [_c('p', {
     staticClass: "lvds-headline--tertiary"
-  }, [_vm._v("Front Cover")]), _vm._v(" "), _c('div', {
-    staticClass: "row margin-bottom-30"
-  }, [_c('div', {
-    staticClass: "col-md-12"
-  }, [_c('dropzone', {
+  }, [_vm._v("Front Cover")]), _vm._v(" "), _c('dropzone', {
     staticClass: "vue-dropzone--covers",
     attrs: {
       "id": "frontcoverZone",
       "url": "/file/action",
       "headers": _vm.headers,
-      "thumbnailHeight": 200,
-      "thumbnailWidth": 200
+      "thumbnailHeight": 250,
+      "thumbnailWidth": 250,
+      "acceptedFileTypes": "image/*"
     },
     on: {
       "vdropzone-sending": _vm.sending,
       "vdropzone-success": _vm.success,
       "vdropzone-removed-file": _vm.remove
     }
-  })], 1)])]), _vm._v(" "), _vm._m(0)])])]), _vm._v(" "), _c('stepcontrolbuttons')], 1) : _vm._e()
+  })], 1), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _c('back-next-btns')], 1) : _vm._e()
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "col-md-6"
@@ -45505,7 +45450,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "col-md-12"
   }, [_c('img', {
     attrs: {
-      "src": "http://placehold.it/200x200"
+      "src": "http://placehold.it/250x250"
     }
   })])])])
 }]}
@@ -45557,20 +45502,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     key: "shipping"
   }, [_c('headline', {
     attrs: {
-      "heading": _vm.name,
+      "heading": _vm.current_step.headline,
       "subhead": _vm.current_step.subhead
     }
   }), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
-    staticClass: "col-md-8 col-center margin-bottom-30"
-  }, [_c('div', {
-    staticClass: "row"
-  }, [_c('div', {
     staticClass: "col-md-6"
   }, [_c('label', {
     staticClass: "lvds-form__label"
-  }, [_vm._v("First name*")]), _vm._v(" "), _c('input', {
+  }, [_vm._v("First name")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -45599,7 +45540,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "col-md-6"
   }, [_c('label', {
     staticClass: "lvds-form__label"
-  }, [_vm._v("Last name*")]), _vm._v(" "), _c('input', {
+  }, [_vm._v("Last name")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -45629,7 +45570,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "col-md-12"
   }, [_c('label', {
     staticClass: "lvds-form__label"
-  }, [_vm._v("Email*")]), _vm._v(" "), _c('input', {
+  }, [_vm._v("Email")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -45659,7 +45600,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "col-md-12"
   }, [_c('label', {
     staticClass: "lvds-form__label"
-  }, [_vm._v("Address Line 1*")]), _vm._v(" "), _c('input', {
+  }, [_vm._v("Address Line 1")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -45712,12 +45653,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   })])]), _vm._v(" "), _c('div', {
-    staticClass: "row margin-top-30"
+    staticClass: "row margin-top-30 margin-bottom-30"
   }, [_c('div', {
     staticClass: "col-md-9"
   }, [_c('label', {
     staticClass: "lvds-form__label"
-  }, [_vm._v("City*")]), _vm._v(" "), _c('input', {
+  }, [_vm._v("City")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -45744,7 +45685,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "col-md-3"
   }, [_c('label', {
     staticClass: "lvds-form__label"
-  }, [_vm._v("State*")]), _vm._v(" "), _c('select', {
+  }, [_vm._v("State")]), _vm._v(" "), _c('select', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -45971,7 +45912,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "value": "WY"
     }
-  }, [_vm._v("WY")])])])])])]), _vm._v(" "), _c('back-next-btns')], 1) : _vm._e()
+  }, [_vm._v("WY")])])])]), _vm._v(" "), _c('back-next-btns')], 1) : _vm._e()
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -46031,42 +45972,42 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     key: "songs"
   }, [_c('headline', {
     attrs: {
-      "heading": _vm.name,
+      "heading": _vm.current_step.headline,
       "subhead": _vm.current_step.subhead
     }
   }), _vm._v(" "), _c('div', {
-    staticClass: "row song-upload margin-top-30"
-  }, [_c('div', {
-    staticClass: "col-md-2"
-  }), _vm._v(" "), _vm._l((_vm.sides), function(side) {
+    staticClass: "row song-upload"
+  }, _vm._l((_vm.sides), function(side) {
     return _c('div', {
-      staticClass: "col-md-4"
+      staticClass: "col-md-6"
     }, [_c('p', {
-      staticClass: "lvds-headline--tertiary"
+      staticClass: "lvds-headline--tertiary margin-bottom-30"
     }, [_vm._v("Side " + _vm._s(side.side))]), _vm._v(" "), _vm._l((side.songs), function(song, index) {
       return _c('div', [_c('div', {
-        staticClass: "row"
-      }, [_c('div', {
-        staticClass: "col-md-12"
-      }, [_c('div', {
         staticClass: "lvds-form__label-button-group"
-      }, [_c('label', {
-        staticClass: "lvds-form__label",
+      }, [_c('div', {
         attrs: {
           "for": side.side + index,
           "for": "vue-dropzone--songs"
         }
-      }, [_vm._v(_vm._s(index + 1) + ".\n                    "), (song.picked) ? _c('a', {
+      }, [_c('div', {
+        staticClass: "row"
+      }, [_c('div', {
+        staticClass: "col-sm-1 lvds-form__label"
+      }, [_c('p', [_vm._v(_vm._s(index + 1) + ". ")])]), _vm._v(" "), _c('div', {
+        staticClass: "col-sm-11"
+      }, [(song.picked) ? _c('span', {
         staticClass: "lvds-button"
       }, [_c('span', {
         staticClass: "glyphicon glyphicon-ok"
       }), _vm._v(" " + _vm._s(song.file))]) : _c('span', [_c('dropzone', {
-        staticClass: "vue-dropzone--songs lvds-button lvds-button--pink lvds-form__button",
+        staticClass: "vue-dropzone--songs lvds-button",
         attrs: {
           "id": side.side + index,
           "url": "/steps/media/action",
           "useCustomDropzoneOptions": "",
-          "dropzoneOptions": _vm.dropzoneConfig
+          "dropzoneOptions": _vm.dropzoneConfig,
+          "acceptedFileTypes": "audio/*"
         },
         on: {
           "vdropzone-sending": _vm.sending,
@@ -46078,9 +46019,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       })], 1)])])])])])
     })], 2)
-  }), _vm._v(" "), _c('div', {
-    staticClass: "col-md-2"
-  })], 2), _vm._v(" "), _c('back-next-btns')], 1) : _vm._e()
+  })), _vm._v(" "), _c('back-next-btns')], 1) : _vm._e()
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -46096,11 +46035,11 @@ if (false) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "row margin-top-50"
-  }, [_c('div', {
-    staticClass: "col-md-2"
+    staticClass: "row"
+  }, [_c('hr', {
+    staticClass: "lvds-hr--gray-medium"
   }), _vm._v(" "), _c('div', {
-    staticClass: "col-md-3 text-right"
+    staticClass: "col-md-6 text-right"
   }, [_c('button', {
     staticClass: "lvds-button lvds-button--ghost-blue-light",
     on: {
@@ -46109,17 +46048,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   }, [_vm._v("« Go Back")])]), _vm._v(" "), _c('div', {
-    staticClass: "col-md-1"
-  }), _vm._v(" "), _c('div', {
-    staticClass: "col-md-3 margin-bottom-30-sm"
+    staticClass: "col-md-6 margin-bottom-30-sm"
   }, [_c('button', {
     staticClass: "lvds-button lvds-button--blue-light",
     on: {
       "click": _vm.alertDone
     }
-  }, [_vm._v("Submit Order")])]), _vm._v(" "), _c('div', {
-    staticClass: "col-md-3"
-  })])
+  }, [_vm._v("Submit Order")])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -46138,14 +46073,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     key: "payment"
   }, [_c('headline', {
     attrs: {
-      "heading": _vm.name,
+      "heading": _vm.current_step.headline,
       "subhead": _vm.current_step.subhead
     }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "row"
-  }, [_c('div', {
-    staticClass: "col-md-8 col-center margin-bottom-30"
-  }, [_c('checkout')], 1)]), _vm._v(" "), _c('back-next-btns')], 1) : _vm._e()
+  }), _vm._v(" "), _c('checkout'), _vm._v(" "), _c('back-next-btns')], 1) : _vm._e()
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -46182,7 +46113,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', [_c('div', {
     staticClass: "row"
   }, [_c('div', {
-    staticClass: "col-md-8 col-center"
+    staticClass: "col-md-12"
   }, [_c('h1', {
     staticClass: "lvds-headline",
     domProps: {
@@ -46191,9 +46122,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   })])]), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
-    staticClass: "col-md-8 col-center"
+    staticClass: "col-md-12"
   }, [_c('h2', {
-    staticClass: "lvds-headline--secondary margin-bottom-30",
+    staticClass: "lvds-headline--secondary",
     domProps: {
       "innerHTML": _vm._s(_vm.subhead)
     }
@@ -46219,16 +46150,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "heading": _vm.current_step.headline,
       "subhead": _vm.current_step.subhead
     }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "row"
-  }, [_c('div', {
-    staticClass: "col-md-8 col-center"
-  }, [_vm._m(0), _vm._v(" "), _c('div', {
+  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
     staticClass: "col-md-12"
-  }, [_c('label', {
-    staticClass: "lvds-form__label"
+  }, [_c('p', {
+    staticClass: "lvds-para"
   }, [_vm._v(_vm._s(_vm.name))])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
@@ -46240,7 +46167,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [(!_vm.front_cover_path) ? _c('img', {
     staticClass: "cover-image",
     attrs: {
-      "src": "http://placehold.it/200x200"
+      "src": "http://placehold.it/250x250"
     }
   }) : _vm._e(), _vm._v(" "), (_vm.front_cover_path) ? _c('img', {
     staticClass: "cover-image",
@@ -46269,22 +46196,22 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         staticClass: "lvds-para"
       }, [_vm._v(_vm._s(index + 1) + ". Oops, nothing here.")]) : _vm._e()])])])
     })], 2)
-  }))])])])]), _vm._v(" "), _c('back-submit-btns')], 1) : _vm._e()
+  }))])]), _vm._v(" "), _c('back-submit-btns')], 1) : _vm._e()
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "row margin-bottom-15"
   }, [_c('div', {
     staticClass: "col-md-12"
-  }, [_c('label', {
-    staticClass: "lvds-form__label"
+  }, [_c('p', {
+    staticClass: "lvds-headline--tertiary"
   }, [_c('strong', [_vm._v("Vinyl Name:")])])])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "row margin-top-50"
   }, [_c('div', {
     staticClass: "col-md-12"
-  }, [_c('label', {
-    staticClass: "lvds-form__label"
+  }, [_c('p', {
+    staticClass: "lvds-headline--tertiary"
   }, [_c('strong', [_vm._v("Album Covers:")])])])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
@@ -46299,9 +46226,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "row margin-top-50"
   }, [_c('div', {
     staticClass: "col-md-12 margin-bottom-15"
-  }, [_c('label', {
-    staticClass: "lvds-form__label"
-  }, [_c('strong', [_vm._v("Song Order:")])])])])
+  }, [_c('p', {
+    staticClass: "lvds-headline--tertiary"
+  }, [_c('strong', [_vm._v("Tracks:")])])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
@@ -47159,6 +47086,101 @@ module.exports = function(module) {
 __webpack_require__(14);
 module.exports = __webpack_require__(15);
 
+
+/***/ }),
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */,
+/* 111 */,
+/* 112 */,
+/* 113 */,
+/* 114 */,
+/* 115 */,
+/* 116 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_lv_functions_js__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_lv_functions_js__["a" /* default */]]
+
+});
+
+/***/ }),
+/* 117 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(116),
+  /* template */
+  __webpack_require__(118),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/jake/Desktop/side-projects/lyfevinyl/site/lyfevinyl/resources/assets/js/components/StepContinueButton.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] StepContinueButton.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7da4a2a2", Component.options)
+  } else {
+    hotAPI.reload("data-v-7da4a2a2", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 118 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "row"
+  }, [_c('hr', {
+    staticClass: "lvds-hr--gray-medium"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "col-md-6"
+  }, [_c('button', {
+    staticClass: "lvds-button lvds-button--blue-light",
+    on: {
+      "click": function($event) {
+        _vm.next()
+      }
+    }
+  }, [_vm._v("Next »")])])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-7da4a2a2", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
