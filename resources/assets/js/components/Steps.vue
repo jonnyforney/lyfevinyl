@@ -56,7 +56,9 @@
                 swal({
                     title: 'Previous Order Found',
                     text: "Would you like to load in the order?",
-                    type: 'info',
+                    imageUrl: 'imgs/icon.png',
+                    imageWidth: 75,
+                    imageHeight: 75,
                     showCancelButton: true,
                     confirmButtonColor: '#00a0ff',
                     cancelButtonColor: '#BBC2C8',

@@ -1,11 +1,7 @@
 <template>
   <section v-if="current_step.show" key="payment">
-    <headline :heading="name" :subhead="current_step.subhead"></headline>
-    <div class="row">
-      <div class="col-md-8 col-center margin-bottom-30">
-        <checkout></checkout>
-      </div>
-    </div>
+    <headline :heading="current_step.headline" :subhead="current_step.subhead"></headline>
+    <checkout></checkout>
     <back-next-btns></back-next-btns>
   </section>
 </template>

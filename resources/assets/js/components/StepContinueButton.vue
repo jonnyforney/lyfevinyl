@@ -2,9 +2,6 @@
   <div class="row">
     <hr class="lvds-hr--gray-medium">
     <div class="col-md-6">
-      <button class="lvds-button lvds-button--gray-medium" @click="back()">&laquo; Go Back</button>
-    </div>
-    <div class="col-md-6 margin-bottom-30-sm col-end">
       <button class="lvds-button lvds-button--blue-light" @click="next()">Next &raquo;</button>
     </div>
   </div>

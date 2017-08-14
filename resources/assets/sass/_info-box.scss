@@ -1,0 +1,23 @@
+.lvds-info-box {
+    background-color: $gray-light;
+    padding: $spacing-large;
+    margin-top: $spacing-small;
+
+    .lvds-info-box--headline {
+        color: $pink;
+        font-size: $headline-tertiary;
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+
+    i {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    
+    .lvds-info-box--paragraph {
+        font-family: $yrsa;
+        line-height: 1.3;
+    }
+
+}

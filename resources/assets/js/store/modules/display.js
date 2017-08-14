@@ -19,22 +19,23 @@ export default {
         "current_step": "album_name",
         "progress": 0,
         "step_album_name": {
-            "headline": "Let's get started!",
-            "subhead": "What's the best way to start personalizing your vinyl? Giving it a title, of course! You can choose to have this name on the front of your album cover.",
+            "headline": "Choose an album name.",
+            "subhead": "What would you like to name your customized album?",
+            "infobox": "",
             "show": true
         },
         "step_songs": {
-            "headline": "",
-            "subhead": "Let's upload the songs now. <br>Make sure you own the music and it must be in .mp3 format.",
+            "headline": "Upload your songs.",
+            "subhead": "<strong>Important:</strong> Make sure you own the music. Please use .wav, .flac, .mp3, or .m4a as the file types.",
             "show": false
         },
         "step_covers": {
-            "headline": "",
-            "subhead": "This is going to be a wonderful record. <br>Let's add some images for the album art now.",
+            "headline": "Add your album art.",
+            "subhead": "This is going to be a wonderful record. Let's add some images for the album art now.",
             "show": false
         },
         "step_shipping": {
-            "headline": "",
+            "headline": "Shuh-ship it real good.",
             "subhead": "Where should we send this beautiful creation?",
             "show": false
         },
@@ -44,7 +45,7 @@ export default {
             "show": false
         },
         "step_preview": {
-            "headline": "Let's preview your vinyl.",
+            "headline": "Let's make sure everything looks correct.",
             "subhead": "Double check that everything is looking swell. Feel free to go back and change anything before moving forward.",
             "show": false
         }
