@@ -1,40 +1,34 @@
 <template>
-<section v-if="current_step.show">
-  <headline :heading="name" :subhead="current_step.subhead"></headline>
-  <div class="row">
-    <div class="col-md-8 col-center">
-      <div class="row">
-        <div class="image-upload col-md-6">
-          <p class="lvds-headline--tertiary">Front Cover</p>
-          <div class="row margin-bottom-30">
-            <div class="col-md-12">
-                <dropzone
-                  id="frontcoverZone"
-                  class="vue-dropzone--covers"
-                  url="/file/action"
-                  :headers="headers"
-                  :thumbnailHeight="200"
-                  :thumbnailWidth="200"
-                  @vdropzone-sending="sending"
-                  @vdropzone-success="success"
-                  @vdropzone-removed-file="remove"
-                ></dropzone>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <p class="lvds-headline--tertiary">Back Cover</p>
-          <div class="row margin-bottom-30">
-            <div class="col-md-12">
-              <img src="http://placehold.it/200x200">
-            </div>
+  <section v-if="current_step.show">
+    <headline :heading="current_step.headline" :subhead="current_step.subhead"></headline>
+    <div class="row margin-top-30">
+      <div class="image-upload col-md-6">
+        <p class="lvds-headline--tertiary">Front Cover</p>
+        <dropzone
+          id="frontcoverZone"
+          class="vue-dropzone--covers"
+          url="/file/action"
+          :headers="headers"
+          :thumbnailHeight="250"
+          :thumbnailWidth="250"
+          @vdropzone-sending="sending"
+          @vdropzone-success="success"
+          @vdropzone-removed-file="remove"
+          acceptedFileTypes= "image/*"
+        >
+        </dropzone>
+      </div>
+      <div class="col-md-6">
+        <p class="lvds-headline--tertiary">Back Cover</p>
+        <div class="row margin-bottom-30">
+          <div class="col-md-12">
+            <img src="http://placehold.it/250x250">
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <stepcontrolbuttons></stepcontrolbuttons>
-</section>
+    <back-next-btns></back-next-btns>
+  </section>
 </template>
 
 <script>
@@ -46,7 +40,7 @@
         mixins: [lv_functions],
         components: {
             Headline,
-            'stepcontrolbuttons': StepControlButtons,
+            'back-next-btns': StepControlButtons,
             Dropzone
         },
         data: () => {

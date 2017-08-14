@@ -1,54 +1,62 @@
 .vue-dropzone--covers {
-    height: 200px;
-    width: 200px;
-    border: 2px solid $darkgray !important;
-    font-family: $source_sans !important;
-    color: $darkgray !important;
-    border-radius: 5px;
-    padding: 0 !important;
+  height: 250px;
+  width: 250px;
+  border: 2px solid $darkgray !important;
+  font-family: $source_sans !important;
+  color: $darkgray !important;
+  background-color: $gray-light !important;
+  border-radius: 5px;
+
     &:hover {
-        background-color: $darkgray !important;
-        color: $white !important;
-        i {
-            color: $white !important;
-        }
+      background-color: $darkgray !important;
+      color: $gray-light !important;
+
+      i {
+        color: $gray-light !important;
+      }
     }
+
     i {
-        color: $darkgray !important;
+      color: $darkgray !important;
     }
     .dz-message {
-        padding: 20px;
-        margin: 2.3em 0 2em !important;
+      padding: 20px;
+      margin: 2.3em 0 2em !important;
     }
     .dz-preview {
-        margin: -2px !important;
+      margin: -22px !important;
     }
     .dz-image {
-        border-radius: 5px !important;
+      border-radius: 5px !important;
     }
 }
 
 .vue-dropzone--songs {
-    min-height: 50px !important;
-    height: 60px;
-    width: 220px;
-    border: 2px solid $darkgray !important;
-    font-family: $source_sans !important;
+  min-height: 50px !important;
+  height: 50px;
+  width: 220px;
+  border: 2px solid $darkgray !important;
+  font-family: $source_sans !important;
+  color: $darkgray !important;
+  background-color: $gray-light !important;
+  border-radius: 5px;
+  padding: 8px !important;
+  margin: -12px 0 15px;
+
+  .dz-message {
+    margin: 2px 0 !important;
+  }
+
+  i {
     color: $darkgray !important;
-    border-radius: 5px;
-    padding: 13px !important;
-    float: right;
-    .dz-message {
-        margin: 2px 0 !important;
-    }
+  }
+
+  &:hover {
+    background-color: $darkgray !important;
+    color: $gray-light !important;
+
     i {
-        color: $darkgray !important;
+      color: $white !important;
     }
-    &:hover {
-        background-color: $darkgray !important;
-        color: $white !important;
-        i {
-            color: $white !important;
-        }
-    }
+  }
 }

@@ -1,46 +1,48 @@
 <template>
   <section v-if="current_step.show" key="songs">
-    <headline :heading="name" :subhead="current_step.subhead"></headline>
-    <div class="row song-upload margin-top-30">
-        <div class="col-md-2"></div>
-        <div class="col-md-4" v-for="side in sides">
-          <p class="lvds-headline--tertiary">Side {{side.side}}</p>
-          <div v-for="(song, index) in side.songs">
-            <div class="row">
-              <div class="col-md-12">
-                  <div class="lvds-form__label-button-group">
-                    <label :for="side.side + index" for="vue-dropzone--songs" class="lvds-form__label">{{ index+1 }}.
-                      <a v-if="song.picked" class="lvds-button"><span class="glyphicon glyphicon-ok"></span> {{ song.file }}</a>
-                      <span v-else>
-                        <dropzone
-                          :id="side.side + index"
-                          class="vue-dropzone--songs lvds-button lvds-button--pink lvds-form__button"
-                          url="/steps/media/action"
-                          @vdropzone-sending="sending"
-                          @vdropzone-success="success"
-                          @vdropzone-removed-file="remove"
-                          @change="onSongChange($event, song)"
-                          useCustomDropzoneOptions
-                          :dropzoneOptions="dropzoneConfig"
-                        >
-                        </dropzone>
-                      </span>
-                    </label>
-                  </div>
+    <headline :heading="current_step.headline" :subhead="current_step.subhead"></headline>
+    <div class="row song-upload">
+      <div class="col-md-6" v-for="side in sides">
+        <p class="lvds-headline--tertiary margin-bottom-30">Side {{side.side}}</p>
+        <div v-for="(song, index) in side.songs">
+          <div class="lvds-form__label-button-group">
+            <div :for="side.side + index" for="vue-dropzone--songs">
+              <div class="row">
+                <div class="col-sm-1 lvds-form__label">
+                  <p>{{ index+1 }}. </p>
+                </div>
+                <div class="col-sm-11">
+                  <span v-if="song.picked" class="lvds-button"><span class="glyphicon glyphicon-ok"></span> {{ song.file }}</span>
+                  <span v-else>
+                    <dropzone
+                      :id="side.side + index"
+                      class="vue-dropzone--songs lvds-button"
+                      url="/steps/media/action"
+                      @vdropzone-sending="sending"
+                      @vdropzone-success="success"
+                      @vdropzone-removed-file="remove"
+                      @change="onSongChange($event, song)"
+                      useCustomDropzoneOptions
+                      :dropzoneOptions="dropzoneConfig"
+                      acceptedFileTypes= "audio/*"
+                    >
+                    </dropzone>
+                  </span>
+                </div>
               </div>
             </div>
-            <!-- <div class="row">
-              <div class="col-md-12">
-                  <input
-                  :id="side.side + index"
-                  type="file"
-                  @change="onSongChange($event, song)"
-                  />
-              </div>
-            </div> -->
           </div>
+          <!-- <div class="row">
+            <div class="col-md-12">
+                <input
+                :id="side.side + index"
+                type="file"
+                @change="onSongChange($event, song)"
+                />
+            </div>
+          </div> -->
         </div>
-        <div class="col-md-2"></div>
+      </div>
     </div>
     <back-next-btns></back-next-btns>
   </section>
@@ -110,7 +112,7 @@
             },
             success(file) {
                 let uploaded_file_path = JSON.parse(file.xhr.response).path;
-                this.$store.commit('setSongPath', uploaded_file_path);
+                this.$store.commit('setSong', uploaded_file_path);
             },
             remove(file, error, xhr) {
                 axios.post('/steps/media/action', {
