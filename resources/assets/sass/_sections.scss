@@ -31,7 +31,7 @@
 .lvds-headline--secondary {
   font-size: $headline-secondary;
   font-family: $source_sans;
-  margin-bottom: $spacing-large;
+  margin-bottom: $spacing-medium;
   margin-top: 0;
   font-weight: 400;
 }
@@ -110,4 +110,9 @@
 
 .lvds-hr-navy {
   border-top: 1px solid $blue-dark;
+}
+
+.lvds-hr--gray-medium {
+  border-top: 1px solid $gray-medium;
+  margin: 30px 0 50px;
 }
