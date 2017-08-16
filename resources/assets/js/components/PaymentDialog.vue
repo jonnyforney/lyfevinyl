@@ -1,5 +1,5 @@
 <template>
-    <form action="" method="POST">        
+    <form>            
         <button id="buyVinyl" type="submit" @click.prevent="buy()">Buy This Here Vinyl</button>
     </form>
 </template>
@@ -14,15 +14,27 @@
                 description: '',
                 zipCode: true,
                 amount: 20000,
-                stripeToken: '',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             }
         },
         computed: {
-            stripeEmail() {
-                return this.$store.state.shipping.email;
+            stripeEmail: {
+                get() {
+                    return this.$store.state.shipping.email;
+                },
+                set(email) {
+                    this.$store.commit('setEmail', email);
+                }
+            },
+            stripeToken: {
+                get() {
+                    return this.$store.state.payment.stripeToken;
+                },
+                set(token) {
+                    this.$store.commit('setStripeToken', token);
+                }
             }
         },
         methods: {
@@ -42,13 +54,11 @@
         created() {
             this.stripe = StripeCheckout.configure({
                 key: this.stripeToken,
-                image: "https:///stripe.com/img/documentation/checkout/marketplace.png",
+                image: "imgs/icon.png",
                 locale: "auto",
                 token: () => {
                     this.stripeToken = token.id;
                     this.stripeEmail = token.email;
-
-                    //  axios request
                 }
             });
         }
