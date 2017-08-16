@@ -1,7 +1,7 @@
 <template>
   <section v-if="current_step.show" key="payment">
     <headline :heading="current_step.headline" :subhead="current_step.subhead"></headline>
-    <checkout></checkout>
+    <paymentdialog></paymentdialog>
     <back-next-btns></back-next-btns>
   </section>
 </template>
@@ -10,7 +10,7 @@
     import Headline from './Headline';
     import StepControlButtons from './StepControlButtons';
     import lv_functions from '../mixins/lv-functions.js';
-    import Checkout from './Checkout.vue';
+    import PaymentDialog from './PaymentDialog.vue';
     // import Circle2from './~/vue-loading-spinner/src/components/Circle.vue';
 
     export default {
@@ -20,7 +20,7 @@
         components: {
             Headline,
             'back-next-btns': StepControlButtons,
-            Checkout
+            'paymentdialog': PaymentDialog
         },
         data: function() {
             return {
