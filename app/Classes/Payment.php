@@ -10,30 +10,45 @@ use \Illuminate\Database\Eloquent\Collection;
 
 class Payment implements Step
 {
+    protected $customer = null;
+    protected $charged = null;
+    protected $amount = 20000;
+
     function __construct()
     {
     }
 
     public function save($data)
     {        
-
+        $this->store($data);
     }
 
-    function store($data)
+    public function store($data)
     {
         Stripe::setApiKey(config('services.stripe.secret'));
 
-        $customer = Customer::create([
-            'email' => request('stripeEmail'),
-            'source' => request('stripeToken')
+        $data->shipping = (object)$data->shipping;
+        $data->payment = (object)$data->payment;
+
+        $this->customer = Customer::create([
+            'email' => $data->shipping->email,
+            'source' => $data->payment->stripeToken
         ]);
 
-        // Charge::create([
-        //     'customer' => $customer->id,
-        //     'amount' => 20000,
-        //     'currency' => 'usd'
-        // ]);
+        $this->pay();
+
+        if($this->charged) {
+            return 'customer charged';
+        }
 
         return 'stripe customer created';
+    }
+
+    protected function pay() {
+        $this->charged = Charge::create([
+            'customer' => $this->customer->id,
+            'amount' => $this->amount,
+            'currency' => 'usd'
+        ]);
     }
 }
