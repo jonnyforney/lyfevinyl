@@ -56,7 +56,7 @@
                 key: this.stripeToken,
                 image: "imgs/icon.png",
                 locale: "auto",
-                token: () => {
+                token: (token) => {
                     this.stripeToken = token.id;
                     this.stripeEmail = token.email;
                 }

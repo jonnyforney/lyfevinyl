@@ -540,7 +540,7 @@ module.exports = {
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(37),
+  __webpack_require__(36),
   /* template */
   __webpack_require__(105),
   /* scopeId */
@@ -10727,10 +10727,10 @@ window.swal = __webpack_require__(78);
 
 
 
-Vue.component('home', __webpack_require__(82));
+Vue.component('home', __webpack_require__(81));
 Vue.component('steps', __webpack_require__(91));
 Vue.component('progress-bar', __webpack_require__(86));
-Vue.component('loading', __webpack_require__(83));
+Vue.component('loading', __webpack_require__(82));
 
 var app = new Vue({
   el: '#app',
@@ -11652,8 +11652,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 35 */,
-/* 36 */
+/* 35 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11750,7 +11749,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11776,7 +11775,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11883,7 +11882,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 39 */
+/* 38 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11913,7 +11912,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 40 */
+/* 39 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11923,7 +11922,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StepControlButtons__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StepControlButtons___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__StepControlButtons__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_lv_functions_js__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PaymentDialog_vue__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PaymentDialog_vue__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PaymentDialog_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__PaymentDialog_vue__);
 //
 //
@@ -11967,6 +11966,81 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     methods: {}
+});
+
+/***/ }),
+/* 40 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_lv_functions_js__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_lv_functions_js__["a" /* default */]],
+    data: function data() {
+        return {
+            name: 'Lyfe Vinyl',
+            description: '',
+            zipCode: true,
+            amount: 20000,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        };
+    },
+    computed: {
+        stripeEmail: {
+            get: function get() {
+                return this.$store.state.shipping.email;
+            },
+            set: function set(email) {
+                this.$store.commit('setEmail', email);
+            }
+        },
+        stripeToken: {
+            get: function get() {
+                return this.$store.state.payment.stripeToken;
+            },
+            set: function set(token) {
+                this.$store.commit('setStripeToken', token);
+            }
+        }
+    },
+    methods: {
+        buy: function buy() {
+            this.stripe.open({
+                name: this.name,
+                description: this.description,
+                email: this.stripeEmail,
+                amount: this.amount,
+                zipCode: true
+            });
+        }
+    },
+    mounted: function mounted() {
+        //$('#buyVinyl').click()
+    },
+    created: function created() {
+        var _this = this;
+
+        this.stripe = StripeCheckout.configure({
+            key: this.stripeToken,
+            image: "imgs/icon.png",
+            locale: "auto",
+            token: function token(_token) {
+                _this.stripeToken = _token.id;
+                _this.stripeEmail = _token.email;
+            }
+        });
+    }
 });
 
 /***/ }),
@@ -12619,11 +12693,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AlbumName_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__AlbumName_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Songs_vue__ = __webpack_require__(88);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Songs_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Songs_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Covers_vue__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Covers_vue__ = __webpack_require__(80);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Covers_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Covers_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Shipping_vue__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Shipping_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__Shipping_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Payment_vue__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Payment_vue__ = __webpack_require__(83);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Payment_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__Payment_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Preview_vue__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Preview_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__Preview_vue__);
@@ -44776,13 +44850,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 80 */,
-/* 81 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(36),
+  __webpack_require__(35),
   /* template */
   __webpack_require__(95),
   /* scopeId */
@@ -44811,12 +44884,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 82 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(38),
+  __webpack_require__(37),
   /* template */
   __webpack_require__(94),
   /* scopeId */
@@ -44845,12 +44918,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 83 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(39),
+  __webpack_require__(38),
   /* template */
   __webpack_require__(99),
   /* scopeId */
@@ -44879,12 +44952,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 84 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(40),
+  __webpack_require__(39),
   /* template */
   __webpack_require__(102),
   /* scopeId */
@@ -44906,6 +44979,40 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-7a5942ec", Component.options)
   } else {
     hotAPI.reload("data-v-7a5942ec", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(40),
+  /* template */
+  __webpack_require__(96),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Development/www/current/lyfevinyl/resources/assets/js/components/PaymentDialog.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] PaymentDialog.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-41d4a954", Component.options)
+  } else {
+    hotAPI.reload("data-v-41d4a954", Component.options)
   }
 })()}
 
@@ -45421,7 +45528,32 @@ if (false) {
 }
 
 /***/ }),
-/* 96 */,
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('form', [_c('button', {
+    attrs: {
+      "id": "buyVinyl",
+      "type": "submit"
+    },
+    on: {
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.buy()
+      }
+    }
+  }, [_vm._v("Buy This Here Vinyl")])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-41d4a954", module.exports)
+  }
+}
+
+/***/ }),
 /* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -47042,160 +47174,6 @@ module.exports = function(module) {
 __webpack_require__(14);
 module.exports = __webpack_require__(15);
 
-
-/***/ }),
-/* 110 */,
-/* 111 */,
-/* 112 */,
-/* 113 */,
-/* 114 */,
-/* 115 */,
-/* 116 */,
-/* 117 */,
-/* 118 */,
-/* 119 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_lv_functions_js__ = __webpack_require__(2);
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_lv_functions_js__["a" /* default */]],
-    data: function data() {
-        return {
-            name: 'Lyfe Vinyl',
-            description: '',
-            zipCode: true,
-            amount: 20000,
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        };
-    },
-    computed: {
-        stripeEmail: {
-            get: function get() {
-                return this.$store.state.shipping.email;
-            },
-            set: function set(email) {
-                this.$store.commit('setEmail', email);
-            }
-        },
-        stripeToken: {
-            get: function get() {
-                return this.$store.state.payment.stripeToken;
-            },
-            set: function set(token) {
-                this.$store.commit('setStripeToken', token);
-            }
-        }
-    },
-    methods: {
-        buy: function buy() {
-            this.stripe.open({
-                name: this.name,
-                description: this.description,
-                email: this.stripeEmail,
-                amount: this.amount,
-                zipCode: true
-            });
-        }
-    },
-    mounted: function mounted() {
-        //$('#buyVinyl').click()
-    },
-    created: function created() {
-        var _this = this;
-
-        this.stripe = StripeCheckout.configure({
-            key: this.stripeToken,
-            image: "imgs/icon.png",
-            locale: "auto",
-            token: function (_token) {
-                function token() {
-                    return _token.apply(this, arguments);
-                }
-
-                token.toString = function () {
-                    return _token.toString();
-                };
-
-                return token;
-            }(function () {
-                _this.stripeToken = token.id;
-                _this.stripeEmail = token.email;
-            })
-        });
-    }
-});
-
-/***/ }),
-/* 120 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(119),
-  /* template */
-  __webpack_require__(121),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "/Development/www/current/lyfevinyl/resources/assets/js/components/PaymentDialog.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] PaymentDialog.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-41d4a954", Component.options)
-  } else {
-    hotAPI.reload("data-v-41d4a954", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 121 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('form', [_c('button', {
-    attrs: {
-      "id": "buyVinyl",
-      "type": "submit"
-    },
-    on: {
-      "click": function($event) {
-        $event.preventDefault();
-        _vm.buy()
-      }
-    }
-  }, [_vm._v("Buy This Here Vinyl")])])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-41d4a954", module.exports)
-  }
-}
 
 /***/ })
 /******/ ]);
