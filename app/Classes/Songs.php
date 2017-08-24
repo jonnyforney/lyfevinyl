@@ -30,10 +30,10 @@ class Songs implements Step
                 $song = (object)$song;
                 if(!empty($song->path)) {
                     $existing_song = Song::where([
-                                                    'order_id' => $data->order_id,
-                                                    'side' => $side->side,
-                                                    'track' => $song->track
-                                                ])->first();
+                        'order_id' => $data->order_id,
+                        'side' => $side->side,
+                        'track' => $song->track
+                    ])->first();
 
                     $current_song = (!empty($existing_song)) ? $existing_song : new Song;
                                 
