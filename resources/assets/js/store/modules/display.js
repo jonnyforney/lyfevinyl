@@ -26,7 +26,7 @@ export default {
         },
         "step_songs": {
             "headline": "Upload your songs.",
-            "subhead": "<strong>Important:</strong> Make sure you own the music. Please use .wav, .flac, .mp3, or .m4a as the file types.",
+            "subhead": "You must own the music. Accepted file types include: <br><strong>.wav, .flac, .mp3, or .m4a</strong>",
             "show": false
         },
         "step_covers": {
@@ -45,7 +45,7 @@ export default {
             "show": false
         },
         "step_preview": {
-            "headline": "Let's make sure everything looks correct.",
+            "headline": "Preview",
             "subhead": "Double check that everything is looking swell. Feel free to go back and change anything before moving forward.",
             "show": false
         }
