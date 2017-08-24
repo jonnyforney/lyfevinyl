@@ -48,6 +48,14 @@ class OrderController extends Controller
         return $step_class->save($payload);
     }
 
+    public function pay() {
+        // Charge::create([
+        //     'customer' => $customer->id,
+        //     'amount' => 20000,
+        //     'currency' => 'usd'
+        // ]);
+    }
+
     public function print()
     {
         dd(session()->all());

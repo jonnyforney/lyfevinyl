@@ -29,8 +29,13 @@
                 return {
                     step: this.$store.state.display.current_step,
                     data: {
+                        order_id: this.$store.state.vinyl.order_id,
                         title: this.title,
-                        frontcover: this.front_cover_path
+                        frontcover: this.front_cover_path,
+                        sides: this.$store.state.vinyl.sides,
+                        shipping: this.$store.state.shipping,
+                        payment: this.$store.state.payment,
+                        status: 'complete' //this.$store.state.order.status
                     }
                 };
             }
