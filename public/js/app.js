@@ -463,6 +463,7 @@ module.exports = {
             var vinyl_data = this.$store.state.vinyl;
             var shipping_data = this.$store.state.shipping;
             var payment_data = this.$store.state.payment;
+            var order_data = this.$store.state.order;
 
             var prefix = 'step_';
             var current_step = display_data.current_step;
@@ -490,7 +491,8 @@ module.exports = {
                     'front_cover_path': vinyl_data.front_cover_path,
                     'sides': vinyl_data.sides,
                     'shipping': shipping_data,
-                    'payment': payment_data
+                    'payment': payment_data,
+                    'status': order_data.status
                 }
             };
 
@@ -12656,8 +12658,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return {
                 step: this.$store.state.display.current_step,
                 data: {
+                    order_id: this.$store.state.vinyl.order_id,
                     title: this.title,
-                    frontcover: this.front_cover_path
+                    frontcover: this.front_cover_path,
+                    sides: this.$store.state.vinyl.sides,
+                    shipping: this.$store.state.shipping,
+                    payment: this.$store.state.payment,
+                    status: 'complete' //this.$store.state.order.status
                 }
             };
         }
@@ -13041,7 +13048,11 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony default export */ __webpack_exports__["a"] = ({});
+/* harmony default export */ __webpack_exports__["a"] = ({
+    setStatus: function setStatus(state, status) {
+        state.status = status;
+    }
+});
 
 /***/ }),
 /* 66 */
@@ -13126,7 +13137,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
     actions: __WEBPACK_IMPORTED_MODULE_0__actions_order_actions_js__["a" /* default */],
     getters: __WEBPACK_IMPORTED_MODULE_1__getters_order_getters_js__["a" /* default */],
     mutations: __WEBPACK_IMPORTED_MODULE_2__mutations_order_mutations_js__["a" /* default */],
-    state: {}
+    state: {
+        status: ''
+    }
 });
 
 /***/ }),

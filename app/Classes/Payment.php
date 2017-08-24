@@ -11,7 +11,7 @@ use \Illuminate\Database\Eloquent\Collection;
 class Payment implements Step
 {
     protected $customer = null;
-    protected $charged = null;
+    protected $charged = false;
     protected $amount = 20000;
 
     function __construct()
@@ -20,28 +20,37 @@ class Payment implements Step
 
     public function save($data)
     {        
-        $this->store($data);
+        return $this->store($data);
     }
 
     public function store($data)
     {
-        Stripe::setApiKey(config('services.stripe.secret'));
+        $msg = 'customer not charged, waiting for the order to be finalized';
 
-        $data->shipping = (object)$data->shipping;
-        $data->payment = (object)$data->payment;
+        do {
+            if($data->status == 'complete') {
+                Stripe::setApiKey(config('services.stripe.secret'));
 
-        $this->customer = Customer::create([
-            'email' => $data->shipping->email,
-            'source' => $data->payment->stripeToken
-        ]);
+                $data->shipping = (object)$data->shipping;
+                $data->payment = (object)$data->payment;
 
-        $this->pay();
+                $this->customer = Customer::create([
+                    'email' => $data->shipping->email,
+                    'source' => $data->payment->stripeToken
+                ]);
 
-        if($this->charged) {
-            return 'customer charged';
-        }
+                $this->pay();
 
-        return 'stripe customer created';
+                if($this->charged->captured) {
+                    $msg = 'customer charged';
+                    break;
+                }
+
+                $msg = 'stripe customer created';
+            }
+        } while (0);        
+
+        return ['order_id' => $data->order_id, 'status' => $msg];
     }
 
     protected function pay() {
