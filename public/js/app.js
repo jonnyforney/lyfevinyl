@@ -463,6 +463,7 @@ module.exports = {
             var vinyl_data = this.$store.state.vinyl;
             var shipping_data = this.$store.state.shipping;
             var payment_data = this.$store.state.payment;
+            var order_data = this.$store.state.order;
 
             var prefix = 'step_';
             var current_step = display_data.current_step;
@@ -490,7 +491,8 @@ module.exports = {
                     'front_cover_path': vinyl_data.front_cover_path,
                     'sides': vinyl_data.sides,
                     'shipping': shipping_data,
-                    'payment': payment_data
+                    'payment': payment_data,
+                    'status': order_data.status
                 }
             };
 
@@ -540,7 +542,7 @@ module.exports = {
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(37),
+  __webpack_require__(36),
   /* template */
   __webpack_require__(105),
   /* scopeId */
@@ -10727,10 +10729,10 @@ window.swal = __webpack_require__(78);
 
 
 
-Vue.component('home', __webpack_require__(82));
+Vue.component('home', __webpack_require__(81));
 Vue.component('steps', __webpack_require__(91));
 Vue.component('progress-bar', __webpack_require__(86));
-Vue.component('loading', __webpack_require__(83));
+Vue.component('loading', __webpack_require__(82));
 
 var app = new Vue({
   el: '#app',
@@ -11657,81 +11659,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_lv_functions_js__ = __webpack_require__(2);
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_lv_functions_js__["a" /* default */]],
-    data: function data() {
-        return {
-            name: 'Lyfe Vinyl',
-            description: '',
-            zipCode: true,
-            amount: 20000,
-            stripeToken: '',
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        };
-    },
-    computed: {
-        stripeEmail: function stripeEmail() {
-            return this.$store.state.shipping.email;
-        }
-    },
-    methods: {
-        buy: function buy() {
-            this.stripe.open({
-                name: this.name,
-                description: this.description,
-                email: this.stripeEmail,
-                amount: this.amount,
-                zipCode: true
-            });
-        }
-    },
-    mounted: function mounted() {
-        //$('#buyVinyl').click()
-    },
-    created: function created() {
-        var _this = this;
-
-        this.stripe = StripeCheckout.configure({
-            key: this.stripeToken,
-            image: "https:///stripe.com/img/documentation/checkout/marketplace.png",
-            locale: "auto",
-            token: function (_token) {
-                function token() {
-                    return _token.apply(this, arguments);
-                }
-
-                token.toString = function () {
-                    return _token.toString();
-                };
-
-                return token;
-            }(function () {
-                _this.stripeToken = token.id;
-                _this.stripeEmail = token.email;
-
-                //  axios request
-            })
-        });
-    }
-});
-
-/***/ }),
-/* 36 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Headline__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Headline___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Headline__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue2_dropzone__ = __webpack_require__(12);
@@ -11824,7 +11751,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11850,7 +11777,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11957,7 +11884,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 39 */
+/* 38 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11987,7 +11914,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 40 */
+/* 39 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11997,8 +11924,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StepControlButtons__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StepControlButtons___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__StepControlButtons__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_lv_functions_js__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Checkout_vue__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Checkout_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__Checkout_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PaymentDialog_vue__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PaymentDialog_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__PaymentDialog_vue__);
 //
 //
 //
@@ -12021,7 +11948,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     components: {
         Headline: __WEBPACK_IMPORTED_MODULE_0__Headline___default.a,
         'back-next-btns': __WEBPACK_IMPORTED_MODULE_1__StepControlButtons___default.a,
-        Checkout: __WEBPACK_IMPORTED_MODULE_3__Checkout_vue___default.a
+        'paymentdialog': __WEBPACK_IMPORTED_MODULE_3__PaymentDialog_vue___default.a
     },
     data: function data() {
         return {};
@@ -12041,6 +11968,81 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     methods: {}
+});
+
+/***/ }),
+/* 40 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_lv_functions_js__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_lv_functions_js__["a" /* default */]],
+    data: function data() {
+        return {
+            name: 'Lyfe Vinyl',
+            description: '',
+            zipCode: true,
+            amount: 20000,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        };
+    },
+    computed: {
+        stripeEmail: {
+            get: function get() {
+                return this.$store.state.shipping.email;
+            },
+            set: function set(email) {
+                this.$store.commit('setEmail', email);
+            }
+        },
+        stripeToken: {
+            get: function get() {
+                return this.$store.state.payment.stripeToken;
+            },
+            set: function set(token) {
+                this.$store.commit('setStripeToken', token);
+            }
+        }
+    },
+    methods: {
+        buy: function buy() {
+            this.stripe.open({
+                name: this.name,
+                description: this.description,
+                email: this.stripeEmail,
+                amount: this.amount,
+                zipCode: true
+            });
+        }
+    },
+    mounted: function mounted() {
+        //$('#buyVinyl').click()
+    },
+    created: function created() {
+        var _this = this;
+
+        this.stripe = StripeCheckout.configure({
+            key: this.stripeToken,
+            image: "imgs/icon.png",
+            locale: "auto",
+            token: function token(_token) {
+                _this.stripeToken = _token.id;
+                _this.stripeEmail = _token.email;
+            }
+        });
+    }
 });
 
 /***/ }),
@@ -12610,8 +12612,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return {
                 step: this.$store.state.display.current_step,
                 data: {
+                    order_id: this.$store.state.vinyl.order_id,
                     title: this.title,
-                    frontcover: this.front_cover_path
+                    frontcover: this.front_cover_path,
+                    sides: this.$store.state.vinyl.sides,
+                    shipping: this.$store.state.shipping,
+                    payment: this.$store.state.payment,
+                    status: 'complete' //this.$store.state.order.status
                 }
             };
         }
@@ -12647,11 +12654,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AlbumName_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__AlbumName_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Songs_vue__ = __webpack_require__(88);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Songs_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Songs_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Covers_vue__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Covers_vue__ = __webpack_require__(80);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Covers_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Covers_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Shipping_vue__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Shipping_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__Shipping_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Payment_vue__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Payment_vue__ = __webpack_require__(83);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Payment_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__Payment_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Preview_vue__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Preview_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__Preview_vue__);
@@ -12677,7 +12684,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['customer_id', 'order', 'is_logged_in'],
+    props: ['customer_id', 'order', 'is_logged_in', 'stripe_token'],
     data: function data() {
         return {
             data: {}
@@ -12694,6 +12701,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {},
     mounted: function mounted() {
         this.$store.commit('setCustomerId', this.customer_id);
+        this.$store.commit('setStripeToken', this.stripe_token);
 
         // setTimeout(() => {
         //   this.loading = false;
@@ -12994,14 +13002,22 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony default export */ __webpack_exports__["a"] = ({});
+/* harmony default export */ __webpack_exports__["a"] = ({
+    setStatus: function setStatus(state, status) {
+        state.status = status;
+    }
+});
 
 /***/ }),
 /* 66 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony default export */ __webpack_exports__["a"] = ({});
+/* harmony default export */ __webpack_exports__["a"] = ({
+    setStripeToken: function setStripeToken(state, token) {
+        state.stripeToken = token;
+    }
+});
 
 /***/ }),
 /* 67 */
@@ -13075,7 +13091,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
     actions: __WEBPACK_IMPORTED_MODULE_0__actions_order_actions_js__["a" /* default */],
     getters: __WEBPACK_IMPORTED_MODULE_1__getters_order_getters_js__["a" /* default */],
     mutations: __WEBPACK_IMPORTED_MODULE_2__mutations_order_mutations_js__["a" /* default */],
-    state: {}
+    state: {
+        status: ''
+    }
 });
 
 /***/ }),
@@ -13095,7 +13113,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
     actions: __WEBPACK_IMPORTED_MODULE_0__actions_payment_actions_js__["a" /* default */],
     getters: __WEBPACK_IMPORTED_MODULE_1__getters_payment_getters_js__["a" /* default */],
     mutations: __WEBPACK_IMPORTED_MODULE_2__mutations_payment_mutations_js__["a" /* default */],
-    state: {}
+    state: {
+        stripeToken: ''
+    }
 });
 
 /***/ }),
@@ -44804,40 +44824,6 @@ var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(35),
   /* template */
-  __webpack_require__(96),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "/Users/jake/Desktop/side-projects/lyfevinyl/site/lyfevinyl/resources/assets/js/components/Checkout.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Checkout.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-483d4550", Component.options)
-  } else {
-    hotAPI.reload("data-v-483d4550", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 81 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(36),
-  /* template */
   __webpack_require__(95),
   /* scopeId */
   null,
@@ -44865,12 +44851,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 82 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(38),
+  __webpack_require__(37),
   /* template */
   __webpack_require__(94),
   /* scopeId */
@@ -44899,12 +44885,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 83 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(39),
+  __webpack_require__(38),
   /* template */
   __webpack_require__(99),
   /* scopeId */
@@ -44933,12 +44919,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 84 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(40),
+  __webpack_require__(39),
   /* template */
   __webpack_require__(102),
   /* scopeId */
@@ -44960,6 +44946,40 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-7a5942ec", Component.options)
   } else {
     hotAPI.reload("data-v-7a5942ec", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(40),
+  /* template */
+  __webpack_require__(96),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/jake/Desktop/side-projects/lyfevinyl/site/lyfevinyl/resources/assets/js/components/PaymentDialog.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] PaymentDialog.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-41d4a954", Component.options)
+  } else {
+    hotAPI.reload("data-v-41d4a954", Component.options)
   }
 })()}
 
@@ -45479,12 +45499,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('form', {
-    attrs: {
-      "action": "",
-      "method": "POST"
-    }
-  }, [_c('button', {
+  return _c('form', [_c('button', {
     attrs: {
       "id": "buyVinyl",
       "type": "submit"
@@ -45501,7 +45516,7 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-483d4550", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-41d4a954", module.exports)
   }
 }
 
@@ -46057,7 +46072,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "heading": _vm.current_step.headline,
       "subhead": _vm.current_step.subhead
     }
-  }), _vm._v(" "), _c('checkout'), _vm._v(" "), _c('back-next-btns')], 1) : _vm._e()
+  }), _vm._v(" "), _c('paymentdialog'), _vm._v(" "), _c('back-next-btns')], 1) : _vm._e()
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

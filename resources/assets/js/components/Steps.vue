@@ -23,15 +23,16 @@
         props: [
             'customer_id',
             'order',
-            'is_logged_in'
+            'is_logged_in',
+            'stripe_token'
         ],
         data: function() {
-           return {
-               data: {
+            return {
+                data: {
 
-               }
-           }
-       },
+                }
+            }
+        },
         components: {
             'album-name': AlbumName,
             'songs': Songs,
@@ -45,6 +46,7 @@
         },
         mounted: function() {
             this.$store.commit('setCustomerId', this.customer_id);
+            this.$store.commit('setStripeToken', this.stripe_token);
 
             // setTimeout(() => {
             //   this.loading = false;

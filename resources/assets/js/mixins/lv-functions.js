@@ -25,6 +25,7 @@ export default {
             var vinyl_data = this.$store.state.vinyl;
             var shipping_data = this.$store.state.shipping;
             var payment_data = this.$store.state.payment;
+            var order_data = this.$store.state.order;
 
             let prefix = 'step_';
             let current_step = display_data.current_step;
@@ -53,6 +54,7 @@ export default {
                     'sides': vinyl_data.sides,
                     'shipping': shipping_data,
                     'payment': payment_data,
+                    'status': order_data.status
                 }
             }
 
