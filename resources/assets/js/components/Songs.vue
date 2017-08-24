@@ -1,37 +1,17 @@
 <template>
   <section v-if="current_step.show" key="songs">
     <headline :heading="current_step.headline" :subhead="current_step.subhead"></headline>
-    <div class="row song-upload">
-      <div class="col-md-6" v-for="side in sides">
-        <p class="lvds-headline--tertiary margin-bottom-30">Side {{side.side}}</p>
-        <div v-for="(song, index) in side.songs">
-          <div class="lvds-form__label-button-group">
-            <div :for="side.side + index" for="vue-dropzone--songs">
-              <div class="row">
-                <div class="col-sm-1 lvds-form__label">
-                  <p>{{ index+1 }}. </p>
-                </div>
-                <div class="col-sm-11">
-                  <span v-if="song.picked" class="lvds-button"><span class="glyphicon glyphicon-ok"></span> {{ song.file }}</span>
-                  <span v-else>
-                    <dropzone
-                      :id="side.side + index"
-                      class="vue-dropzone--songs lvds-button"
-                      url="/steps/media/action"
-                      @vdropzone-sending="sending"
-                      @vdropzone-success="success"
-                      @vdropzone-removed-file="remove"
-                      @change="onSongChange($event, song)"
-                      useCustomDropzoneOptions
-                      :dropzoneOptions="dropzoneConfig"
-                      acceptedFileTypes= "audio/*"
-                    >
-                    </dropzone>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
+        <dropzone
+            id="songs"
+            class="vue-dropzone--songs"
+            url="/file/action"
+            @vdropzone-sending-multiple="sending"
+            @vdropzone-success-multiple="success"
+            @vdropzone-removed-file="remove"
+            acceptedFileTypes= ".mp3, .m4a, .wav, .flac"
+            uploadMultiple= true
+        >
+        </dropzone>
           <!-- <div class="row">
             <div class="col-md-12">
                 <input
@@ -41,9 +21,6 @@
                 />
             </div>
           </div> -->
-        </div>
-      </div>
-    </div>
     <back-next-btns></back-next-btns>
   </section>
 </template>
@@ -80,37 +57,13 @@
             sides() {
                 return this.$store.state.vinyl.sides;
             },
-            idGen() {
-                return this.songId += 1;
-            },
         },
         methods: {
-            onSongChange(e, song) {
-                var songFiles = e.target.files || e.dataTransfer.files;
-                if (!songFiles.length)
-                    return;
-
-                this.createSong(songFiles[0], song);
-            },
-
-            createSong(file, song) {
-                // var song = new Song();
-                var reader = new FileReader();
-
-                reader.fileName = file.name;
-                reader.onload = (e) => {
-                    //vm.song = e.target.result;
-                    song.picked = true;
-                    song.file = file.name;
-                };
-                reader.readAsDataURL(file);
-
-                this.$store.commit('setSong', this.sides);
-            },
-            sending: function(file, xhr, formData) {
+           
+            sending: function(files, xhr, formData) {
                 formData.append('method', 'upload');
             },
-            success(file) {
+            success(files) {
                 let uploaded_file_path = JSON.parse(file.xhr.response).path;
                 this.$store.commit('setSong', uploaded_file_path);
             },
