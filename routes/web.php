@@ -29,7 +29,8 @@ Route::post('/file/clearSession', 'FileController@clearSession');
 
 Route::post('/order/load', 'OrderController@load');
 Route::post('/order/add', 'OrderController@add');
-Route::post('/order/save', 'orderController@save');
+Route::post('/order/save', 'OrderController@save');
+Route::post('/order/pay', 'OrderController@pay');
 
 Route::post('/file/action', 'FileController@action');
  

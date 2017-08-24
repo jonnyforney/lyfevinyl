@@ -17,6 +17,7 @@
             customer_id="{{ session('customer_id') }}"
             order="{{ session('order')['id'] }}"
             is_logged_in="{{ Auth::check() }}"
+            stripe_token="{{ config('services.stripe.key') }}"
           ></steps>
         </div>
       </div>
