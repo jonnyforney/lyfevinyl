@@ -9,11 +9,16 @@ class FileController extends Controller
 {
     public function action(Request $request)
     {
-      $method = $request->method;
-      $media = new MediaLibrary;
-      $path = $media->$method($request);
+      $method = (string)$request->method;
+      
+      if(!empty($method)) {
+        $media = new MediaLibrary;
+        $path = $media->$method($request);
 
-      return ['path' => $path];
+        return ['path' => $path];
+      }
+
+      return 500;
     }
 
     public function clearSession()

@@ -5,22 +5,16 @@
             id="songs"
             class="vue-dropzone--songs"
             url="/file/action"
+            :headers="headers"
+            @vdropzone-sending="sending"
             @vdropzone-sending-multiple="sending"
+            @vdropzone-success="success"
             @vdropzone-success-multiple="success"
             @vdropzone-removed-file="remove"
             acceptedFileTypes= ".mp3, .m4a, .wav, .flac"
-            uploadMultiple= true
+            uploadMultiple=true
         >
         </dropzone>
-          <!-- <div class="row">
-            <div class="col-md-12">
-                <input
-                :id="side.side + index"
-                type="file"
-                @change="onSongChange($event, song)"
-                />
-            </div>
-          </div> -->
     <back-next-btns></back-next-btns>
   </section>
 </template>
@@ -44,6 +38,9 @@
             return {
                 dropzoneConfig: {
                     dictDefaultMessage: "Upload Song",
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             }
         },
@@ -53,27 +50,26 @@
             },
             name() {
                 return this.$store.state.vinyl.name;
-            },
-            sides() {
-                return this.$store.state.vinyl.sides;
-            },
+            }
         },
         methods: {
-           
-            sending: function(files, xhr, formData) {
+            sending(files, xhr, formData) {
                 formData.append('method', 'upload');
+                formData.append('type', 'song');
             },
-            success(files) {
-                let uploaded_file_path = JSON.parse(file.xhr.response).path;
-                this.$store.commit('setSong', uploaded_file_path);
+            success(files, response) {
+                let uploaded_file_path = JSON.parse(files.xhr.response).path;
+                this.$store.commit('addSong', uploaded_file_path);
             },
             remove(file, error, xhr) {
-                axios.post('/steps/media/action', {
+                axios.post('/file/action', {
                         method: 'remove',
-                        path: this.song_path
+                        path: JSON.parse(file.xhr.response).path
                     })
                     .then((response) => {
                         console.log(response)
+                        let uploaded_file_path = JSON.parse(file.xhr.response).path;
+                        this.$store.commit('removeSong', uploaded_file_path);
                     })
                     .catch((response) => {
                         console.log(response)

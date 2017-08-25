@@ -20,9 +20,13 @@ class MediaLibrary
         if(env('APP_ENV', 'local') != 'production' || !$this->is_production)
             return false;
 
-        $path = Storage::disk('s3')->putFile('frontcover', $request->file('file'));
+        if($request->type == 'song') {
+            $path = Storage::disk('s3')->putFile('songs/song', $request->file('file'));
+        } else if($request->type == 'cover') {
+            $path = Storage::disk('s3')->putFile('frontcover', $request->file('file'));
+        }
         
-        return ['path' => $path];
+        return $path;
     }
 
     public function remove(Request $request)

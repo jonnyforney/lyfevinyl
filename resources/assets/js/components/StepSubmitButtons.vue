@@ -35,7 +35,7 @@
                         sides: this.$store.state.vinyl.sides,
                         shipping: this.$store.state.shipping,
                         payment: this.$store.state.payment,
-                        status: 'complete' //this.$store.state.order.status
+                        status: this.$store.state.order.status
                     }
                 };
             }

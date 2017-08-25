@@ -12,56 +12,6 @@ export default {
         "order_id": null,
         "name": "",
         "front_cover_path": "",
-        "sides": [{
-                "side": "a",
-                "songs": [{
-                        "path": "",
-                        "side": "",
-                        "track": "",
-                        "picked": false
-                    },
-                    {
-                        "path": "",
-                        "picked": false
-                    },
-                    {
-                        "path": "",
-                        "picked": false
-                    },
-                    {
-                        "path": "",
-                        "picked": false
-                    },
-                    {
-                        "path": "",
-                        "picked": false
-                    }
-                ]
-            },
-            {
-                "side": "b",
-                "songs": [{
-                        "path": "",
-                        "picked": false
-                    },
-                    {
-                        "path": "",
-                        "picked": false
-                    },
-                    {
-                        "path": "",
-                        "picked": false
-                    },
-                    {
-                        "path": "",
-                        "picked": false
-                    },
-                    {
-                        "path": "",
-                        "picked": false
-                    }
-                ]
-            }
-        ]
+        "songs": []
     }
 }

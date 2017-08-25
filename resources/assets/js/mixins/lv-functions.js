@@ -51,7 +51,7 @@ export default {
                     'order_id': vinyl_data.order_id,
                     'title': vinyl_data.name,
                     'front_cover_path': vinyl_data.front_cover_path,
-                    'sides': vinyl_data.sides,
+                    'sides': this.$store.getters.sides,
                     'shipping': shipping_data,
                     'payment': payment_data,
                     'status': order_data.status
