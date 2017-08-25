@@ -62,8 +62,9 @@
             }
         },
         methods: {
-            sending: function(file, xhr, formData) {
+            sending(file, xhr, formData) {
                 formData.append('method', 'upload');
+                formData.append('type', 'cover');
             },
             success(file) {
                 let uploaded_file_path = JSON.parse(file.xhr.response).path;

@@ -24,30 +24,24 @@ class Songs implements Step
     
     public function store($data)
     {
-        foreach($data->sides as $side) {
-            $side = (object)$side;  
-            foreach($side->songs as $song) {
-                $song = (object)$song;
-                if(!empty($song->path)) {
-                    $existing_song = Song::where([
-                        'order_id' => $data->order_id,
-                        'side' => $side->side,
-                        'track' => $song->track
-                    ])->first();
+        foreach($data->sides as $song) {
+            $song = (object)$song;
+            if(!empty($song->path)) {
+                $existing_song = Song::where([
+                    'order_id' => $data->order_id,
+                    'side' => $song->side,
+                    'track' => $song->track
+                ])->first();
 
-                    $current_song = (!empty($existing_song)) ? $existing_song : new Song;
-                                
-                    $current_song->order_id = $data->order_id;
-                    $current_song->path = $song->path;
-                    $current_song->side = $side->side;
-                    $current_song->track = $song->track;
-                    
-                    $current_song->save();            
-                }
-
-            }        
+                $current_song = (!empty($existing_song)) ? $existing_song : new Song;
+                            
+                $current_song->order_id = $data->order_id;
+                $current_song->path = $song->path;
+                $current_song->side = $song->side;
+                $current_song->track = $song->track;
+                
+                $current_song->save();            
+            }                   
         }
-
     }
-
 }
