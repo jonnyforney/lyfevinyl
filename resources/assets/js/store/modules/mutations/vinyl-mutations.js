@@ -8,8 +8,17 @@ export default {
     setName(state, name) {
         state.name = name;
     },
-    setSong(state, sides) {
-        state.sides = sides;
+    setSong(state, songs) {
+        state.songs = songs;
+    },
+    addSong(state, song) {
+        state.songs.push(song);
+    },
+    removeSong(state, song) {
+        let index = state.songs.indexOf(song);
+        if (index > -1) {
+            state.songs = state.songs.splice(index, 1);
+        }
     },
     setFrontCoverPath(state, path) {
         state.front_cover_path = path;
