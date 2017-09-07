@@ -26,7 +26,9 @@ class MediaLibrary
             $path = Storage::disk('s3')->putFile('frontcover', $request->file('file'));
         }
         
-        return $path;
+        $return_path = Storage::disk('s3')->url($path);
+
+        return $return_path;
     }
 
     public function remove(Request $request)
