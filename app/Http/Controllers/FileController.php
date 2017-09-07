@@ -8,17 +8,16 @@ use Illuminate\Http\Request;
 class FileController extends Controller
 {
     public function action(Request $request)
-    {
-      $method = (string)$request->method;
-      
-      if(!empty($method)) {
+    {    
+      try {
+        $method = $request->method;
         $media = new MediaLibrary;
         $path = $media->$method($request);
 
         return ['path' => $path];
+      } catch (Exception $e) {
+        return 'Caught exception: ' . $e->getMessage();
       }
-
-      return 500;
     }
 
     public function clearSession()
